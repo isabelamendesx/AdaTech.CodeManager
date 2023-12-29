@@ -1,0 +1,23 @@
+{
+  "$type": "System.Collections.Generic.List`1[[AdaTech.CodeManager.Model.User, AdaTech.CodeManager]], System.Private.CoreLib",
+  "$values": [
+    {
+      "$type": "AdaTech.CodeManager.Model.Developer, AdaTech.CodeManager",
+      "Level": 0,
+      "Team": null,
+      "Name": "Developer",
+      "UserID": "e4d200cb-2ab3-4044-8141-91ef6cabccc4",
+      "Username": "developer",
+      "Password": "ffaf10865b09e00b325cd7d685b3e1fd3ffc973177ba108dc84b6620daf86e60",
+      "Admin": false
+    },
+    {
+      "$type": "AdaTech.CodeManager.Model.TechLead, AdaTech.CodeManager",
+      "Name": "TechLead",
+      "UserID": "7a45afec-4510-4aee-b42a-934310e114e8",
+      "Username": "techlead",
+      "Password": "8e514fadbc4670737022fd7463b5a3709b299a4a1aebcaeb68e5842e34ee48b0",
+      "Admin": false
+    }
+  ]
+}
