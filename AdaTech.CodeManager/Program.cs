@@ -13,11 +13,11 @@ namespace AdaTech.CodeManager
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
 
-            Developer developer = new Developer("developer", "developer", "Developer", Level.JR_DEVELOPER);
-            TechLead techLead = new TechLead("techlead", "techlead", "TechLead");
+            //Developer developer = new Developer("developer", "developer", "Developer", Level.JR_DEVELOPER);
+            //TechLead techLead = new TechLead("techlead", "techlead", "TechLead");
 
-            UserData.AddUser(developer);
-            UserData.AddUser(techLead);
+            //UserData.AddUser(developer);
+            //UserData.AddUser(techLead);
 
 
 

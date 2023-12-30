@@ -66,7 +66,7 @@ namespace AdaTech.CodeManager.Model
             }
         }
 
-        protected bool CheckPassword(string enteredPassword)
+        public bool CheckPassword(string enteredPassword)
         {
             string cryptEnteredPassword = EncryptPassword(enteredPassword);
 

@@ -10,14 +10,14 @@ namespace AdaTech.CodeManager.Model
 {
     public class UserData
     {
-        private static List<User> _users = new List<User>();
+        private static List<User> _users;
         private const string DATA_DIRECTORY = "../../../Data";
         private const string USER_FILE_NAME = "Users.json";
         private static readonly string USER_FILE_PATH = Path.Combine(DATA_DIRECTORY, USER_FILE_NAME);
 
         static UserData()
         {
-            //LoadUsers();
+            LoadUsers();
         }
         public static List<User> Users { get { return _users; } }
 
@@ -25,6 +25,11 @@ namespace AdaTech.CodeManager.Model
         {
             _users.Add(user);
             SaveUsers();
+        }
+
+        public static User? SelectUser(string username)
+        {
+            return _users.Find(user => user.Username.Equals(username));
         }
 
         public static void PrintUsers()

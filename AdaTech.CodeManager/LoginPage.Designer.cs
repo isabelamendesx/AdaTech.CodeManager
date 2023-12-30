@@ -43,7 +43,7 @@
             btnLogin.TabIndex = 0;
             btnLogin.Text = "login";
             btnLogin.UseVisualStyleBackColor = true;
-            btnLogin.Click += button1_Click;
+            btnLogin.Click += onBtnLoginClick;
             // 
             // txtPassword
             // 
