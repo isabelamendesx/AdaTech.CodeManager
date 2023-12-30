@@ -16,18 +16,17 @@ namespace AdaTech.CodeManager
 
             User selectedUser = UserData.SelectUser(enteredUsername);
 
-            if (selectedUser != null && selectedUser.CheckPassword(enteredPassword)) {
-               
+            if (selectedUser != null && selectedUser.CheckPassword(enteredPassword))
+            {
                 Session.getInstance.SetCurrentUser(selectedUser);
-                lbResult.Text = "User Authenticated";
+
+                new Dashboard().Show();
+                //this.Close();
             }
 
-            else
-            {
-                txtUsername.Clear();
-                txtPassword.Clear();
-                lbResult.Text = "User not found or incorrect password";
-            }
+            txtUsername.Clear();
+            txtPassword.Clear();
+            lbResult.Text = selectedUser != null ? "User not found or incorrect password" : string.Empty;
 
         }
 
