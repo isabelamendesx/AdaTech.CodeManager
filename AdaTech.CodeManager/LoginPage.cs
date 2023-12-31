@@ -22,7 +22,7 @@ namespace AdaTech.CodeManager
 
                 new SelectTeam().Show();
                 //new Dashboard().Show();
-                this.Hide();
+                Hide();
             }
 
             txtUsername.Clear();

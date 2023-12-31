@@ -104,9 +104,9 @@ namespace AdaTech.CodeManager
             currentUser.CreateTeam(txtTeamName.Text, teamMembers);
             CostumizeLbResult();
             Thread.Sleep(2000);
-
+            Hide();
             new SelectTeam().ShowDialog();
-            this.Hide();
+         
             
         }
     }

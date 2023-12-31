@@ -32,6 +32,7 @@ namespace AdaTech.CodeManager
             foreach (Team team in userTeams)
             {
                 var pnTeam = CustomizePnTeam();
+                pnTeam.Click += (sender, e) => PnTeam_Click(team);
 
                 pnTeam.Controls.Add(CostumizeLbTeamName(team.Name));
                 pnTeam.Controls.Add(CostumizeLbTeamID(index));
@@ -39,6 +40,12 @@ namespace AdaTech.CodeManager
 
                 conteinerTeams.Controls.Add(pnTeam);
             }
+        }
+
+        private void PnTeam_Click(Team team)
+        {
+            Hide();
+            new DashboardTL(team).ShowDialog();
         }
 
         private Guna2GradientPanel CustomizePnTeam()
