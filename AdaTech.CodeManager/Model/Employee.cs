@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualBasic.ApplicationServices;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace AdaTech.CodeManager.Model
 {
+    [JsonObject]
     public abstract class Employee : User
     {
         private string _name;

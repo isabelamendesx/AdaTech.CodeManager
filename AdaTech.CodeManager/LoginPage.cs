@@ -14,14 +14,15 @@ namespace AdaTech.CodeManager
             string enteredUsername = txtUsername.Text;
             string enteredPassword = txtPassword.Text;
 
-            User selectedUser = UserData.SelectUser(enteredUsername);
+            User? selectedUser = UserData.SelectUser(enteredUsername);
 
             if (selectedUser != null && selectedUser.CheckPassword(enteredPassword))
             {
                 Session.getInstance.SetCurrentUser(selectedUser);
 
-                new Dashboard().Show();
-                //this.Close();
+                new SelectTeam().Show();
+                //new Dashboard().Show();
+                this.Hide();
             }
 
             txtUsername.Clear();
@@ -31,6 +32,11 @@ namespace AdaTech.CodeManager
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LoginPage_Load(object sender, EventArgs e)
         {
 
         }

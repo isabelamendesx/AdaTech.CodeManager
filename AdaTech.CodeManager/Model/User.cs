@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
+using Newtonsoft.Json;
 
 namespace AdaTech.CodeManager.Model
 {
+    [JsonObject]
     public abstract class User
     {
         private string _username, _password;
@@ -69,7 +71,7 @@ namespace AdaTech.CodeManager.Model
         public bool CheckPassword(string enteredPassword)
         {
             string cryptEnteredPassword = EncryptPassword(enteredPassword);
-
+            string password = EncryptPassword(_password);
             return _password.Equals(cryptEnteredPassword);
         }
 

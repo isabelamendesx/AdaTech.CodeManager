@@ -8,9 +8,9 @@ namespace AdaTech.CodeManager.Model
 {
     public enum Level
     {
-        INTERN = 0,
-        JR_DEVELOPER = 1,
-        MID_DEVELOPER = 2,
-        SR_DEVELOPER = 3,
+        Intern = 0,
+        Junior = 1,
+        Mid = 2,
+        Senior = 3,
     }
 }

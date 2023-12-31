@@ -8,28 +8,41 @@ using Newtonsoft.Json;
 
 namespace AdaTech.CodeManager.Model
 {
+    [JsonObject]
     public class UserData
     {
         private static List<User> _users;
+        //private static List<User> _users = new List<User>();
+        private static List<Developer> _developers;
+        private static List<TechLead> _techLeads;
+
+
         private const string DATA_DIRECTORY = "../../../Data";
         private const string USER_FILE_NAME = "Users.json";
         private static readonly string USER_FILE_PATH = Path.Combine(DATA_DIRECTORY, USER_FILE_NAME);
 
         static UserData()
         {
-            LoadUsers();
+           LoadUsers();
         }
         public static List<User> Users { get { return _users; } }
 
         public static void AddUser(User user)
         {
+            EncryptPassword(user);
             _users.Add(user);
             SaveUsers();
         }
 
+        public static List <Developer> GetDevelopers(){
+            return _users.OfType<Developer>().ToList();  
+        }
+
+
         public static User? SelectUser(string username)
         {
-            return _users.Find(user => user.Username.Equals(username));
+            User? selectedUser = _users.Find(user => user.Username.Equals(username));
+            return selectedUser;
         }
 
         public static void PrintUsers()
@@ -48,7 +61,6 @@ namespace AdaTech.CodeManager.Model
 
                 string json = File.ReadAllText(USER_FILE_PATH);
 
-                // Configurar o JsonSerializerSettings para lidar com a serialização/deserialização de tipos derivados
                 var settings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All };
 
                 try
@@ -66,7 +78,7 @@ namespace AdaTech.CodeManager.Model
 
         public static void SaveUsers()
         {
-            EncryptPasswords();
+            //EncryptPasswords();
             Console.WriteLine("Saving users to file...");
 
             var settings = new JsonSerializerSettings
@@ -83,17 +95,14 @@ namespace AdaTech.CodeManager.Model
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error saving users: {ex.Message}");
+                MessageBox.Show($"Error saving users: {ex.Message}");
             }
         }
 
 
-        private static void EncryptPasswords()
+        private static void EncryptPassword(User user)
         {
-            foreach (var user in _users)
-            {
                 user.Password = User.EncryptPassword(user.Password);
-            }
         }
     }
 }

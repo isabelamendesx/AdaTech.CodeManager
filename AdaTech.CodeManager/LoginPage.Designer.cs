@@ -92,6 +92,7 @@
             Controls.Add(btnLogin);
             Name = "LoginPage";
             Text = "CodeManager";
+            Load += LoginPage_Load;
             ResumeLayout(false);
             PerformLayout();
         }

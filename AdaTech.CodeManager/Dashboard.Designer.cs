@@ -128,6 +128,7 @@
             guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(components);
+            backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             panelMain.SuspendLayout();
             guna2GradientPanel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)guna2CirclePictureBox2).BeginInit();
@@ -145,6 +146,7 @@
             // 
             // panelMain
             // 
+            panelMain.BackColor = Color.FromArgb(251, 152, 51);
             panelMain.Controls.Add(guna2GradientPanel8);
             panelMain.Controls.Add(label15);
             panelMain.Controls.Add(guna2GradientPanel7);
@@ -165,7 +167,7 @@
             panelMain.ShadowDecoration.CustomizableEdges = customizableEdges40;
             panelMain.Size = new Size(1133, 629);
             panelMain.TabIndex = 0;
-            panelMain.Paint += this.guna2GradientPanel1_Paint;
+            panelMain.Paint += guna2GradientPanel1_Paint;
             // 
             // guna2GradientPanel8
             // 
@@ -255,7 +257,7 @@
             label15.Size = new Size(192, 28);
             label15.TabIndex = 9;
             label15.Text = "Recent projects";
-            label15.Click += this.label15_Click;
+            label15.Click += label15_Click;
             // 
             // guna2GradientPanel7
             // 
@@ -334,7 +336,7 @@
             label14.Size = new Size(113, 28);
             label14.TabIndex = 5;
             label14.Text = "For xxxx ";
-            label14.Click += this.label14_Click;
+            label14.Click += label14_Click;
             // 
             // guna2GradientPanel6
             // 
@@ -493,7 +495,7 @@
             label5.Size = new Size(40, 21);
             label5.TabIndex = 7;
             label5.Text = "70%";
-            label5.Click += this.label5_Click;
+            label5.Click += label5_Click;
             // 
             // guna2ProgressBar1
             // 
@@ -531,7 +533,7 @@
             label3.Size = new Size(138, 28);
             label3.TabIndex = 5;
             label3.Text = "Task name";
-            label3.Click += this.label3_Click;
+            label3.Click += label3_Click;
             // 
             // label2
             // 
@@ -563,7 +565,7 @@
             label1.Size = new Size(131, 26);
             label1.TabIndex = 3;
             label1.Text = "Dashboard";
-            label1.Click += this.label1_Click;
+            label1.Click += label1_Click;
             // 
             // guna2GradientPanel3
             // 
@@ -680,7 +682,7 @@
             label23.Size = new Size(93, 21);
             label23.TabIndex = 14;
             label23.Text = "All Projects";
-            label23.Click += this.label23_Click;
+            label23.Click += label23_Click;
             // 
             // panel3
             // 
@@ -701,7 +703,7 @@
             label22.TabIndex = 13;
             label22.Text = "Finished \r\nTasks";
             label22.TextAlign = ContentAlignment.TopCenter;
-            label22.Click += this.label22_Click;
+            label22.Click += label22_Click;
             // 
             // guna2CircleProgressBar1
             // 
@@ -840,7 +842,7 @@
             guna2Button4.ShadowDecoration.CustomizableEdges = customizableEdges30;
             guna2Button4.Size = new Size(49, 51);
             guna2Button4.TabIndex = 5;
-            guna2Button4.Click += this.guna2Button4_Click;
+            guna2Button4.Click += guna2Button4_Click;
             // 
             // guna2Button3
             // 
@@ -996,5 +998,6 @@
         private Panel panel4;
         private Guna.UI2.WinForms.Guna2Button guna2Button5;
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker2;
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,15 +7,17 @@ using System.Threading.Tasks;
 
 namespace AdaTech.CodeManager.Model
 {
-    internal class Developer : Employee
+    [JsonObject]
+    public class Developer : Employee
     {
         private Level _level;
-        private Team _team;
+        private MainSkill _mainSkill;
 
-        public Developer(string username, string password, string name, Level level)
+        public Developer(string username, string password, string name, Level level, MainSkill main)
             : base(username, password, name)
         {
-            level = _level;
+            _level = level;
+            _mainSkill = main;
         }
 
         public Level Level
@@ -23,12 +26,18 @@ namespace AdaTech.CodeManager.Model
             set => _level = value;
         }
 
-        public Team Team
+        public MainSkill MainSkill
         {
-            get => _team;
-            set => _team = value;
+            get => _mainSkill;
+            set => _mainSkill = value;
         }
 
+
+        public override string ToString()
+        {
+            string mainSkillString = _mainSkill == MainSkill.UI_UX ? "UI/UX" : _mainSkill.ToString();
+            return Name + " - " + mainSkillString + " - " + Level.ToString();
+        }
 
     }
 }
