@@ -15,19 +15,24 @@ namespace AdaTech.CodeManager.Model
         private string _name;
         private string? _description;
         private readonly int _taskID;
-        private List<User>? _owners;
+        private List<Employee>? _owners;
         private Status _status;
         private DateTime? _startDate;
         private DateTime? _endDate;
-
+        private Priority _priority;
 
         private static int _nextTaskID = 1;
 
         // - CONSTRUTOR
-        public Task(string name)
+        public Task(string name, string? description = null, List<Employee>? owners = null, Status status = Status.BackLog, DateTime? startDate = null, DateTime? endDate = null, Priority priority = Priority.Low)
         {
             _name = name;
-            _status = Status.BACKLOG;
+            _description = description;
+            _owners = owners;
+            _status = status;
+            _startDate = startDate;
+            _endDate = endDate;
+            _priority = priority;
             _taskID = _nextTaskID++;
         }
 
@@ -45,7 +50,7 @@ namespace AdaTech.CodeManager.Model
         {
             get => _taskID;
         }
-        public List<User> Owners
+        public List<Employee> Owners
         {
             get => _owners;
             set => _owners = value;

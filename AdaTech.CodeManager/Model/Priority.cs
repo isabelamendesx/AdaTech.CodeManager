@@ -6,14 +6,10 @@ using System.Threading.Tasks;
 
 namespace AdaTech.CodeManager.Model
 {
-    public enum Status
+    public enum Priority
     {
-        BackLog = 0,
-        ToDo = 1,
-        Doing = 2,
-        Review = 3,
-        Testing = 4,
-        Done = 5,
-        Cancelled = 6
+        Low = 0,
+        Medium = 1,
+        High = 2
     }
 }

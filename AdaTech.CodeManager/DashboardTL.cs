@@ -70,7 +70,7 @@ namespace AdaTech.CodeManager
         public void OnPnProjectClick(Project project)
         {
             Close();
-            new KanbanBoard(project);
+            new KanbanBoard(project, currentTeam).ShowDialog();
 
         }
 

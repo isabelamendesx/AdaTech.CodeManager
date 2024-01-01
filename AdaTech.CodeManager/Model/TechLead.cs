@@ -30,6 +30,12 @@ namespace AdaTech.CodeManager.Model
             return _teams;
         }
 
+        public override string ToString()
+        {
+            return Name + " - " + "TechLead";
+        }
+
+
 
     }
 }

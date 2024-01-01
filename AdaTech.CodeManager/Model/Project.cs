@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -22,7 +23,12 @@ namespace AdaTech.CodeManager.Model
             _name = name;
             _description = description;
             _startDate = startDate;
-            _targetDate = targetDate;      
+            _targetDate = targetDate;             
+        }
+
+        public List<Task> getBackLogTasks()
+        {
+            return _tasks.Where(task => task.Status == Status.BackLog).ToList();
         }
 
         public int DaysUntilTargetDate()
@@ -37,7 +43,13 @@ namespace AdaTech.CodeManager.Model
                 return 0.00;
             }
 
-            return ((double)_tasks.Count(task => task.Status == Status.DONE) / _tasks.Count) * 100;
+            return ((double)_tasks.Count(task => task.Status == Status.Done) / _tasks.Count) * 100;
+        }
+
+        public void AddTask(Task task)
+        {
+            _tasks.Add(task);
+            UserData.SaveUsers();
         }
 
 
