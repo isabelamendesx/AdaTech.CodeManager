@@ -35,7 +35,7 @@ namespace AdaTech.CodeManager
                 pnTeam.Click += (sender, e) => PnTeam_Click(team);
 
                 pnTeam.Controls.Add(CostumizeLbTeamName(team.Name));
-                pnTeam.Controls.Add(CostumizeLbTeamID(index));
+                pnTeam.Controls.Add(CostumizeLbTeamID(index++));
                 pnTeam.Controls.Add(CostumizeLbTeamMembers(team.TeamMembers.Count));
 
                 conteinerTeams.Controls.Add(pnTeam);

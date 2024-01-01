@@ -6,7 +6,7 @@
       "Level": 2,
       "MainSkill": 1,
       "Name": "Matheus Vidal",
-      "UserID": "3386d48a-5f2e-4963-ae07-dac07d78d44b",
+      "UserID": "89208a31-2aa9-44b7-88f2-058e0c9dff94",
       "Username": "dev1",
       "Password": "cf4b9c1f5eb31deb9ea41f56faa757b68be9cab8b73f463229df17036bdfa13e",
       "Admin": false
@@ -16,7 +16,7 @@
       "Level": 1,
       "MainSkill": 3,
       "Name": "Ivy Rigon",
-      "UserID": "8e3aa470-374f-4163-bba3-ce663d527e7a",
+      "UserID": "087abe7f-a107-4904-83b5-b3e3097034c2",
       "Username": "dev2",
       "Password": "45366849ffd75b4cad725450f0569d11fedbaa6dd747d4480b1d1abb8ba5e305",
       "Admin": false
@@ -26,7 +26,7 @@
       "Level": 3,
       "MainSkill": 0,
       "Name": "Luís Eduardo",
-      "UserID": "5b2730f4-cfd9-4cfb-840e-6a8df59131cc",
+      "UserID": "2e9040c8-65a9-4261-a9af-22370bb7a928",
       "Username": "dev3",
       "Password": "f3d32e1e5b933df4c7a626e447ecd580c624c2412cbd7cb14c5a4ee99673ca02",
       "Admin": false
@@ -46,7 +46,7 @@
                   "Level": 1,
                   "MainSkill": 3,
                   "Name": "Ivy Rigon",
-                  "UserID": "9359169e-7f92-40b0-8f35-a79f1712d407",
+                  "UserID": "fd0acaed-4f94-4759-9685-bc200a6e2157",
                   "Username": "dev2",
                   "Password": "45366849ffd75b4cad725450f0569d11fedbaa6dd747d4480b1d1abb8ba5e305",
                   "Admin": false
@@ -56,7 +56,7 @@
                   "Level": 2,
                   "MainSkill": 1,
                   "Name": "Matheus Vidal",
-                  "UserID": "5b3c357e-be47-4271-a4ad-e0d928392ac5",
+                  "UserID": "8c9de552-571e-4f24-9ed8-bfe8bca079f2",
                   "Username": "dev1",
                   "Password": "cf4b9c1f5eb31deb9ea41f56faa757b68be9cab8b73f463229df17036bdfa13e",
                   "Admin": false
@@ -65,7 +65,32 @@
             },
             "Projects": {
               "$type": "System.Collections.Generic.List`1[[AdaTech.CodeManager.Model.Project, AdaTech.CodeManager]], System.Private.CoreLib",
-              "$values": []
+              "$values": [
+                {
+                  "$type": "AdaTech.CodeManager.Model.Project, AdaTech.CodeManager",
+                  "tasks": null,
+                  "Name": "ProjetoTeste",
+                  "Description": "Essa é a descrição do projeto teste.",
+                  "StartDate": "2024-01-05T11:48:10.139",
+                  "TargetDate": "2024-01-07T11:48:10.139"
+                },
+                {
+                  "$type": "AdaTech.CodeManager.Model.Project, AdaTech.CodeManager",
+                  "tasks": null,
+                  "Name": "ProjetoTeste2",
+                  "Description": "Descrição do segundo projeto",
+                  "StartDate": "2024-01-01T11:48:10.139",
+                  "TargetDate": "2024-01-31T11:48:10.139"
+                },
+                {
+                  "$type": "AdaTech.CodeManager.Model.Project, AdaTech.CodeManager",
+                  "tasks": null,
+                  "Name": "ProjetoTeste2",
+                  "Description": "Descrição do projeto teste 2",
+                  "StartDate": "2024-01-01T11:48:10.139",
+                  "TargetDate": "2024-02-07T11:48:10.139"
+                }
+              ]
             },
             "Name": "TimeTeste"
           },
@@ -79,7 +104,7 @@
                   "Level": 1,
                   "MainSkill": 3,
                   "Name": "Ivy Rigon",
-                  "UserID": "8e3aa470-374f-4163-bba3-ce663d527e7a",
+                  "UserID": "c27214d3-e26f-4a81-a281-3b932d6326c7",
                   "Username": "dev2",
                   "Password": "45366849ffd75b4cad725450f0569d11fedbaa6dd747d4480b1d1abb8ba5e305",
                   "Admin": false
@@ -89,7 +114,7 @@
                   "Level": 2,
                   "MainSkill": 1,
                   "Name": "Matheus Vidal",
-                  "UserID": "3386d48a-5f2e-4963-ae07-dac07d78d44b",
+                  "UserID": "a82ffaa1-0662-49a7-8fb6-0bed034ce534",
                   "Username": "dev1",
                   "Password": "cf4b9c1f5eb31deb9ea41f56faa757b68be9cab8b73f463229df17036bdfa13e",
                   "Admin": false
@@ -99,7 +124,7 @@
                   "Level": 3,
                   "MainSkill": 0,
                   "Name": "Luís Eduardo",
-                  "UserID": "5b2730f4-cfd9-4cfb-840e-6a8df59131cc",
+                  "UserID": "24c668a7-9197-4d2d-bea2-b4fb52089760",
                   "Username": "dev3",
                   "Password": "f3d32e1e5b933df4c7a626e447ecd580c624c2412cbd7cb14c5a4ee99673ca02",
                   "Admin": false
@@ -115,7 +140,7 @@
         ]
       },
       "Name": "Isabela Mendes",
-      "UserID": "989169bc-6034-4d63-b080-4ec54b00b388",
+      "UserID": "967b94cf-f42b-438a-ab19-201d7dfa6c1c",
       "Username": "techlead",
       "Password": "8e514fadbc4670737022fd7463b5a3709b299a4a1aebcaeb68e5842e34ee48b0",
       "Admin": false

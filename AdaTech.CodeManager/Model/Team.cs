@@ -28,7 +28,13 @@ namespace AdaTech.CodeManager.Model
         public void AddTeamMember(Developer employee) {  _teamMembers.Add(employee); }
         public void RemoveTeamMember(Developer employee) { _teamMembers.Remove(employee); }
 
-        public void AddProjectMember(Project project) {  _projects.Add(project); }
+        public void AddProject(string projectName, string projectDescription, DateTime startDate, DateTime targetDate) 
+        {  
+            _projects.Add(new Project(projectName, projectDescription, startDate, targetDate));
+            UserData.SaveUsers();
+        }
+
+
         public void RemoveProjectMember(Project project) { _projects.Add(project); }
 
 

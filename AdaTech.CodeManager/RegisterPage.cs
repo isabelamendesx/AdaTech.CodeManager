@@ -24,7 +24,7 @@ namespace AdaTech.CodeManager
             InitializeCbMembers();
         }
 
-        private void InitializeCbMembers()
+        protected void InitializeCbMembers()
         {
             CBMEMBER.Font = new Font("Century Gothic", 8, FontStyle.Regular);
             CBMEMBER.DataSource = Developers;
