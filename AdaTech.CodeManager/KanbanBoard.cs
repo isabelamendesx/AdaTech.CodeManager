@@ -17,10 +17,12 @@ namespace AdaTech.CodeManager
         private static Team currentTeam;
         public KanbanBoard(Project project, Team team)
         {
-            InitializeComponent();
-            InitializeBackLog();
+
+            InitializeComponent(); 
             currentProject = project;
             currentTeam = team;
+            InitializeBackLog();
+         
         }
 
         private void InitializeBackLog()

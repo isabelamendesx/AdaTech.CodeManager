@@ -15,7 +15,8 @@ namespace AdaTech.CodeManager.Model
         private string _name;
         private string? _description;
         private readonly int _taskID;
-        private List<Employee>? _owners;
+        private bool _isTechLeadAssigneed;
+        private List<Developer>? _owners;
         private Status _status;
         private DateTime? _startDate;
         private DateTime? _endDate;
@@ -24,7 +25,7 @@ namespace AdaTech.CodeManager.Model
         private static int _nextTaskID = 1;
 
         // - CONSTRUTOR
-        public Task(string name, string? description = null, List<Employee>? owners = null, Status status = Status.BackLog, DateTime? startDate = null, DateTime? endDate = null, Priority priority = Priority.Low)
+        public Task(string name, string? description = null, List<Developer>? owners = null, Status status = Status.BackLog, DateTime? startDate = null, DateTime? endDate = null, Priority priority = Priority.Low, bool isTechLeadAssigneed = false)
         {
             _name = name;
             _description = description;
@@ -34,6 +35,7 @@ namespace AdaTech.CodeManager.Model
             _endDate = endDate;
             _priority = priority;
             _taskID = _nextTaskID++;
+            _isTechLeadAssigneed = isTechLeadAssigneed;
         }
 
         public string Name
@@ -50,7 +52,7 @@ namespace AdaTech.CodeManager.Model
         {
             get => _taskID;
         }
-        public List<Employee> Owners
+        public List<Developer> Owners
         {
             get => _owners;
             set => _owners = value;

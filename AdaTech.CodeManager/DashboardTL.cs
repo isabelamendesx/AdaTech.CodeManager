@@ -21,8 +21,12 @@ namespace AdaTech.CodeManager
         {
             InitializeComponent();
             currentTeam = team;
+
+
+
             ShowUserInfo();
             ShowProjects();
+
         }
 
         private void guna2GradientPanel4_Paint(object sender, PaintEventArgs e)
@@ -52,6 +56,9 @@ namespace AdaTech.CodeManager
 
         public void ShowProjects()
         {
+            int horizontalSpacing = 10; // Espaçamento horizontal entre os projetos
+            int currentX = 0; // Posição inicial em X
+
             foreach (var project in currentTeam.Projects)
             {
                 var pnProject = CustomizePnTeam();
@@ -62,9 +69,16 @@ namespace AdaTech.CodeManager
                 pnProject.Controls.Add(CostumizeLbCompletedPercent(project.concludedTasksPercent()));
                 pnProject.Controls.Add(CostumizeProjectProgressBar((int)project.concludedTasksPercent()));
 
-                conteinerProject.Controls.Add(pnProject);
+                // Defina a posição horizontal do pnProject
+                pnProject.Location = new Point(currentX, 0);
+
+                // Atualize a posição para o próximo controle
+                currentX += pnProject.Width + horizontalSpacing;
+
+                conteinerTest.Controls.Add(pnProject);
             }
         }
+    
 
 
         public void OnPnProjectClick(Project project)
@@ -104,7 +118,7 @@ namespace AdaTech.CodeManager
 
         }
 
-    // CSS COSTUMIZATIONS 
+        // CSS COSTUMIZATIONS 
 
         private void CustomizePanelOnMouseEnter(Guna2GradientPanel pnProject)
         {
@@ -149,13 +163,13 @@ namespace AdaTech.CodeManager
 
         private Guna2ProgressBar CostumizeProjectProgressBar(int percentageDone)
         {
-             Guna2ProgressBar progressBarProject = new Guna2ProgressBar();
+            Guna2ProgressBar progressBarProject = new Guna2ProgressBar();
             progressBarProject.ProgressColor = Color.White;
             progressBarProject.ProgressColor2 = Color.White;
             progressBarProject.FillColor = Color.FromArgb(64, 64, 64);
             progressBarProject.BackColor = Color.Transparent;
             progressBarProject.BorderRadius = 10;
-            progressBarProject.Size = new Size(169,10);
+            progressBarProject.Size = new Size(169, 10);
             progressBarProject.Location = new Point(28, 115);
             progressBarProject.Value = percentageDone;
 
@@ -223,5 +237,7 @@ namespace AdaTech.CodeManager
         private void label5_Click() { }
         private void label4_Click() { }
         private void label3_Click() { }
+
+
     }
 }

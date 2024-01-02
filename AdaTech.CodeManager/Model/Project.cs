@@ -23,11 +23,16 @@ namespace AdaTech.CodeManager.Model
             _name = name;
             _description = description;
             _startDate = startDate;
-            _targetDate = targetDate;             
+            _targetDate = targetDate;
+            _tasks = new List<Task>();
         }
 
-        public List<Task> getBackLogTasks()
+        public List<Task>? getBackLogTasks()
         {
+           if(_tasks == null)
+            {
+                return null;
+            }
             return _tasks.Where(task => task.Status == Status.BackLog).ToList();
         }
 
@@ -53,7 +58,7 @@ namespace AdaTech.CodeManager.Model
         }
 
 
-        public List<Task> tasks { get => _tasks;
+        public List<Task> Tasks { get => _tasks;
             set => _tasks = value; }
 
         public string Name 

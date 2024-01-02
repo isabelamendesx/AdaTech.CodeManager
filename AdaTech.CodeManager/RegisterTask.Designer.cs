@@ -71,6 +71,7 @@
             guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             txtTaskDescription = new Guna.UI2.WinForms.Guna2TextBox();
             guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            cbSelfAssign = new Guna.UI2.WinForms.Guna2CheckBox();
             guna2GradientPanel1.SuspendLayout();
             guna2GradientPanel2.SuspendLayout();
             pnAssignees.SuspendLayout();
@@ -90,6 +91,7 @@
             // 
             // guna2GradientPanel2
             // 
+            guna2GradientPanel2.Controls.Add(cbSelfAssign);
             guna2GradientPanel2.Controls.Add(btnCreateTask);
             guna2GradientPanel2.Controls.Add(guna2HtmlLabel9);
             guna2GradientPanel2.Controls.Add(pnAssignees);
@@ -399,6 +401,24 @@
             guna2HtmlLabel3.TabIndex = 16;
             guna2HtmlLabel3.Text = "Task name";
             // 
+            // cbSelfAssign
+            // 
+            cbSelfAssign.AutoSize = true;
+            cbSelfAssign.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
+            cbSelfAssign.CheckedState.BorderRadius = 0;
+            cbSelfAssign.CheckedState.BorderThickness = 0;
+            cbSelfAssign.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
+            cbSelfAssign.ForeColor = Color.White;
+            cbSelfAssign.Location = new Point(187, 147);
+            cbSelfAssign.Name = "cbSelfAssign";
+            cbSelfAssign.Size = new Size(148, 29);
+            cbSelfAssign.TabIndex = 28;
+            cbSelfAssign.Text = "Assign Myself";
+            cbSelfAssign.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
+            cbSelfAssign.UncheckedState.BorderRadius = 0;
+            cbSelfAssign.UncheckedState.BorderThickness = 0;
+            cbSelfAssign.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
+            // 
             // RegisterTask
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -438,5 +458,6 @@
         private Guna.UI2.WinForms.Guna2ComboBox cbTaskPriority;
         private Guna.UI2.WinForms.Guna2ComboBox cbAssignees;
         private Guna.UI2.WinForms.Guna2Button btnCreateTask;
+        private Guna.UI2.WinForms.Guna2CheckBox cbSelfAssign;
     }
 }

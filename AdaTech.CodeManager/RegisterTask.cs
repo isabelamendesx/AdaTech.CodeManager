@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,12 +18,13 @@ namespace AdaTech.CodeManager
     {
         private static Project currentProject;
         private static Team currentTeam;
-        private static List<Employee> assigneesOptions;
+        private static List<Developer> assigneeCandidates; 
         private static List<Guna2ComboBox> cbList = new List<Guna2ComboBox>();
         public RegisterTask(Project project, Team team)
         {
             currentProject = project;
             currentTeam = team;
+            assigneeCandidates = currentTeam.TeamMembers;
             InitializeComponent();
             InitializaCbAssignees();
             InitializeCbTaskStatus();
@@ -36,10 +38,7 @@ namespace AdaTech.CodeManager
 
         private void InitializaCbAssignees()
         {
-            assigneesOptions = currentTeam.TeamMembers.Cast<Employee>().ToList();
-            assigneesOptions.Add((Employee)Session.getInstance.GetCurrentUser());
-
-            cbAssignees.DataSource = assigneesOptions;
+            cbAssignees.DataSource = currentTeam.TeamMembers;
             cbAssignees.SelectedIndex = -1;
             cbList.Add(cbAssignees);
         }
@@ -59,11 +58,11 @@ namespace AdaTech.CodeManager
             Guna2ComboBox senderCB = (Guna2ComboBox)sender;
 
             // Obter o desenvolvedor selecionado
-            Employee empToExclude = (Employee)senderCB.SelectedItem;
-            assigneesOptions.Remove(empToExclude);
+            Developer devToExclude = (Developer)senderCB.SelectedItem;
+            assigneeCandidates.Remove(devToExclude);
 
             // Criar um novo ComboBox antes de remover o desenvolvedor da lista
-            if (assigneesOptions.Count >= 1)
+            if (assigneeCandidates.Count >= 1)
             {
                 // Criar um novo ComboBox antes de remover o desenvolvedor da lista
                 Guna2ComboBox newComboBox = new Guna2ComboBox();
@@ -75,7 +74,7 @@ namespace AdaTech.CodeManager
                 newComboBox.BorderRadius = senderCB.BorderRadius;
 
                 // Definir a fonte de dados com a lista atualizada
-                newComboBox.DataSource = assigneesOptions;
+                newComboBox.DataSource = assigneeCandidates;
 
                 cbList.Add(newComboBox);
                 pnAssignees.Controls.Add(newComboBox);
@@ -99,13 +98,24 @@ namespace AdaTech.CodeManager
             Status taskStatus = (Status)cbTaskStatus.SelectedItem;
             Priority taskPriority = (Priority)cbTaskPriority.SelectedItem;
 
-            List<Employee?> employees = cbList
-                .Where(cb => cb.SelectedItem is Employee)
-                .Select(cb => cb.SelectedItem as Employee)
-                .ToList();
+                    List<Developer?> selectedDevelopers = cbList
+            .Select(cb => cb.SelectedItem as Developer) 
+            .Where(dev => dev != null) 
+            .ToList();
 
-            Model.Task task = new Model.Task(taskName, taskDescription, employees, taskStatus, startDate, targetDate, taskPriority);
 
+            Model.Task task;
+
+            if (cbSelfAssign.Checked)
+            {
+               task = new Model.Task(taskName, taskDescription, selectedDevelopers, taskStatus, startDate, targetDate, taskPriority, true);
+            }
+            else
+            {
+                task = new Model.Task(taskName, taskDescription, selectedDevelopers, taskStatus, startDate, targetDate, taskPriority, false);
+            }
+
+          
             currentProject.AddTask(task);
 
         }

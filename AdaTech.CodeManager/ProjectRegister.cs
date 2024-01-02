@@ -56,7 +56,7 @@ namespace AdaTech.CodeManager
             currentTeam.AddProject(projectName, projectDescripton, startDate, targetDate);
 
             Close();
-            new Dashboard().ShowDialog();
+            new DashboardTL(currentTeam).ShowDialog();
         }
     }
 }

@@ -28,13 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(KanbanBoard));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(KanbanBoard));
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2GradientPanel3 = new Guna.UI2.WinForms.Guna2GradientPanel();
             btnBack = new Guna.UI2.WinForms.Guna2ImageButton();
             conteinerBackLog = new FlowLayoutPanel();
@@ -51,8 +54,15 @@
             flowLayoutPanel6 = new FlowLayoutPanel();
             label7 = new Label();
             btnCreateTask = new Guna.UI2.WinForms.Guna2Button();
+            guna2GradientPanel4 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            label9 = new Label();
+            label10 = new Label();
+            guna2CirclePictureBox3 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             guna2GradientPanel1.SuspendLayout();
             guna2GradientPanel3.SuspendLayout();
+            conteinerBackLog.SuspendLayout();
+            guna2GradientPanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)guna2CirclePictureBox3).BeginInit();
             SuspendLayout();
             // 
             // guna2GradientPanel1
@@ -72,7 +82,7 @@
             guna2GradientPanel1.Controls.Add(flowLayoutPanel2);
             guna2GradientPanel1.Controls.Add(conteinerBackLog);
             guna2GradientPanel1.Controls.Add(guna2GradientPanel3);
-            guna2GradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            guna2GradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges9;
             guna2GradientPanel1.Size = new Size(1133, 629);
             // 
             // guna2AnimateWindow1
@@ -86,13 +96,13 @@
             guna2GradientPanel3.BorderRadius = 30;
             guna2GradientPanel3.Controls.Add(btnBack);
             guna2GradientPanel3.CustomBorderColor = Color.White;
-            guna2GradientPanel3.CustomizableEdges = customizableEdges10;
+            guna2GradientPanel3.CustomizableEdges = customizableEdges7;
             guna2GradientPanel3.Dock = DockStyle.Left;
             guna2GradientPanel3.FillColor = Color.FromArgb(16, 20, 28);
             guna2GradientPanel3.FillColor2 = Color.FromArgb(16, 20, 28);
             guna2GradientPanel3.Location = new Point(20, 20);
             guna2GradientPanel3.Name = "guna2GradientPanel3";
-            guna2GradientPanel3.ShadowDecoration.CustomizableEdges = customizableEdges11;
+            guna2GradientPanel3.ShadowDecoration.CustomizableEdges = customizableEdges8;
             guna2GradientPanel3.Size = new Size(68, 589);
             guna2GradientPanel3.TabIndex = 3;
             // 
@@ -106,12 +116,14 @@
             btnBack.Location = new Point(6, 31);
             btnBack.Name = "btnBack";
             btnBack.PressedState.ImageSize = new Size(64, 64);
-            btnBack.ShadowDecoration.CustomizableEdges = customizableEdges9;
+            btnBack.ShadowDecoration.CustomizableEdges = customizableEdges6;
             btnBack.Size = new Size(56, 51);
             btnBack.TabIndex = 3;
             // 
             // conteinerBackLog
             // 
+            conteinerBackLog.BackColor = Color.FromArgb(27, 32, 46);
+            conteinerBackLog.Controls.Add(guna2GradientPanel4);
             conteinerBackLog.Location = new Point(107, 143);
             conteinerBackLog.Name = "conteinerBackLog";
             conteinerBackLog.Size = new Size(147, 456);
@@ -240,7 +252,7 @@
             // btnCreateTask
             // 
             btnCreateTask.BorderRadius = 10;
-            btnCreateTask.CustomizableEdges = customizableEdges7;
+            btnCreateTask.CustomizableEdges = customizableEdges1;
             btnCreateTask.DisabledState.BorderColor = Color.DarkGray;
             btnCreateTask.DisabledState.CustomBorderColor = Color.DarkGray;
             btnCreateTask.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -250,11 +262,62 @@
             btnCreateTask.ForeColor = Color.White;
             btnCreateTask.Location = new Point(1059, 42);
             btnCreateTask.Name = "btnCreateTask";
-            btnCreateTask.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            btnCreateTask.ShadowDecoration.CustomizableEdges = customizableEdges2;
             btnCreateTask.Size = new Size(35, 34);
             btnCreateTask.TabIndex = 19;
             btnCreateTask.Text = "+";
             btnCreateTask.Click += OnBtnCreateTaskClick;
+            // 
+            // guna2GradientPanel4
+            // 
+            guna2GradientPanel4.BackColor = Color.FromArgb(27, 32, 46);
+            guna2GradientPanel4.BorderRadius = 15;
+            guna2GradientPanel4.Controls.Add(guna2CirclePictureBox3);
+            guna2GradientPanel4.Controls.Add(label10);
+            guna2GradientPanel4.Controls.Add(label9);
+            guna2GradientPanel4.CustomizableEdges = customizableEdges4;
+            guna2GradientPanel4.FillColor = Color.FromArgb(16, 20, 28);
+            guna2GradientPanel4.FillColor2 = Color.FromArgb(16, 20, 28);
+            guna2GradientPanel4.Location = new Point(3, 3);
+            guna2GradientPanel4.Name = "guna2GradientPanel4";
+            guna2GradientPanel4.ShadowDecoration.CustomizableEdges = customizableEdges5;
+            guna2GradientPanel4.Size = new Size(144, 62);
+            guna2GradientPanel4.TabIndex = 23;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.BackColor = Color.Red;
+            label9.Font = new Font("Century Gothic", 6F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label9.Location = new Point(6, 9);
+            label9.Name = "label9";
+            label9.Size = new Size(48, 17);
+            label9.TabIndex = 6;
+            label9.Text = "Priority";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.BackColor = Color.Transparent;
+            label10.Font = new Font("Century Gothic", 8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label10.ForeColor = Color.White;
+            label10.Location = new Point(3, 31);
+            label10.Name = "label10";
+            label10.Size = new Size(93, 19);
+            label10.TabIndex = 5;
+            label10.Text = "Task name";
+            // 
+            // guna2CirclePictureBox3
+            // 
+            guna2CirclePictureBox3.BackColor = Color.FromArgb(16, 20, 28);
+            guna2CirclePictureBox3.ImageRotate = 0F;
+            guna2CirclePictureBox3.Location = new Point(102, 9);
+            guna2CirclePictureBox3.Name = "guna2CirclePictureBox3";
+            guna2CirclePictureBox3.ShadowDecoration.CustomizableEdges = customizableEdges3;
+            guna2CirclePictureBox3.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            guna2CirclePictureBox3.Size = new Size(25, 25);
+            guna2CirclePictureBox3.TabIndex = 13;
+            guna2CirclePictureBox3.TabStop = false;
             // 
             // KanbanBoard
             // 
@@ -267,6 +330,10 @@
             guna2GradientPanel1.ResumeLayout(false);
             guna2GradientPanel1.PerformLayout();
             guna2GradientPanel3.ResumeLayout(false);
+            conteinerBackLog.ResumeLayout(false);
+            guna2GradientPanel4.ResumeLayout(false);
+            guna2GradientPanel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)guna2CirclePictureBox3).EndInit();
             ResumeLayout(false);
         }
 
@@ -288,5 +355,9 @@
         private FlowLayoutPanel flowLayoutPanel6;
         private Label label7;
         private Guna.UI2.WinForms.Guna2Button btnCreateTask;
+        private Label label10;
+        private Label label9;
+        private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel4;
+        private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox3;
     }
 }
