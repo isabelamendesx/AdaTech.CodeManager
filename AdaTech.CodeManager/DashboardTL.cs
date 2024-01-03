@@ -21,28 +21,138 @@ namespace AdaTech.CodeManager
         {
             InitializeComponent();
             currentTeam = team;
-
-
+            InitializeTaskNumbersLabels();
+            InitializeButtonLabels();
+            ConfigurarProgressBar();
 
             ShowUserInfo();
             ShowProjects();
 
         }
 
-        private void guna2GradientPanel4_Paint(object sender, PaintEventArgs e)
+        private void InitializeButtonLabels()
         {
-
+            ConfigurarEfeitoHoverLabel(lbCompleted);
+            ConfigurarEfeitoHoverLabel(lbDelayed);
+            ConfigurarEfeitoHoverLabel(lbDropped);
+            ConfigurarEfeitoHoverLabel(lbProgress);
+            ConfigurarEfeitoHoverLabel(lbToReview);
         }
+
+        private void InitializeTaskNumbersLabels()
+        {
+            // ALL TASKS
+            CustomizeLbTaskNumber(CountAllTasks(), 536, 409);
+
+            // COMPLETED TASKS
+            CustomizeLbTaskNumber(CountCompletedTasks(), 536, 460);
+
+            // IN PROGRESS
+            CustomizeLbTaskNumber(CountProgressTasks(), 536, 511);
+
+            // DELAYED
+            CustomizeLbTaskNumber(CountDelayedTasks(), 787, 409);
+
+            // DROPPED
+            CustomizeLbTaskNumber(CountDroppedTasks(), 787, 460);
+
+            // TO REVIEW
+            CustomizeLbTaskNumber(CountToReviewTasks(), 787, 511);
+        }
+
+        private int CountProgressTasks()
+        {
+            return currentTeam.Projects
+                .SelectMany(project => project.Tasks)
+                .Count(task => task.Status == Status.Doing || task.Status == Status.Testing);
+        }
+
+        private int CountDelayedTasks()
+        {
+            DateTime today = DateTime.Now;
+            return currentTeam.Projects
+                .SelectMany(project => project.Tasks)
+                 .Where(task => task.Status != Status.Done)
+                .Count(task => task.EndDate.HasValue && task.EndDate < today);
+        }
+
+        private int CountDroppedTasks()
+        {
+            DateTime today = DateTime.Now;
+            return currentTeam.Projects
+                    .SelectMany(project => project.Tasks)
+                    .Count(task => task.EndDate.HasValue && (today - task.EndDate.Value).TotalDays > 10);
+        }
+
+        private int CountToReviewTasks()
+        {
+            return currentTeam.Projects
+                .SelectMany(project => project.Tasks)
+                .Count(task => task.Status == Status.Review);
+        }
+
+        private int CountAllTasks()
+        {
+            return currentTeam.Projects
+                .SelectMany(project => project.Tasks)
+                .Count();
+        }
+
+        private void AtualizarBarraDeProgresso(int totalTarefas, int tarefasCompletas)
+        {
+            if (totalTarefas > 0)
+            {
+                int percentualCompleto = (tarefasCompletas * 100) / totalTarefas;
+                progressBTeam.Value = percentualCompleto;
+            }
+            else
+            {
+                progressBTeam.Value = 0;
+            }
+        }
+
+        private void ConfigurarProgressBar()
+        {
+            int totalTarefas = CountAllTasks();
+            int tarefasCompletas = CountCompletedTasks();
+
+            AtualizarBarraDeProgresso(totalTarefas, tarefasCompletas);
+        }
+
+        private void ConfigurarEfeitoHoverLabel(Label label)
+        {
+            label.MouseEnter += Label_MouseEnter;
+            label.MouseLeave += Label_MouseLeave;
+        }
+
+        private void Label_MouseEnter(object sender, EventArgs e)
+        {
+            if (sender is Label label)
+            {
+                label.BackColor = Color.White; // Cor quando o mouse passa sobre a label
+            }
+        }
+
+        private void Label_MouseLeave(object sender, EventArgs e)
+        {
+            if (sender is Label label)
+            {
+                label.BackColor = Color.Transparent; // Cor normal da label (pode ser ajustada conforme necessário)
+            }
+        }
+
+        private int CountCompletedTasks()
+        {
+            return currentTeam.Projects
+                .SelectMany(project => project.Tasks)
+                .Count(task => task.Status == Status.Done);
+        }
+
 
         private void OnBtnBackClick(object sender, EventArgs e)
         {
             Close();
             new SelectTeam().ShowDialog();
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
 
         }
 
@@ -78,7 +188,7 @@ namespace AdaTech.CodeManager
                 conteinerTest.Controls.Add(pnProject);
             }
         }
-    
+
 
 
         public void OnPnProjectClick(Project project)
@@ -119,6 +229,20 @@ namespace AdaTech.CodeManager
         }
 
         // CSS COSTUMIZATIONS 
+
+        private Label CustomizeLbTaskNumber(int numberTasks, int x, int y)
+        {
+            Label lbTaskNumber = new Label();
+            lbTaskNumber.Text = numberTasks.ToString();
+            lbTaskNumber.Font = new Font("Century Gothic", 10, FontStyle.Regular);
+            lbTaskNumber.Location = new Point(x, y);
+            lbTaskNumber.BackColor = Color.Transparent;
+            lbTaskNumber.ForeColor = Color.White;
+            lbTaskNumber.AutoSize = true;
+            lbTaskNumber.TextAlign = ContentAlignment.TopCenter;
+            guna2GradientPanel1.Controls.Add(lbTaskNumber);
+            return lbTaskNumber;
+        }
 
         private void CustomizePanelOnMouseEnter(Guna2GradientPanel pnProject)
         {
@@ -208,10 +332,20 @@ namespace AdaTech.CodeManager
             Label lbName = new Label();
             lbName.Text = $"{currentUser.Name}";
             lbName.Font = new Font("Century Gothic", 10, FontStyle.Bold);
-            lbName.Location = new Point(34, 193);
             lbName.BackColor = Color.FromArgb(16, 20, 28);
             lbName.ForeColor = Color.White;
-            lbName.AutoSize = true;
+            lbName.AutoSize = false;
+            lbName.Width = 534; ;
+
+            // Centraliza o Label dentro do controle pai
+            lbName.Anchor = AnchorStyles.None;
+
+            // Calcula a posição X para centralizar
+            int xPosition = (pnInfos.Width - lbName.Width) / 2;
+
+            // Define a localização ajustada
+            lbName.Location = new Point(xPosition, 213);
+
             lbName.TextAlign = ContentAlignment.TopCenter;
             return lbName;
         }
@@ -221,11 +355,20 @@ namespace AdaTech.CodeManager
             Label lbJobTitle = new Label();
             lbJobTitle.Text = "Tech Lead";
             lbJobTitle.Font = new Font("Century Gothic", 8, FontStyle.Regular);
-            lbJobTitle.Location = new Point(90, 226);
             lbJobTitle.BackColor = Color.FromArgb(16, 20, 28);
             lbJobTitle.ForeColor = Color.White;
             lbJobTitle.AutoSize = true;
-            lbJobTitle.TextAlign = ContentAlignment.TopRight;
+
+            // Centraliza o Label dentro do controle pai
+            lbJobTitle.Anchor = AnchorStyles.None;
+
+            // Calcula a posição X para centralizar
+            int xPosition = (pnInfos.Width - lbJobTitle.Width) / 2;
+
+            // Define a localização ajustada
+            lbJobTitle.Location = new Point(xPosition, 245);
+
+            lbJobTitle.TextAlign = ContentAlignment.TopCenter;
             return lbJobTitle;
         }
 
@@ -238,6 +381,9 @@ namespace AdaTech.CodeManager
         private void label4_Click() { }
         private void label3_Click() { }
 
+        private void label22_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }
