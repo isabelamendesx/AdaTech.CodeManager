@@ -146,7 +146,14 @@ namespace AdaTech.CodeManager
         {
             Hide();
             new RegisterPage().ShowDialog();
-           
+
+        }
+
+        private void OnBtnBackClick(object sender, EventArgs e)
+        {
+            Close();
+            Session.getInstance.EndSession();
+            new LoginPage().ShowDialog();
         }
     }
 }

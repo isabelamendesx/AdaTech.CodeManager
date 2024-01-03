@@ -65,7 +65,6 @@
             lbProgress = new Label();
             panel6 = new Panel();
             label4 = new Label();
-            label3 = new Label();
             guna2GradientPanel1.SuspendLayout();
             pnInfos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)guna2CirclePictureBox3).BeginInit();
@@ -75,7 +74,6 @@
             // 
             // guna2GradientPanel1
             // 
-            guna2GradientPanel1.Controls.Add(label3);
             guna2GradientPanel1.Controls.Add(label4);
             guna2GradientPanel1.Controls.Add(lbToReview);
             guna2GradientPanel1.Controls.Add(panel5);
@@ -219,7 +217,6 @@
             label22.TabIndex = 22;
             label22.Text = "Finished \r\nTasks";
             label22.TextAlign = ContentAlignment.TopCenter;
-            label22.Click += label22_Click;
             // 
             // label2
             // 
@@ -374,18 +371,6 @@
             label4.TabIndex = 44;
             label4.Text = "Team Statistics";
             // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.BackColor = Color.Transparent;
-            label3.Font = new Font("Century Gothic", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.ForeColor = Color.White;
-            label3.Location = new Point(536, 511);
-            label3.Name = "label3";
-            label3.Size = new Size(32, 23);
-            label3.TabIndex = 45;
-            label3.Text = "20";
-            // 
             // DashboardTL
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -427,7 +412,6 @@
         private Label lbCompleted;
         private Panel panel4;
         private Label lbDelayed;
-        private Label label3;
         private Label label4;
     }
 }

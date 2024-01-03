@@ -20,8 +20,14 @@ namespace AdaTech.CodeManager
             {
                 Session.getInstance.SetCurrentUser(selectedUser);
 
-                new SelectTeam().Show();
-                //new Dashboard().Show();
+                if(selectedUser is TechLead)
+                {
+                    new SelectTeam().ShowDialog();
+                }
+                else if(selectedUser is Developer){
+                    new DashboardDEV().ShowDialog();
+                }
+
                 Hide();
             }
 
@@ -39,6 +45,11 @@ namespace AdaTech.CodeManager
         private void LoginPage_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void OnBtnExitClick(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

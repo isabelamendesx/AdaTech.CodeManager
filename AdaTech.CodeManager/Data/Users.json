@@ -6,7 +6,7 @@
       "Level": 2,
       "MainSkill": 1,
       "Name": "Matheus Vidal",
-      "UserID": "a5e7757d-1616-402c-867e-5ec29b78cae7",
+      "UserID": "17de2fcb-88a4-40c9-9416-34d55e4b2513",
       "Username": "dev1",
       "Password": "cf4b9c1f5eb31deb9ea41f56faa757b68be9cab8b73f463229df17036bdfa13e",
       "Admin": false
@@ -16,7 +16,7 @@
       "Level": 1,
       "MainSkill": 3,
       "Name": "Ivy Rigon",
-      "UserID": "c4cd1ce2-1e5e-4bcb-816a-6de5de7b515b",
+      "UserID": "3c4e5da3-414b-4488-895d-a6def5e6fa3e",
       "Username": "dev2",
       "Password": "45366849ffd75b4cad725450f0569d11fedbaa6dd747d4480b1d1abb8ba5e305",
       "Admin": false
@@ -26,7 +26,7 @@
       "Level": 3,
       "MainSkill": 0,
       "Name": "Luís Eduardo",
-      "UserID": "1db944cb-437e-4c31-b894-d003483a0190",
+      "UserID": "f4033daf-8c5e-4bcb-98a1-4d160bee9212",
       "Username": "dev3",
       "Password": "f3d32e1e5b933df4c7a626e447ecd580c624c2412cbd7cb14c5a4ee99673ca02",
       "Admin": false
@@ -64,7 +64,7 @@
                               "Level": 2,
                               "MainSkill": 1,
                               "Name": "Matheus Vidal",
-                              "UserID": "a5e7757d-1616-402c-867e-5ec29b78cae7",
+                              "UserID": "f32c0455-4bcc-45a3-844d-787c92573d65",
                               "Username": "dev1",
                               "Password": "cf4b9c1f5eb31deb9ea41f56faa757b68be9cab8b73f463229df17036bdfa13e",
                               "Admin": false
@@ -74,7 +74,7 @@
                               "Level": 1,
                               "MainSkill": 3,
                               "Name": "Ivy Rigon",
-                              "UserID": "c4cd1ce2-1e5e-4bcb-816a-6de5de7b515b",
+                              "UserID": "f7eb7717-3d20-458a-9020-127e2edcd67b",
                               "Username": "dev2",
                               "Password": "45366849ffd75b4cad725450f0569d11fedbaa6dd747d4480b1d1abb8ba5e305",
                               "Admin": false
@@ -99,7 +99,7 @@
                               "Level": 3,
                               "MainSkill": 0,
                               "Name": "Luís Eduardo",
-                              "UserID": "1db944cb-437e-4c31-b894-d003483a0190",
+                              "UserID": "dbda1ad4-08c4-4b58-bb38-9917367dbe62",
                               "Username": "dev3",
                               "Password": "f3d32e1e5b933df4c7a626e447ecd580c624c2412cbd7cb14c5a4ee99673ca02",
                               "Admin": false
@@ -124,7 +124,7 @@
                               "Level": 3,
                               "MainSkill": 0,
                               "Name": "Luís Eduardo",
-                              "UserID": "1db944cb-437e-4c31-b894-d003483a0190",
+                              "UserID": "eaf2f7c5-67c2-4f7d-9385-e9cbd39e1144",
                               "Username": "dev3",
                               "Password": "f3d32e1e5b933df4c7a626e447ecd580c624c2412cbd7cb14c5a4ee99673ca02",
                               "Admin": false
@@ -149,7 +149,7 @@
                               "Level": 3,
                               "MainSkill": 0,
                               "Name": "Luís Eduardo",
-                              "UserID": "1db944cb-437e-4c31-b894-d003483a0190",
+                              "UserID": "a5205021-6fc0-46f5-9cdf-c5f28131486e",
                               "Username": "dev3",
                               "Password": "f3d32e1e5b933df4c7a626e447ecd580c624c2412cbd7cb14c5a4ee99673ca02",
                               "Admin": false
@@ -170,11 +170,66 @@
               ]
             },
             "Name": "TechHub"
+          },
+          {
+            "$type": "AdaTech.CodeManager.Model.Team, AdaTech.CodeManager",
+            "TeamMembers": {
+              "$type": "System.Collections.Generic.List`1[[AdaTech.CodeManager.Model.Developer, AdaTech.CodeManager]], System.Private.CoreLib",
+              "$values": [
+                {
+                  "$type": "AdaTech.CodeManager.Model.Developer, AdaTech.CodeManager",
+                  "Level": 1,
+                  "MainSkill": 3,
+                  "Name": "Ivy Rigon",
+                  "UserID": "3c4e5da3-414b-4488-895d-a6def5e6fa3e",
+                  "Username": "dev2",
+                  "Password": "45366849ffd75b4cad725450f0569d11fedbaa6dd747d4480b1d1abb8ba5e305",
+                  "Admin": false
+                },
+                {
+                  "$type": "AdaTech.CodeManager.Model.Developer, AdaTech.CodeManager",
+                  "Level": 2,
+                  "MainSkill": 1,
+                  "Name": "Matheus Vidal",
+                  "UserID": "17de2fcb-88a4-40c9-9416-34d55e4b2513",
+                  "Username": "dev1",
+                  "Password": "cf4b9c1f5eb31deb9ea41f56faa757b68be9cab8b73f463229df17036bdfa13e",
+                  "Admin": false
+                },
+                {
+                  "$type": "AdaTech.CodeManager.Model.Developer, AdaTech.CodeManager",
+                  "Level": 3,
+                  "MainSkill": 0,
+                  "Name": "Luís Eduardo",
+                  "UserID": "f4033daf-8c5e-4bcb-98a1-4d160bee9212",
+                  "Username": "dev3",
+                  "Password": "f3d32e1e5b933df4c7a626e447ecd580c624c2412cbd7cb14c5a4ee99673ca02",
+                  "Admin": false
+                }
+              ]
+            },
+            "Projects": {
+              "$type": "System.Collections.Generic.List`1[[AdaTech.CodeManager.Model.Project, AdaTech.CodeManager]], System.Private.CoreLib",
+              "$values": [
+                {
+                  "$type": "AdaTech.CodeManager.Model.Project, AdaTech.CodeManager",
+                  "Tasks": {
+                    "$type": "System.Collections.Generic.List`1[[AdaTech.CodeManager.Model.Task, AdaTech.CodeManager]], System.Private.CoreLib",
+                    "$values": []
+                  },
+                  "Name": "ProjetoTeste",
+                  "Description": "Description",
+                  "StartDate": "2024-01-01T11:48:10.139",
+                  "TargetDate": "2024-01-31T11:48:10.139"
+                }
+              ]
+            },
+            "Name": "TechGenius"
           }
         ]
       },
       "Name": "Isabela Mendes",
-      "UserID": "87f7f599-60c0-47a3-a13e-3ded156cb321",
+      "UserID": "7affc728-4e42-4e98-9901-224c014a140a",
       "Username": "techlead",
       "Password": "8e514fadbc4670737022fd7463b5a3709b299a4a1aebcaeb68e5842e34ee48b0",
       "Admin": false

@@ -38,6 +38,22 @@ namespace AdaTech.CodeManager.Model
             return _users.OfType<Developer>().ToList();  
         }
 
+        public static List<TechLead> GetTechLeads()
+        {
+            return _users.OfType<TechLead>().ToList();
+        }
+
+        public static Team? GetTeam(Developer targetDeveloper)
+        {
+                    var teamQuery =
+            from techLead in GetTechLeads()
+            from team in techLead.GetTeams()
+            where team.TeamMembers.Contains(targetDeveloper)
+            select team;
+
+            return teamQuery.FirstOrDefault();
+        }
+
 
         public static User? SelectUser(string username)
         {

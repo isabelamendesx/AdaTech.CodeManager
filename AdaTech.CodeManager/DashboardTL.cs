@@ -24,11 +24,11 @@ namespace AdaTech.CodeManager
             InitializeTaskNumbersLabels();
             InitializeButtonLabels();
             ConfigurarProgressBar();
-
             ShowUserInfo();
             ShowProjects();
 
         }
+
 
         private void InitializeButtonLabels()
         {
@@ -37,6 +37,19 @@ namespace AdaTech.CodeManager
             ConfigurarEfeitoHoverLabel(lbDropped);
             ConfigurarEfeitoHoverLabel(lbProgress);
             ConfigurarEfeitoHoverLabel(lbToReview);
+
+            lbCompleted.MouseClick += (sender, e) => OnLabelButtonClick();
+            lbDelayed.MouseClick += (sender, e) => OnLabelButtonClick();
+            lbDropped.MouseClick += (sender, e) => OnLabelButtonClick();
+            lbProgress.MouseClick += (sender, e) => OnLabelButtonClick();
+            lbToReview.MouseClick += (sender, e) => OnLabelButtonClick();
+
+        }
+
+        private void OnLabelButtonClick()
+        {
+            Close();
+
         }
 
         private void InitializeTaskNumbersLabels()
@@ -129,7 +142,7 @@ namespace AdaTech.CodeManager
         {
             if (sender is Label label)
             {
-                label.BackColor = Color.White; // Cor quando o mouse passa sobre a label
+                label.BackColor = Color.White; 
             }
         }
 
@@ -137,7 +150,7 @@ namespace AdaTech.CodeManager
         {
             if (sender is Label label)
             {
-                label.BackColor = Color.Transparent; // Cor normal da label (pode ser ajustada conforme necessário)
+                label.BackColor = Color.Transparent; 
             }
         }
 
@@ -372,18 +385,5 @@ namespace AdaTech.CodeManager
             return lbJobTitle;
         }
 
-        private void guna2ProgressBar1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click() { }
-        private void label4_Click() { }
-        private void label3_Click() { }
-
-        private void label22_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

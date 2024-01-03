@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -38,6 +40,7 @@
             label1 = new Label();
             lbSelectTeam = new Label();
             lbHello = new Label();
+            btnBack = new Guna.UI2.WinForms.Guna2Button();
             guna2GradientPanel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -45,24 +48,25 @@
             // 
             guna2GradientPanel1.BackColor = Color.FromArgb(27, 32, 46);
             guna2GradientPanel1.BorderColor = Color.White;
+            guna2GradientPanel1.Controls.Add(btnBack);
             guna2GradientPanel1.Controls.Add(btnCreateTeam);
             guna2GradientPanel1.Controls.Add(conteinerTeams);
             guna2GradientPanel1.Controls.Add(label1);
             guna2GradientPanel1.Controls.Add(lbSelectTeam);
             guna2GradientPanel1.Controls.Add(lbHello);
-            guna2GradientPanel1.CustomizableEdges = customizableEdges3;
+            guna2GradientPanel1.CustomizableEdges = customizableEdges5;
             guna2GradientPanel1.Dock = DockStyle.Fill;
             guna2GradientPanel1.Location = new Point(10, 10);
             guna2GradientPanel1.Name = "guna2GradientPanel1";
             guna2GradientPanel1.Padding = new Padding(20);
-            guna2GradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            guna2GradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges6;
             guna2GradientPanel1.Size = new Size(1133, 629);
             guna2GradientPanel1.TabIndex = 0;
             // 
             // btnCreateTeam
             // 
             btnCreateTeam.BorderRadius = 15;
-            btnCreateTeam.CustomizableEdges = customizableEdges1;
+            btnCreateTeam.CustomizableEdges = customizableEdges3;
             btnCreateTeam.DisabledState.BorderColor = Color.DarkGray;
             btnCreateTeam.DisabledState.CustomBorderColor = Color.DarkGray;
             btnCreateTeam.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -72,7 +76,7 @@
             btnCreateTeam.ForeColor = Color.White;
             btnCreateTeam.Location = new Point(983, 238);
             btnCreateTeam.Name = "btnCreateTeam";
-            btnCreateTeam.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            btnCreateTeam.ShadowDecoration.CustomizableEdges = customizableEdges4;
             btnCreateTeam.Size = new Size(58, 44);
             btnCreateTeam.TabIndex = 13;
             btnCreateTeam.Text = "+";
@@ -119,6 +123,25 @@
             lbHello.Size = new Size(0, 43);
             lbHello.TabIndex = 4;
             // 
+            // btnBack
+            // 
+            btnBack.BorderRadius = 10;
+            btnBack.CustomizableEdges = customizableEdges1;
+            btnBack.DisabledState.BorderColor = Color.DarkGray;
+            btnBack.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnBack.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnBack.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnBack.FillColor = Color.FromArgb(251, 152, 51);
+            btnBack.Font = new Font("Century Gothic", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBack.ForeColor = Color.White;
+            btnBack.Location = new Point(80, 41);
+            btnBack.Name = "btnBack";
+            btnBack.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            btnBack.Size = new Size(92, 33);
+            btnBack.TabIndex = 20;
+            btnBack.Text = "back";
+            btnBack.Click += OnBtnBackClick;
+            // 
             // SelectTeam
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -144,5 +167,6 @@
         private Label label1;
         private FlowLayoutPanel conteinerTeams;
         private Guna.UI2.WinForms.Guna2Button btnCreateTeam;
+        private Guna.UI2.WinForms.Guna2Button btnBack;
     }
 }

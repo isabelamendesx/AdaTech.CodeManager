@@ -32,7 +32,6 @@ namespace AdaTech.CodeManager.Model
             set => _mainSkill = value;
         }
 
-
         public override string ToString()
         {
             string mainSkillString = _mainSkill == MainSkill.UI_UX ? "UI/UX" : _mainSkill.ToString();
