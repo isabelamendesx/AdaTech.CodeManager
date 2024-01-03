@@ -27,13 +27,14 @@ namespace AdaTech.CodeManager.Model
             _tasks = new List<Task>();
         }
 
-        public List<Task>? getBackLogTasks()
+        public List<Task>? GetTasksByStatus(Status desiredStatus)
         {
-           if(_tasks == null)
+            if (_tasks == null)
             {
                 return null;
             }
-            return _tasks.Where(task => task.Status == Status.BackLog).ToList();
+
+            return _tasks.Where(task => task.Status == desiredStatus).ToList();
         }
 
         public int DaysUntilTargetDate()

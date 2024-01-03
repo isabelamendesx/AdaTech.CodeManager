@@ -38,6 +38,12 @@ namespace AdaTech.CodeManager.Model
             _isTechLeadAssigneed = isTechLeadAssigneed;
         }
 
+        public Priority Priority
+        {
+            get => _priority;
+            set => _priority = value;
+        }
+
         public string Name
         {
             get => _name;

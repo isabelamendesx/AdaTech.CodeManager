@@ -11,6 +11,7 @@ namespace AdaTech.CodeManager
         [STAThread]
         static void Main()
         {
+            
             /*
             TechLead techLead = new TechLead("techlead", "techlead", "Isabela Mendes");
             Developer developer = new Developer("dev1", "dev1", "Matheus Vidal",Level.Mid, MainSkill.BackEnd);;
@@ -22,8 +23,8 @@ namespace AdaTech.CodeManager
             UserData.AddUser(developer2);
             UserData.AddUser(developer3);
             UserData.AddUser(techLead);
+            
             */
-
          
             
 
