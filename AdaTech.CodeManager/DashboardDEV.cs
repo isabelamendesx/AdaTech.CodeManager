@@ -399,9 +399,5 @@ namespace AdaTech.CodeManager
 
         }
 
-        private void OnBtnCreateTaskClick(object sender, EventArgs e)
-        {
-
-        }
     }
 }

@@ -20,7 +20,8 @@ namespace AdaTech.CodeManager
         private static Team currentTeam;
         private static List<Developer> assigneeCandidates; 
         private static List<Guna2ComboBox> cbList = new List<Guna2ComboBox>();
-        public RegisterTask(Project project, Team team)
+        private static User currentUser = Session.getInstance.GetCurrentUser();
+        public RegisterTask(Project project, Team team, User currentUser)
         {
             currentProject = project;
             currentTeam = team;
@@ -29,6 +30,11 @@ namespace AdaTech.CodeManager
             InitializaCbAssignees();
             InitializeCbTaskStatus();
             InitializeCbTaskPriority();
+
+            if(currentUser is Developer)
+            {
+                pnAssignees.Hide();
+            }
         }
 
         private void RegisterTask_Load(object sender, EventArgs e)
@@ -91,32 +97,39 @@ namespace AdaTech.CodeManager
 
         private void OnBtnCreateTaskClick(object sender, EventArgs e)
         {
-            string taskName = txtTaskName.Text;
-            string taskDescription = txtTaskDescription.Text;
-            DateTime startDate  = dpStart.Value.Date;
-            DateTime targetDate  = dpStart.Value.Date;
-            Status taskStatus = (Status)cbTaskStatus.SelectedItem;
-            Priority taskPriority = (Priority)cbTaskPriority.SelectedItem;
-
-                    List<Developer?> selectedDevelopers = cbList
-            .Select(cb => cb.SelectedItem as Developer) 
-            .Where(dev => dev != null) 
-            .ToList();
-
-
-            Model.Task task;
-
-            if (cbSelfAssign.Checked)
+            if(currentUser is Developer)
             {
-               task = new Model.Task(taskName, taskDescription, selectedDevelopers, taskStatus, startDate, targetDate, taskPriority, true);
+                lbResult.Text = "Waiting for techlead to create";
             }
             else
             {
-                task = new Model.Task(taskName, taskDescription, selectedDevelopers, taskStatus, startDate, targetDate, taskPriority, false);
-            }
+                    string taskName = txtTaskName.Text;
+                    string taskDescription = txtTaskDescription.Text;
+                    DateTime startDate = dpStart.Value.Date;
+                    DateTime targetDate = dpStart.Value.Date;
+                    Status taskStatus = (Status)cbTaskStatus.SelectedItem;
+                    Priority taskPriority = (Priority)cbTaskPriority.SelectedItem;
 
-          
-            currentProject.AddTask(task);
+                    List<Developer?> selectedDevelopers = cbList
+                    .Select(cb => cb.SelectedItem as Developer)
+                    .Where(dev => dev != null)
+                    .ToList();
+
+
+                    Model.Task task;
+
+                    if (cbSelfAssign.Checked)
+                    {
+                        task = new Model.Task(taskName, taskDescription, selectedDevelopers, taskStatus, startDate, targetDate, taskPriority, true);
+                    }
+                    else
+                    {
+                        task = new Model.Task(taskName, taskDescription, selectedDevelopers, taskStatus, startDate, targetDate, taskPriority, false);
+                    }
+
+
+                    currentProject.AddTask(task);
+            }
 
         }
     }
