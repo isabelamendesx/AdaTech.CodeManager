@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using System.Diagnostics;
 
 namespace AdaTech.CodeManager.Model
 {
@@ -43,17 +44,24 @@ namespace AdaTech.CodeManager.Model
             return _users.OfType<TechLead>().ToList();
         }
 
-        public static Team? GetTeam(Developer targetDeveloper)
+        public static Team FindTeamByDeveloper(Developer targetDeveloper)
         {
-                    var teamQuery =
-            from techLead in GetTechLeads()
-            from team in techLead.GetTeams()
-            where team.TeamMembers.Contains(targetDeveloper)
-            select team;
 
-            return teamQuery.FirstOrDefault();
+            foreach (var techlead in GetTechLeads())
+            {
+                foreach (var team in techlead.GetTeams())
+                {
+                    if (team.TeamMembers.Contains(targetDeveloper))
+                    {
+                        return team;
+                    }
+
+                }
+            }
+
+            return null;
+
         }
-
 
         public static User? SelectUser(string username)
         {

@@ -38,6 +38,24 @@ namespace AdaTech.CodeManager.Model
             _isTechLeadAssigneed = isTechLeadAssigneed;
         }
 
+        public int GetCompletionPercentage()
+        {
+            if (_status == Status.Cancelled)
+            {
+                return 0; 
+            }
+
+            int totalStatusCount = Enum.GetValues(typeof(Status)).Length - 1; 
+
+            if (totalStatusCount == 0)
+            {
+                return 0; 
+            }
+
+            int targetStatusValue = (int)_status;
+            return (100 * targetStatusValue) / totalStatusCount;
+        }
+
         public Priority Priority
         {
             get => _priority;
