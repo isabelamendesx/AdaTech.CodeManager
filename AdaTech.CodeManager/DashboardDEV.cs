@@ -46,7 +46,7 @@ namespace AdaTech.CodeManager
             return currentTeam.Projects
                 .SelectMany(project => project.Tasks)
                 .Where(task => task.Status != Status.Done && task.Owners?.Contains(currentUser) == true)
-                .Count(task => task.EndDate.HasValue && task.EndDate < today);
+                .Count(task => task.EndDate != null && task.EndDate < today);
         }
 
 
@@ -399,9 +399,5 @@ namespace AdaTech.CodeManager
 
         }
 
-        private void OnBtnCreateTaskClick(object sender, EventArgs e)
-        {
-
-        }
     }
 }

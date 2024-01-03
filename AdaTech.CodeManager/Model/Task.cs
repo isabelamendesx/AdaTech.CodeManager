@@ -18,14 +18,14 @@ namespace AdaTech.CodeManager.Model
         private bool _isTechLeadAssigneed;
         private List<Developer>? _owners;
         private Status _status;
-        private DateTime? _startDate;
-        private DateTime? _endDate;
+        private DateTime _startDate;
+        private DateTime _endDate;
         private Priority _priority;
 
         private static int _nextTaskID = 1;
 
         // - CONSTRUTOR
-        public Task(string name, string? description = null, List<Developer>? owners = null, Status status = Status.BackLog, DateTime? startDate = null, DateTime? endDate = null, Priority priority = Priority.Low, bool isTechLeadAssigneed = false)
+        public Task(string name, DateTime startDate, DateTime endDate, string? description = null, List<Developer>? owners = null, Status status = Status.BackLog, Priority priority = Priority.Low, bool isTechLeadAssigneed = false)
         {
             _name = name;
             _description = description;
@@ -87,14 +87,15 @@ namespace AdaTech.CodeManager.Model
             set => _status = value;
         }
 
-        public DateTime? StartDate
+        public DateTime StartDate
         {
             get => _startDate;
         }
 
-        public DateTime? EndDate
+        public DateTime EndDate
         {
             get => _endDate;
+            set => _endDate = value;
         }
     }
 }

@@ -28,17 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges25 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges24 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -51,11 +51,16 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2GradientPanel2 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            lbResult = new Label();
+            cbSelfAssign = new Guna.UI2.WinForms.Guna2CheckBox();
             btnCreateTask = new Guna.UI2.WinForms.Guna2Button();
             guna2HtmlLabel9 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             pnAssignees = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             cbAssignees = new Guna.UI2.WinForms.Guna2ComboBox();
+            conteinerEdit = new FlowLayoutPanel();
             cbTaskPriority = new Guna.UI2.WinForms.Guna2ComboBox();
             guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             dpTarget = new Guna.UI2.WinForms.Guna2DateTimePicker();
@@ -65,13 +70,13 @@
             guna2GradientPanel3 = new Guna.UI2.WinForms.Guna2GradientPanel();
             guna2HtmlLabel8 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             cbTaskStatus = new Guna.UI2.WinForms.Guna2ComboBox();
-            guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            lbCreateorEdit = new Guna.UI2.WinForms.Guna2HtmlLabel();
             txtTaskName = new Guna.UI2.WinForms.Guna2TextBox();
-            guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            lbEdit = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             txtTaskDescription = new Guna.UI2.WinForms.Guna2TextBox();
             guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            cbSelfAssign = new Guna.UI2.WinForms.Guna2CheckBox();
+            btnEdit = new Guna.UI2.WinForms.Guna2Button();
             guna2GradientPanel1.SuspendLayout();
             guna2GradientPanel2.SuspendLayout();
             pnAssignees.SuspendLayout();
@@ -82,7 +87,7 @@
             // 
             guna2GradientPanel1.Controls.Add(guna2GradientPanel3);
             guna2GradientPanel1.Controls.Add(guna2GradientPanel2);
-            guna2GradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges23;
+            guna2GradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges25;
             guna2GradientPanel1.Size = new Size(1133, 629);
             // 
             // guna2AnimateWindow1
@@ -91,24 +96,54 @@
             // 
             // guna2GradientPanel2
             // 
+            guna2GradientPanel2.Controls.Add(btnEdit);
+            guna2GradientPanel2.Controls.Add(lbResult);
             guna2GradientPanel2.Controls.Add(cbSelfAssign);
             guna2GradientPanel2.Controls.Add(btnCreateTask);
             guna2GradientPanel2.Controls.Add(guna2HtmlLabel9);
             guna2GradientPanel2.Controls.Add(pnAssignees);
             guna2GradientPanel2.Controls.Add(cbTaskPriority);
             guna2GradientPanel2.Controls.Add(guna2HtmlLabel7);
-            guna2GradientPanel2.CustomizableEdges = customizableEdges21;
+            guna2GradientPanel2.CustomizableEdges = customizableEdges23;
             guna2GradientPanel2.Dock = DockStyle.Right;
             guna2GradientPanel2.Location = new Point(589, 20);
             guna2GradientPanel2.Name = "guna2GradientPanel2";
-            guna2GradientPanel2.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            guna2GradientPanel2.ShadowDecoration.CustomizableEdges = customizableEdges24;
             guna2GradientPanel2.Size = new Size(524, 589);
             guna2GradientPanel2.TabIndex = 0;
+            // 
+            // lbResult
+            // 
+            lbResult.AutoSize = true;
+            lbResult.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbResult.ForeColor = Color.Red;
+            lbResult.Location = new Point(198, 33);
+            lbResult.Name = "lbResult";
+            lbResult.Size = new Size(0, 30);
+            lbResult.TabIndex = 29;
+            // 
+            // cbSelfAssign
+            // 
+            cbSelfAssign.AutoSize = true;
+            cbSelfAssign.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
+            cbSelfAssign.CheckedState.BorderRadius = 0;
+            cbSelfAssign.CheckedState.BorderThickness = 0;
+            cbSelfAssign.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
+            cbSelfAssign.ForeColor = Color.White;
+            cbSelfAssign.Location = new Point(187, 147);
+            cbSelfAssign.Name = "cbSelfAssign";
+            cbSelfAssign.Size = new Size(148, 29);
+            cbSelfAssign.TabIndex = 28;
+            cbSelfAssign.Text = "Assign Myself";
+            cbSelfAssign.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
+            cbSelfAssign.UncheckedState.BorderRadius = 0;
+            cbSelfAssign.UncheckedState.BorderThickness = 0;
+            cbSelfAssign.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
             // 
             // btnCreateTask
             // 
             btnCreateTask.BorderRadius = 10;
-            btnCreateTask.CustomizableEdges = customizableEdges13;
+            btnCreateTask.CustomizableEdges = customizableEdges15;
             btnCreateTask.DisabledState.BorderColor = Color.DarkGray;
             btnCreateTask.DisabledState.CustomBorderColor = Color.DarkGray;
             btnCreateTask.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -118,7 +153,7 @@
             btnCreateTask.ForeColor = Color.White;
             btnCreateTask.Location = new Point(181, 528);
             btnCreateTask.Name = "btnCreateTask";
-            btnCreateTask.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            btnCreateTask.ShadowDecoration.CustomizableEdges = customizableEdges16;
             btnCreateTask.Size = new Size(172, 29);
             btnCreateTask.TabIndex = 27;
             btnCreateTask.Text = "create";
@@ -138,23 +173,23 @@
             // pnAssignees
             // 
             pnAssignees.Controls.Add(cbAssignees);
-            pnAssignees.CustomizableEdges = customizableEdges17;
+            pnAssignees.Controls.Add(conteinerEdit);
+            pnAssignees.CustomizableEdges = customizableEdges19;
             pnAssignees.FillColor = Color.FromArgb(16, 20, 28);
             pnAssignees.FillColor2 = Color.FromArgb(16, 20, 28);
             pnAssignees.FillColor3 = Color.FromArgb(16, 20, 28);
             pnAssignees.FillColor4 = Color.FromArgb(16, 20, 28);
             pnAssignees.Location = new Point(75, 185);
             pnAssignees.Name = "pnAssignees";
-            pnAssignees.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            pnAssignees.ShadowDecoration.CustomizableEdges = customizableEdges20;
             pnAssignees.Size = new Size(385, 326);
             pnAssignees.TabIndex = 22;
-            pnAssignees.Paint += guna2CustomGradientPanel1_Paint;
             // 
             // cbAssignees
             // 
             cbAssignees.BackColor = Color.Transparent;
             cbAssignees.BorderRadius = 20;
-            cbAssignees.CustomizableEdges = customizableEdges15;
+            cbAssignees.CustomizableEdges = customizableEdges17;
             cbAssignees.DrawMode = DrawMode.OwnerDrawFixed;
             cbAssignees.DropDownStyle = ComboBoxStyle.DropDownList;
             cbAssignees.FillColor = Color.FromArgb(252, 239, 239);
@@ -165,16 +200,24 @@
             cbAssignees.ItemHeight = 30;
             cbAssignees.Location = new Point(4, 3);
             cbAssignees.Name = "cbAssignees";
-            cbAssignees.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            cbAssignees.ShadowDecoration.CustomizableEdges = customizableEdges18;
             cbAssignees.Size = new Size(381, 36);
             cbAssignees.TabIndex = 25;
             cbAssignees.SelectedIndexChanged += CbAssigneesSelectedIndexChanged;
+            // 
+            // conteinerEdit
+            // 
+            conteinerEdit.Location = new Point(0, 3);
+            conteinerEdit.Name = "conteinerEdit";
+            conteinerEdit.Size = new Size(385, 320);
+            conteinerEdit.TabIndex = 26;
+            conteinerEdit.Visible = false;
             // 
             // cbTaskPriority
             // 
             cbTaskPriority.BackColor = Color.Transparent;
             cbTaskPriority.BorderRadius = 20;
-            cbTaskPriority.CustomizableEdges = customizableEdges19;
+            cbTaskPriority.CustomizableEdges = customizableEdges21;
             cbTaskPriority.DrawMode = DrawMode.OwnerDrawFixed;
             cbTaskPriority.DropDownStyle = ComboBoxStyle.DropDownList;
             cbTaskPriority.FillColor = Color.FromArgb(252, 239, 239);
@@ -185,7 +228,7 @@
             cbTaskPriority.ItemHeight = 30;
             cbTaskPriority.Location = new Point(75, 90);
             cbTaskPriority.Name = "cbTaskPriority";
-            cbTaskPriority.ShadowDecoration.CustomizableEdges = customizableEdges20;
+            cbTaskPriority.ShadowDecoration.CustomizableEdges = customizableEdges22;
             cbTaskPriority.Size = new Size(381, 36);
             cbTaskPriority.TabIndex = 25;
             // 
@@ -260,10 +303,10 @@
             // 
             guna2GradientPanel3.Controls.Add(guna2HtmlLabel8);
             guna2GradientPanel3.Controls.Add(cbTaskStatus);
-            guna2GradientPanel3.Controls.Add(guna2HtmlLabel6);
+            guna2GradientPanel3.Controls.Add(lbCreateorEdit);
             guna2GradientPanel3.Controls.Add(dpTarget);
             guna2GradientPanel3.Controls.Add(txtTaskName);
-            guna2GradientPanel3.Controls.Add(guna2HtmlLabel5);
+            guna2GradientPanel3.Controls.Add(lbEdit);
             guna2GradientPanel3.Controls.Add(guna2HtmlLabel4);
             guna2GradientPanel3.Controls.Add(guna2HtmlLabel1);
             guna2GradientPanel3.Controls.Add(dpStart);
@@ -308,16 +351,16 @@
             cbTaskStatus.Size = new Size(381, 36);
             cbTaskStatus.TabIndex = 23;
             // 
-            // guna2HtmlLabel6
+            // lbCreateorEdit
             // 
-            guna2HtmlLabel6.BackColor = Color.Transparent;
-            guna2HtmlLabel6.Font = new Font("Century Gothic", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel6.ForeColor = Color.White;
-            guna2HtmlLabel6.Location = new Point(126, 46);
-            guna2HtmlLabel6.Name = "guna2HtmlLabel6";
-            guna2HtmlLabel6.Size = new Size(187, 36);
-            guna2HtmlLabel6.TabIndex = 12;
-            guna2HtmlLabel6.Text = "Create a new ";
+            lbCreateorEdit.BackColor = Color.Transparent;
+            lbCreateorEdit.Font = new Font("Century Gothic", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbCreateorEdit.ForeColor = Color.White;
+            lbCreateorEdit.Location = new Point(126, 46);
+            lbCreateorEdit.Name = "lbCreateorEdit";
+            lbCreateorEdit.Size = new Size(187, 36);
+            lbCreateorEdit.TabIndex = 12;
+            lbCreateorEdit.Text = "Create a new ";
             // 
             // txtTaskName
             // 
@@ -343,16 +386,16 @@
             txtTaskName.Size = new Size(385, 36);
             txtTaskName.TabIndex = 14;
             // 
-            // guna2HtmlLabel5
+            // lbEdit
             // 
-            guna2HtmlLabel5.BackColor = Color.FromArgb(83, 95, 253);
-            guna2HtmlLabel5.Font = new Font("Century Gothic", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel5.ForeColor = Color.White;
-            guna2HtmlLabel5.Location = new Point(319, 46);
-            guna2HtmlLabel5.Name = "guna2HtmlLabel5";
-            guna2HtmlLabel5.Size = new Size(61, 36);
-            guna2HtmlLabel5.TabIndex = 13;
-            guna2HtmlLabel5.Text = "Task";
+            lbEdit.BackColor = Color.FromArgb(83, 95, 253);
+            lbEdit.Font = new Font("Century Gothic", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbEdit.ForeColor = Color.White;
+            lbEdit.Location = new Point(319, 46);
+            lbEdit.Name = "lbEdit";
+            lbEdit.Size = new Size(61, 36);
+            lbEdit.TabIndex = 13;
+            lbEdit.Text = "Task";
             // 
             // guna2HtmlLabel4
             // 
@@ -367,6 +410,7 @@
             // 
             // txtTaskDescription
             // 
+            txtTaskDescription.AcceptsReturn = true;
             txtTaskDescription.Anchor = AnchorStyles.None;
             txtTaskDescription.BorderRadius = 20;
             txtTaskDescription.CustomizableEdges = customizableEdges9;
@@ -401,23 +445,25 @@
             guna2HtmlLabel3.TabIndex = 16;
             guna2HtmlLabel3.Text = "Task name";
             // 
-            // cbSelfAssign
+            // btnEdit
             // 
-            cbSelfAssign.AutoSize = true;
-            cbSelfAssign.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
-            cbSelfAssign.CheckedState.BorderRadius = 0;
-            cbSelfAssign.CheckedState.BorderThickness = 0;
-            cbSelfAssign.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
-            cbSelfAssign.ForeColor = Color.White;
-            cbSelfAssign.Location = new Point(187, 147);
-            cbSelfAssign.Name = "cbSelfAssign";
-            cbSelfAssign.Size = new Size(148, 29);
-            cbSelfAssign.TabIndex = 28;
-            cbSelfAssign.Text = "Assign Myself";
-            cbSelfAssign.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
-            cbSelfAssign.UncheckedState.BorderRadius = 0;
-            cbSelfAssign.UncheckedState.BorderThickness = 0;
-            cbSelfAssign.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
+            btnEdit.BorderRadius = 10;
+            btnEdit.CustomizableEdges = customizableEdges13;
+            btnEdit.DisabledState.BorderColor = Color.DarkGray;
+            btnEdit.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnEdit.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnEdit.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnEdit.FillColor = Color.FromArgb(27, 118, 142);
+            btnEdit.Font = new Font("Century Gothic", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnEdit.ForeColor = Color.White;
+            btnEdit.Location = new Point(181, 528);
+            btnEdit.Name = "btnEdit";
+            btnEdit.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            btnEdit.Size = new Size(172, 29);
+            btnEdit.TabIndex = 30;
+            btnEdit.Text = "edit";
+            btnEdit.Visible = false;
+            btnEdit.Click += onBtnEditClick;
             // 
             // RegisterTask
             // 
@@ -426,7 +472,6 @@
             ClientSize = new Size(1153, 649);
             Name = "RegisterTask";
             Text = "RegisterTask";
-            Load += RegisterTask_Load;
             guna2GradientPanel1.ResumeLayout(false);
             guna2GradientPanel2.ResumeLayout(false);
             guna2GradientPanel2.PerformLayout();
@@ -440,9 +485,9 @@
 
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel3;
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel2;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel6;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lbCreateorEdit;
         private Guna.UI2.WinForms.Guna2TextBox txtTaskName;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lbEdit;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
         private Guna.UI2.WinForms.Guna2TextBox txtTaskDescription;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
@@ -459,5 +504,8 @@
         private Guna.UI2.WinForms.Guna2ComboBox cbAssignees;
         private Guna.UI2.WinForms.Guna2Button btnCreateTask;
         private Guna.UI2.WinForms.Guna2CheckBox cbSelfAssign;
+        private Label lbResult;
+        private FlowLayoutPanel conteinerEdit;
+        private Guna.UI2.WinForms.Guna2Button btnEdit;
     }
 }

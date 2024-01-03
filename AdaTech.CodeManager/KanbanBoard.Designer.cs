@@ -28,15 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(KanbanBoard));
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2GradientPanel3 = new Guna.UI2.WinForms.Guna2GradientPanel();
-            btnBack = new Guna.UI2.WinForms.Guna2ImageButton();
             conteinerBackLog = new FlowLayoutPanel();
             conteinerToDo = new FlowLayoutPanel();
             label1 = new Label();
@@ -51,6 +50,7 @@
             conteinerCancelled = new FlowLayoutPanel();
             label7 = new Label();
             btnCreateTask = new Guna.UI2.WinForms.Guna2Button();
+            btnBack = new Guna.UI2.WinForms.Guna2Button();
             guna2GradientPanel1.SuspendLayout();
             guna2GradientPanel3.SuspendLayout();
             SuspendLayout();
@@ -72,7 +72,7 @@
             guna2GradientPanel1.Controls.Add(conteinerToDo);
             guna2GradientPanel1.Controls.Add(conteinerBackLog);
             guna2GradientPanel1.Controls.Add(guna2GradientPanel3);
-            guna2GradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            guna2GradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges7;
             guna2GradientPanel1.Size = new Size(1133, 629);
             // 
             // guna2AnimateWindow1
@@ -86,29 +86,15 @@
             guna2GradientPanel3.BorderRadius = 30;
             guna2GradientPanel3.Controls.Add(btnBack);
             guna2GradientPanel3.CustomBorderColor = Color.White;
-            guna2GradientPanel3.CustomizableEdges = customizableEdges10;
+            guna2GradientPanel3.CustomizableEdges = customizableEdges5;
             guna2GradientPanel3.Dock = DockStyle.Left;
             guna2GradientPanel3.FillColor = Color.FromArgb(16, 20, 28);
             guna2GradientPanel3.FillColor2 = Color.FromArgb(16, 20, 28);
             guna2GradientPanel3.Location = new Point(20, 20);
             guna2GradientPanel3.Name = "guna2GradientPanel3";
-            guna2GradientPanel3.ShadowDecoration.CustomizableEdges = customizableEdges11;
+            guna2GradientPanel3.ShadowDecoration.CustomizableEdges = customizableEdges6;
             guna2GradientPanel3.Size = new Size(68, 589);
             guna2GradientPanel3.TabIndex = 3;
-            // 
-            // btnBack
-            // 
-            btnBack.CheckedState.ImageSize = new Size(64, 64);
-            btnBack.HoverState.ImageSize = new Size(64, 64);
-            btnBack.Image = (Image)resources.GetObject("btnBack.Image");
-            btnBack.ImageOffset = new Point(0, 0);
-            btnBack.ImageRotate = 0F;
-            btnBack.Location = new Point(6, 31);
-            btnBack.Name = "btnBack";
-            btnBack.PressedState.ImageSize = new Size(64, 64);
-            btnBack.ShadowDecoration.CustomizableEdges = customizableEdges9;
-            btnBack.Size = new Size(56, 51);
-            btnBack.TabIndex = 3;
             // 
             // conteinerBackLog
             // 
@@ -246,7 +232,7 @@
             // btnCreateTask
             // 
             btnCreateTask.BorderRadius = 10;
-            btnCreateTask.CustomizableEdges = customizableEdges7;
+            btnCreateTask.CustomizableEdges = customizableEdges1;
             btnCreateTask.DisabledState.BorderColor = Color.DarkGray;
             btnCreateTask.DisabledState.CustomBorderColor = Color.DarkGray;
             btnCreateTask.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -256,11 +242,30 @@
             btnCreateTask.ForeColor = Color.White;
             btnCreateTask.Location = new Point(1059, 42);
             btnCreateTask.Name = "btnCreateTask";
-            btnCreateTask.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            btnCreateTask.ShadowDecoration.CustomizableEdges = customizableEdges2;
             btnCreateTask.Size = new Size(35, 34);
             btnCreateTask.TabIndex = 19;
             btnCreateTask.Text = "+";
             btnCreateTask.Click += OnBtnCreateTaskClick;
+            // 
+            // btnBack
+            // 
+            btnBack.BorderRadius = 10;
+            btnBack.CustomizableEdges = customizableEdges3;
+            btnBack.DisabledState.BorderColor = Color.DarkGray;
+            btnBack.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnBack.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnBack.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnBack.FillColor = Color.FromArgb(251, 152, 51);
+            btnBack.Font = new Font("Century Gothic", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBack.ForeColor = Color.White;
+            btnBack.Location = new Point(17, 40);
+            btnBack.Name = "btnBack";
+            btnBack.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            btnBack.Size = new Size(35, 34);
+            btnBack.TabIndex = 23;
+            btnBack.Text = "<";
+            btnBack.Click += OnBtnBackClick;
             // 
             // KanbanBoard
             // 
@@ -279,7 +284,6 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel3;
-        private Guna.UI2.WinForms.Guna2ImageButton btnBack;
         private FlowLayoutPanel conteinerToDo;
         private FlowLayoutPanel conteinerBackLog;
         private Label label1;
@@ -294,5 +298,6 @@
         private FlowLayoutPanel conteinerCancelled;
         private Label label7;
         private Guna.UI2.WinForms.Guna2Button btnCreateTask;
+        private Guna.UI2.WinForms.Guna2Button btnBack;
     }
 }

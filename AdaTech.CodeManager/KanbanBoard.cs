@@ -16,6 +16,8 @@ namespace AdaTech.CodeManager
     {
         private static Project currentProject;
         private static Team currentTeam;
+        private static User currentUser = Session.getInstance.GetCurrentUser();
+
         public KanbanBoard(Project project, Team team)
         {
 
@@ -67,7 +69,8 @@ namespace AdaTech.CodeManager
 
         public void OnPnTaskClick(Model.Task task)
         {
-
+            Close();
+            new RegisterTask(currentProject,currentTeam, currentUser, task);
         }
 
         private Label CostumizeLbTaskName(string taskName)
@@ -161,12 +164,24 @@ namespace AdaTech.CodeManager
         private void OnBtnCreateTaskClick(object sender, EventArgs e)
         {
             Close();
-            new RegisterTask(currentProject, currentTeam).ShowDialog();
+            new RegisterTask(currentProject, currentTeam, currentUser).ShowDialog();
         }
 
         private void label10_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void OnBtnBackClick(object sender, EventArgs e)
+        {
+            Close();
+            if(currentUser is TechLead)
+            {
+                new DashboardTL(currentTeam).ShowDialog();
+            }
+            else {
+                new DashboardDEV().ShowDialog();            
+            }
         }
     }
 }

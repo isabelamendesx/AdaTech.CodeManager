@@ -28,7 +28,7 @@ namespace AdaTech.CodeManager
                     new DashboardDEV().ShowDialog();
                 }
 
-                Hide();
+                
             }
 
             txtUsername.Clear();

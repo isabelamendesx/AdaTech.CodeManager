@@ -86,7 +86,7 @@ namespace AdaTech.CodeManager
             return currentTeam.Projects
                 .SelectMany(project => project.Tasks)
                  .Where(task => task.Status != Status.Done)
-                .Count(task => task.EndDate.HasValue && task.EndDate < today);
+                .Count(task => task.EndDate != null && task.EndDate < today);
         }
 
         private int CountDroppedTasks()
@@ -94,7 +94,7 @@ namespace AdaTech.CodeManager
             DateTime today = DateTime.Now;
             return currentTeam.Projects
                     .SelectMany(project => project.Tasks)
-                    .Count(task => task.EndDate.HasValue && (today - task.EndDate.Value).TotalDays > 10);
+                    .Count(task => task.EndDate != null && (today - task.EndDate).TotalDays > 10);
         }
 
         private int CountToReviewTasks()
