@@ -31,18 +31,20 @@ namespace AdaTech.CodeManager
 
             taskToEdit = task;
 
-            if (taskToEdit != null) {
+            if (taskToEdit != null)
+            {
 
                 InitializeTaskEdit(taskToEdit);
+                ShowDialog();
             }
             else
             {
-                if(currentUser is Developer)
+                if (currentUser is Developer)
                 {
                     InitializeRegisterDev();
                 }
 
-                else if(currentUser is TechLead)
+                else if (currentUser is TechLead)
                 {
                     InitializeRegisterTechLead();
                 }
@@ -55,6 +57,8 @@ namespace AdaTech.CodeManager
         private void InitializeTaskEdit(Model.Task task)
         {
             lbCreateorEdit.Text = "Edit a";
+            lbCreateorEdit.Location = new Point(268, 44);
+            lbEdit.Location = new Point();
             txtTaskName.Text = task.Name;
             txtTaskDescription.Text = task.Description;
             dpStart.Value = task.StartDate;
@@ -83,7 +87,7 @@ namespace AdaTech.CodeManager
                 newComboBox.SelectedIndex = index++;
             }
 
-            
+
 
         }
 
@@ -100,7 +104,6 @@ namespace AdaTech.CodeManager
             }
         }
 
-        #region Combo Box Assignees Candidates
         private void InitializeCbAssignees()
         {
             cbAssignees.DataSource = currentTeam.TeamMembers;
@@ -135,8 +138,6 @@ namespace AdaTech.CodeManager
             }
         }
 
-        #endregion
-
 
 
         private void InitializeCbTaskStatus()
@@ -154,7 +155,7 @@ namespace AdaTech.CodeManager
         {
             if (currentUser is Developer)
             {
-                lbResult.Text = "Waiting for techlead to create";
+                lbWaiting.Enabled = true;
             }
             else
             {
@@ -192,14 +193,14 @@ namespace AdaTech.CodeManager
         {
             if (currentUser is Developer)
             {
-                lbResult.Text = "Waiting for techlead to edit";
+                lbWaiting.Enabled = true;
             }
             else
             {
-                        List<Developer?> selectedDevelopers = cbList
-                .Select(cb => cb.SelectedItem as Developer)
-                .Where(dev => dev != null)
-                .ToList();
+                List<Developer?> selectedDevelopers = cbList
+        .Select(cb => cb.SelectedItem as Developer)
+        .Where(dev => dev != null)
+        .ToList();
 
 
                 taskToEdit.Name = txtTaskName.Text;
@@ -209,6 +210,12 @@ namespace AdaTech.CodeManager
                 taskToEdit.Priority = (Priority)cbTaskPriority.SelectedItem;
                 taskToEdit.Owners = selectedDevelopers;
             }
+        }
+
+        private void OnBtnBackClick(object sender, EventArgs e)
+        {
+            Close();
+            new KanbanBoard(currentProject, currentTeam);
         }
     }
 }

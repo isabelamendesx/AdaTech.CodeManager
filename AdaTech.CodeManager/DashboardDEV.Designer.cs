@@ -165,7 +165,6 @@
             pnInfos.ShadowDecoration.CustomizableEdges = customizableEdges4;
             pnInfos.Size = new Size(238, 589);
             pnInfos.TabIndex = 1;
-            pnInfos.Paint += pnInfos_Paint;
             // 
             // label28
             // 
@@ -278,12 +277,14 @@
             // guna2CirclePictureBox3
             // 
             guna2CirclePictureBox3.BackColor = Color.FromArgb(16, 20, 28);
+            guna2CirclePictureBox3.Image = Properties.Resources._6000936;
             guna2CirclePictureBox3.ImageRotate = 0F;
-            guna2CirclePictureBox3.Location = new Point(61, 51);
+            guna2CirclePictureBox3.Location = new Point(58, 51);
             guna2CirclePictureBox3.Name = "guna2CirclePictureBox3";
             guna2CirclePictureBox3.ShadowDecoration.CustomizableEdges = customizableEdges2;
             guna2CirclePictureBox3.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            guna2CirclePictureBox3.Size = new Size(120, 120);
+            guna2CirclePictureBox3.Size = new Size(130, 130);
+            guna2CirclePictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             guna2CirclePictureBox3.TabIndex = 9;
             guna2CirclePictureBox3.TabStop = false;
             // 

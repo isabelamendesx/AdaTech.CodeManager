@@ -151,15 +151,6 @@ namespace AdaTech.CodeManager
             pnTask.FillColor = Color.FromArgb(16, 20, 28);
             pnTask.FillColor2 = Color.FromArgb(16, 20, 28);
         }
-        private void KanbanBoard_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void OnBtnCreateTaskClick(object sender, EventArgs e)
         {

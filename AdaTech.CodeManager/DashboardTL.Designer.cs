@@ -96,7 +96,6 @@
             guna2GradientPanel1.Controls.Add(pnInfos);
             guna2GradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges13;
             guna2GradientPanel1.Size = new Size(1133, 629);
-            guna2GradientPanel1.Paint += guna2GradientPanel1_Paint;
             // 
             // guna2AnimateWindow1
             // 

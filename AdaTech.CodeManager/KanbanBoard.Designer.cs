@@ -199,7 +199,6 @@
             label6.Size = new Size(94, 28);
             label6.TabIndex = 20;
             label6.Text = "Review";
-            label6.Click += label6_Click;
             // 
             // conteinerReview
             // 
@@ -274,7 +273,6 @@
             ClientSize = new Size(1153, 649);
             Name = "KanbanBoard";
             Text = "KanbanBoard";
-            Load += KanbanBoard_Load;
             guna2GradientPanel1.ResumeLayout(false);
             guna2GradientPanel1.PerformLayout();
             guna2GradientPanel3.ResumeLayout(false);

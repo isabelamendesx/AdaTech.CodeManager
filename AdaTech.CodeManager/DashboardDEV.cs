@@ -394,10 +394,6 @@ namespace AdaTech.CodeManager
             return lbTaskNumber;
         }
 
-        private void pnInfos_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
     }
 }

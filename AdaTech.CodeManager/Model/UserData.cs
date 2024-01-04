@@ -102,13 +102,12 @@ namespace AdaTech.CodeManager.Model
 
         public static void SaveUsers()
         {
-            //EncryptPasswords();
             Console.WriteLine("Saving users to file...");
 
             var settings = new JsonSerializerSettings
             {
                 TypeNameHandling = TypeNameHandling.All,
-                Formatting = Newtonsoft.Json.Formatting.Indented  // Configuração para indentação
+                Formatting = Newtonsoft.Json.Formatting.Indented  
             };
 
             try

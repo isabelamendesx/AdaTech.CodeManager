@@ -132,16 +132,6 @@ namespace AdaTech.CodeManager
             pnTeam.FillColor2 = Color.FromArgb(251, 152, 51);
         }
 
-        private void pnTeam2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void lbSelectTeam_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void OnBtnCreateTeamClick(object sender, EventArgs e)
         {
             Hide();

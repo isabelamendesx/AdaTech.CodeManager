@@ -111,7 +111,6 @@
             lbSelectTeam.Size = new Size(281, 47);
             lbSelectTeam.TabIndex = 5;
             lbSelectTeam.Text = "Team Choice";
-            lbSelectTeam.Click += lbSelectTeam_Click;
             // 
             // lbHello
             // 

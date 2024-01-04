@@ -16,7 +16,7 @@ namespace AdaTech.CodeManager
     {
         private static List<Developer> Developers = UserData.GetDevelopers();
         private static List<Developer> selectedDevelopersList = new List<Developer>();
-       // private static TechLead currentUser = (TechLead)Session.getInstance.GetCurrentUser();
+        // private static TechLead currentUser = (TechLead)Session.getInstance.GetCurrentUser();
         private static List<Guna2ComboBox> cbList = new List<Guna2ComboBox>();
         public RegisterPage()
         {
@@ -32,23 +32,16 @@ namespace AdaTech.CodeManager
             cbList.Add(CBMEMBER);
         }
 
-        private void guna2HtmlLabel2_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void CbMembersSelectedIndexChanged(object sender, EventArgs e)
         {
             Guna2ComboBox senderCB = (Guna2ComboBox)sender;
 
-            // Obter o desenvolvedor selecionado
             Developer devToExclude = (Developer)senderCB.SelectedItem;
             Developers.Remove(devToExclude);
 
-            // Criar um novo ComboBox antes de remover o desenvolvedor da lista
             if (Developers.Count >= 1)
             {
-                // Criar um novo ComboBox antes de remover o desenvolvedor da lista
                 Guna2ComboBox newComboBox = new Guna2ComboBox();
 
                 newComboBox.Location = new Point(senderCB.Left, senderCB.Bottom + 5);
@@ -57,10 +50,6 @@ namespace AdaTech.CodeManager
                 newComboBox.FillColor = senderCB.FillColor;
                 newComboBox.BorderRadius = senderCB.BorderRadius;
 
-                // Remover o desenvolvedor selecionado da lista
-
-
-                // Definir a fonte de dados com a lista atualizada
                 newComboBox.DataSource = Developers;
 
                 cbList.Add(newComboBox);
@@ -69,11 +58,6 @@ namespace AdaTech.CodeManager
 
                 newComboBox.SelectedIndexChanged += CbMembersSelectedIndexChanged;
             }
-        }
-
-        private void guna2TextBox1_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private Label CostumizeLbResult()
@@ -93,7 +77,7 @@ namespace AdaTech.CodeManager
             TechLead currentUser = (TechLead)Session.getInstance.GetCurrentUser();
             List<Developer> teamMembers = new List<Developer>();
 
-            foreach(var cb in cbList)
+            foreach (var cb in cbList)
             {
                 if (cb.SelectedItem != null)
                 {
@@ -106,8 +90,13 @@ namespace AdaTech.CodeManager
             Thread.Sleep(2000);
             Hide();
             new SelectTeam().ShowDialog();
-         
-            
+
+        }
+
+        private void OnBtnBackClick(object sender, EventArgs e)
+        {
+            Close();
+            new SelectTeam().ShowDialog();
         }
     }
 }

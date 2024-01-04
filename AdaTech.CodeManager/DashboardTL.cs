@@ -236,10 +236,6 @@ namespace AdaTech.CodeManager
         }
 
 
-        private void guna2GradientPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         // CSS COSTUMIZATIONS 
 

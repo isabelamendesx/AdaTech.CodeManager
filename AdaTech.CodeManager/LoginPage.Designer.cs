@@ -48,8 +48,10 @@
             txtPassword = new Guna.UI2.WinForms.Guna2TextBox();
             txtUsername = new Guna.UI2.WinForms.Guna2TextBox();
             lbSelectTeam = new Label();
+            pictureBox1 = new PictureBox();
             guna2GradientPanel1.SuspendLayout();
             guna2GradientPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // lbResult
@@ -64,6 +66,7 @@
             // 
             guna2GradientPanel1.Controls.Add(btnExit);
             guna2GradientPanel1.Controls.Add(guna2GradientPanel2);
+            guna2GradientPanel1.Controls.Add(pictureBox1);
             guna2GradientPanel1.CustomizableEdges = customizableEdges11;
             guna2GradientPanel1.Dock = DockStyle.Fill;
             guna2GradientPanel1.FillColor = Color.FromArgb(27, 32, 46);
@@ -187,6 +190,17 @@
             lbSelectTeam.TabIndex = 6;
             lbSelectTeam.Text = "Login";
             // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.Image = Properties.Resources.loginImage;
+            pictureBox1.Location = new Point(-13, 114);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(574, 399);
+            pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox1.TabIndex = 20;
+            pictureBox1.TabStop = false;
+            // 
             // LoginPage
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -204,6 +218,7 @@
             guna2GradientPanel1.ResumeLayout(false);
             guna2GradientPanel2.ResumeLayout(false);
             guna2GradientPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -222,5 +237,6 @@
         private Guna.UI2.WinForms.Guna2TextBox txtUsername;
         private Guna.UI2.WinForms.Guna2Button btnLogin;
         private Guna.UI2.WinForms.Guna2Button btnExit;
+        private PictureBox pictureBox1;
     }
 }

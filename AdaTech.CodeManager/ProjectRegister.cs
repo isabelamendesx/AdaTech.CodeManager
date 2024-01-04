@@ -21,31 +21,6 @@ namespace AdaTech.CodeManager
             currentTeam = team;
         }
 
-        private void guna2HtmlLabel5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2HtmlLabel3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtTeamName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2HtmlLabel4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2HtmlLabel2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void OnBtnCreateClick(object sender, EventArgs e)
         {
             string projectName = txtProjectName.Text;
@@ -57,6 +32,12 @@ namespace AdaTech.CodeManager
 
             Close();
             new DashboardTL(currentTeam).ShowDialog();
+        }
+
+        private void onBtnBackClick(object sender, EventArgs e)
+        {
+            Close();
+            new SelectTeam().ShowDialog();
         }
     }
 }
