@@ -6,9 +6,9 @@
       "Level": 2,
       "MainSkill": 1,
       "Name": "Matheus Vidal",
-      "UserID": "8d399005-868e-4e01-88a5-714212616e2e",
-      "Username": "dev1",
-      "Password": "cf4b9c1f5eb31deb9ea41f56faa757b68be9cab8b73f463229df17036bdfa13e",
+      "UserID": "ae5886e7-1be3-4c94-ba8e-ec44233d83ac", 
+      "Username": "matheusv",
+      "Password": "14feac677ba9e7ac0418f1f5f982e4e7b3d402ee7f497b63a52ffb0f1f249de4",
       "Admin": false
     },
     {
@@ -16,9 +16,9 @@
       "Level": 1,
       "MainSkill": 3,
       "Name": "Ivy Rigon",
-      "UserID": "117cb134-5dcd-459f-aaa5-986a5188b9e4",
-      "Username": "dev2",
-      "Password": "45366849ffd75b4cad725450f0569d11fedbaa6dd747d4480b1d1abb8ba5e305",
+      "UserID": "13fcba45-e6e7-40d0-9978-4cacba12336b",
+      "Username": "ivyr",
+      "Password": "d85a686d93a045292da3c06b7c49aed1441f4d69bb3710348274d87b07f944de",
       "Admin": false
     },
     {
@@ -26,268 +26,109 @@
       "Level": 3,
       "MainSkill": 0,
       "Name": "Luís Eduardo",
-      "UserID": "69950b97-c6f6-4700-b1a4-d621ef44ac63",
-      "Username": "dev3",
-      "Password": "f3d32e1e5b933df4c7a626e447ecd580c624c2412cbd7cb14c5a4ee99673ca02",
+      "UserID": "43eda0d0-727c-429c-b31a-cd90f5898cbc",
+      "Username": "eduardop",
+      "Password": "1c86a59ea72b3bce180b97dcf3462f26d165526fbd4e07d5cf357163ab1a12ac",
+      "Admin": false
+    },
+    {
+      "$type": "AdaTech.CodeManager.Model.Developer, AdaTech.CodeManager",
+      "Level": 3,
+      "MainSkill": 2,
+      "Name": "Lucas Fernandes",
+      "UserID": "d5a56216-db90-4f89-8900-f35bd6252df8",
+      "Username": "lucasf",
+      "Password": "1ea8743dd944d652d53bde580013529e1935fcfc784fc7f00e9349477b3e029a",
+      "Admin": false
+    },
+    {
+      "$type": "AdaTech.CodeManager.Model.Developer, AdaTech.CodeManager",
+      "Level": 1,
+      "MainSkill": 1,
+      "Name": "Júlia Santos",
+      "UserID": "5724897a-b383-4bc2-85d7-1a8a733d41d4",
+      "Username": "julias",
+      "Password": "1604556ee0437b07d3fef66d5c6de7e044ce7dd8fc2d0c4b4264df72cc74b9c6",
+      "Admin": false
+    },
+    {
+      "$type": "AdaTech.CodeManager.Model.Developer, AdaTech.CodeManager",
+      "Level": 2,
+      "MainSkill": 3,
+      "Name": "Carlos Martins",
+      "UserID": "57ae0b63-d2ab-4b8a-9339-2f5f19d330cd",
+      "Username": "carlosm",
+      "Password": "fc0f91e0a5af6aa95e33f03a10a511bb4b3cd15902ed0e1e3afac73f86107b20",
+      "Admin": false
+    },
+    {
+      "$type": "AdaTech.CodeManager.Model.Developer, AdaTech.CodeManager",
+      "Level": 3,
+      "MainSkill": 3,
+      "Name": "Patrícia Pereira",
+      "UserID": "660e0d21-52e0-4222-acac-501a04c39a6b",
+      "Username": "patriciap",
+      "Password": "8cbefb39fadbe1dfa48448f004a86a254d060d308798a9d91137a1be83a9a34b",
+      "Admin": false
+    },
+    {
+      "$type": "AdaTech.CodeManager.Model.Developer, AdaTech.CodeManager",
+      "Level": 1,
+      "MainSkill": 0,
+      "Name": "Gustavo Alves",
+      "UserID": "2c823b6b-5832-480d-b2e9-51e224f28c4f",
+      "Username": "gustavoa",
+      "Password": "39595e97e4dff4738fb14929f6c9bc03b8d354a2dbbec9c14418fb2983fe2758",
+      "Admin": false
+    },
+    {
+      "$type": "AdaTech.CodeManager.Model.Developer, AdaTech.CodeManager",
+      "Level": 2,
+      "MainSkill": 1,
+      "Name": "Vanessa Silva",
+      "UserID": "3eb757e6-4362-4f0f-badc-eb80d57fc6f9",
+      "Username": "vanessas",
+      "Password": "e1bb70091ae0f5898fe9938f399646ed0c6398ba4691f664d8cf27f445745705",
       "Admin": false
     },
     {
       "$type": "AdaTech.CodeManager.Model.TechLead, AdaTech.CodeManager",
-      "_teams": {
-        "$type": "System.Collections.Generic.List`1[[AdaTech.CodeManager.Model.Team, AdaTech.CodeManager]], System.Private.CoreLib",
-        "$values": [
-          {
-            "$type": "AdaTech.CodeManager.Model.Team, AdaTech.CodeManager",
-            "TeamMembers": {
-              "$type": "System.Collections.Generic.List`1[[AdaTech.CodeManager.Model.Developer, AdaTech.CodeManager]], System.Private.CoreLib",
-              "$values": []
-            },
-            "Projects": {
-              "$type": "System.Collections.Generic.List`1[[AdaTech.CodeManager.Model.Project, AdaTech.CodeManager]], System.Private.CoreLib",
-              "$values": [
-                {
-                  "$type": "AdaTech.CodeManager.Model.Project, AdaTech.CodeManager",
-                  "Tasks": {
-                    "$type": "System.Collections.Generic.List`1[[AdaTech.CodeManager.Model.Task, AdaTech.CodeManager]], System.Private.CoreLib",
-                    "$values": [
-                      {
-                        "$type": "AdaTech.CodeManager.Model.Task, AdaTech.CodeManager",
-                        "Priority": 0,
-                        "Name": "Task1",
-                        "Description": "Description",
-                        "TaskID": 1,
-                        "Owners": {
-                          "$type": "System.Collections.Generic.List`1[[AdaTech.CodeManager.Model.Developer, AdaTech.CodeManager]], System.Private.CoreLib",
-                          "$values": [
-                            {
-                              "$type": "AdaTech.CodeManager.Model.Developer, AdaTech.CodeManager",
-                              "Level": 2,
-                              "MainSkill": 1,
-                              "Name": "Matheus Vidal",
-                              "UserID": "ddb572e8-1806-45b4-99d3-36fc2163c514",
-                              "Username": "dev1",
-                              "Password": "cf4b9c1f5eb31deb9ea41f56faa757b68be9cab8b73f463229df17036bdfa13e",
-                              "Admin": false
-                            },
-                            {
-                              "$type": "AdaTech.CodeManager.Model.Developer, AdaTech.CodeManager",
-                              "Level": 1,
-                              "MainSkill": 3,
-                              "Name": "Ivy Rigon",
-                              "UserID": "542d7f70-9aa2-4cfc-a1b0-3bd2fe01e67c",
-                              "Username": "dev2",
-                              "Password": "45366849ffd75b4cad725450f0569d11fedbaa6dd747d4480b1d1abb8ba5e305",
-                              "Admin": false
-                            }
-                          ]
-                        },
-                        "Status": 0,
-                        "StartDate": "2024-01-01T00:00:00",
-                        "EndDate": "2024-01-01T00:00:00"
-                      },
-                      {
-                        "$type": "AdaTech.CodeManager.Model.Task, AdaTech.CodeManager",
-                        "Priority": 1,
-                        "Name": "Task2",
-                        "Description": "Description",
-                        "TaskID": 2,
-                        "Owners": {
-                          "$type": "System.Collections.Generic.List`1[[AdaTech.CodeManager.Model.Developer, AdaTech.CodeManager]], System.Private.CoreLib",
-                          "$values": [
-                            {
-                              "$type": "AdaTech.CodeManager.Model.Developer, AdaTech.CodeManager",
-                              "Level": 3,
-                              "MainSkill": 0,
-                              "Name": "Luís Eduardo",
-                              "UserID": "5932198d-e411-4da8-993e-eabe327f4c73",
-                              "Username": "dev3",
-                              "Password": "f3d32e1e5b933df4c7a626e447ecd580c624c2412cbd7cb14c5a4ee99673ca02",
-                              "Admin": false
-                            }
-                          ]
-                        },
-                        "Status": 1,
-                        "StartDate": "2024-01-01T00:00:00",
-                        "EndDate": "2024-01-01T00:00:00"
-                      },
-                      {
-                        "$type": "AdaTech.CodeManager.Model.Task, AdaTech.CodeManager",
-                        "Priority": 2,
-                        "Name": "Task3",
-                        "Description": "Description",
-                        "TaskID": 3,
-                        "Owners": {
-                          "$type": "System.Collections.Generic.List`1[[AdaTech.CodeManager.Model.Developer, AdaTech.CodeManager]], System.Private.CoreLib",
-                          "$values": [
-                            {
-                              "$type": "AdaTech.CodeManager.Model.Developer, AdaTech.CodeManager",
-                              "Level": 3,
-                              "MainSkill": 0,
-                              "Name": "Luís Eduardo",
-                              "UserID": "6f2fab91-e6cb-4ac4-8c35-ccedad6f675f",
-                              "Username": "dev3",
-                              "Password": "f3d32e1e5b933df4c7a626e447ecd580c624c2412cbd7cb14c5a4ee99673ca02",
-                              "Admin": false
-                            }
-                          ]
-                        },
-                        "Status": 5,
-                        "StartDate": "2024-01-01T00:00:00",
-                        "EndDate": "2024-01-01T00:00:00"
-                      },
-                      {
-                        "$type": "AdaTech.CodeManager.Model.Task, AdaTech.CodeManager",
-                        "Priority": 2,
-                        "Name": "Task4",
-                        "Description": "Description",
-                        "TaskID": 4,
-                        "Owners": {
-                          "$type": "System.Collections.Generic.List`1[[AdaTech.CodeManager.Model.Developer, AdaTech.CodeManager]], System.Private.CoreLib",
-                          "$values": [
-                            {
-                              "$type": "AdaTech.CodeManager.Model.Developer, AdaTech.CodeManager",
-                              "Level": 3,
-                              "MainSkill": 0,
-                              "Name": "Luís Eduardo",
-                              "UserID": "22aa816d-d163-4504-97e0-0d71d95b3a55",
-                              "Username": "dev3",
-                              "Password": "f3d32e1e5b933df4c7a626e447ecd580c624c2412cbd7cb14c5a4ee99673ca02",
-                              "Admin": false
-                            }
-                          ]
-                        },
-                        "Status": 5,
-                        "StartDate": "2024-01-01T00:00:00",
-                        "EndDate": "2024-01-01T00:00:00"
-                      }
-                    ]
-                  },
-                  "Name": "ChessSystem",
-                  "Description": "Implements a chess system using Java.",
-                  "StartDate": "2024-01-01T11:48:10.139",
-                  "TargetDate": "2024-01-30T11:48:10.139"
-                }
-              ]
-            },
-            "Name": "TechHub"
-          },
-          {
-            "$type": "AdaTech.CodeManager.Model.Team, AdaTech.CodeManager",
-            "TeamMembers": {
-              "$type": "System.Collections.Generic.List`1[[AdaTech.CodeManager.Model.Developer, AdaTech.CodeManager]], System.Private.CoreLib",
-              "$values": [
-                {
-                  "$type": "AdaTech.CodeManager.Model.Developer, AdaTech.CodeManager",
-                  "Level": 3,
-                  "MainSkill": 0,
-                  "Name": "Luís Eduardo",
-                  "UserID": "d1485d3c-7178-4e20-9818-1301d1b1ca0b",
-                  "Username": "dev3",
-                  "Password": "f3d32e1e5b933df4c7a626e447ecd580c624c2412cbd7cb14c5a4ee99673ca02",
-                  "Admin": false
-                }
-              ]
-            },
-            "Projects": {
-              "$type": "System.Collections.Generic.List`1[[AdaTech.CodeManager.Model.Project, AdaTech.CodeManager]], System.Private.CoreLib",
-              "$values": [
-                {
-                  "$type": "AdaTech.CodeManager.Model.Project, AdaTech.CodeManager",
-                  "Tasks": {
-                    "$type": "System.Collections.Generic.List`1[[AdaTech.CodeManager.Model.Task, AdaTech.CodeManager]], System.Private.CoreLib",
-                    "$values": [
-                      {
-                        "$type": "AdaTech.CodeManager.Model.Task, AdaTech.CodeManager",
-                        "Priority": 2,
-                        "Name": "Task1",
-                        "Description": "Description",
-                        "TaskID": 5,
-                        "Owners": {
-                          "$type": "System.Collections.Generic.List`1[[AdaTech.CodeManager.Model.Developer, AdaTech.CodeManager]], System.Private.CoreLib",
-                          "$values": [
-                            {
-                              "$type": "AdaTech.CodeManager.Model.Developer, AdaTech.CodeManager",
-                              "Level": 2,
-                              "MainSkill": 1,
-                              "Name": "Matheus Vidal",
-                              "UserID": "e7613329-7d4d-4e06-8f37-31553ba0d0c9",
-                              "Username": "dev1",
-                              "Password": "cf4b9c1f5eb31deb9ea41f56faa757b68be9cab8b73f463229df17036bdfa13e",
-                              "Admin": false
-                            }
-                          ]
-                        },
-                        "Status": 2,
-                        "StartDate": "2024-01-01T00:00:00",
-                        "EndDate": "2024-01-01T00:00:00"
-                      },
-                      {
-                        "$type": "AdaTech.CodeManager.Model.Task, AdaTech.CodeManager",
-                        "Priority": 2,
-                        "Name": "Task2",
-                        "Description": "Description",
-                        "TaskID": 6,
-                        "Owners": {
-                          "$type": "System.Collections.Generic.List`1[[AdaTech.CodeManager.Model.Developer, AdaTech.CodeManager]], System.Private.CoreLib",
-                          "$values": [
-                            {
-                              "$type": "AdaTech.CodeManager.Model.Developer, AdaTech.CodeManager",
-                              "Level": 2,
-                              "MainSkill": 1,
-                              "Name": "Matheus Vidal",
-                              "UserID": "e7613329-7d4d-4e06-8f37-31553ba0d0c9",
-                              "Username": "dev1",
-                              "Password": "cf4b9c1f5eb31deb9ea41f56faa757b68be9cab8b73f463229df17036bdfa13e",
-                              "Admin": false
-                            }
-                          ]
-                        },
-                        "Status": 4,
-                        "StartDate": "2024-01-01T00:00:00",
-                        "EndDate": "2024-01-01T00:00:00"
-                      },
-                      {
-                        "$type": "AdaTech.CodeManager.Model.Task, AdaTech.CodeManager",
-                        "Priority": 2,
-                        "Name": "Task3",
-                        "Description": "Description",
-                        "TaskID": 7,
-                        "Owners": {
-                          "$type": "System.Collections.Generic.List`1[[AdaTech.CodeManager.Model.Developer, AdaTech.CodeManager]], System.Private.CoreLib",
-                          "$values": [
-                            {
-                              "$type": "AdaTech.CodeManager.Model.Developer, AdaTech.CodeManager",
-                              "Level": 2,
-                              "MainSkill": 1,
-                              "Name": "Matheus Vidal",
-                              "UserID": "e7613329-7d4d-4e06-8f37-31553ba0d0c9",
-                              "Username": "dev1",
-                              "Password": "cf4b9c1f5eb31deb9ea41f56faa757b68be9cab8b73f463229df17036bdfa13e",
-                              "Admin": false
-                            }
-                          ]
-                        },
-                        "Status": 0,
-                        "StartDate": "2024-01-01T00:00:00",
-                        "EndDate": "2024-01-01T00:00:00"
-                      }
-                    ]
-                  },
-                  "Name": "ProjetoTeste",
-                  "Description": "Description",
-                  "StartDate": "2024-01-01T11:48:10.139",
-                  "TargetDate": "2024-01-31T11:48:10.139"
-                }
-              ]
-            },
-            "Name": "TechGenius"
-          }
-        ]
-      },
       "Name": "Isabela Mendes",
-      "UserID": "2e3a2815-eefb-4cfc-a710-732fe70f565f",
-      "Username": "techlead",
-      "Password": "8e514fadbc4670737022fd7463b5a3709b299a4a1aebcaeb68e5842e34ee48b0",
+      "UserID": "271ea340-13bb-4328-8d83-4fd7701ed6ae",
+      "Username": "isabelam",
+      "Password": "5c9de9bfa845e31e2492242b05cdefa762686c9dd345a81ded306644de891104",
+      "Admin": false
+    },
+    {
+      "$type": "AdaTech.CodeManager.Model.TechLead, AdaTech.CodeManager",
+      "Name": "Ricardo Barbosa",
+      "UserID": "5f9610e7-4299-4e75-ab84-2c66f7a69e2a",
+      "Username": "ricardob",
+      "Password": "c742369aaa10021d7006ba0ddf8a320ec92ef4554ead48a84c12f98322a25f22",
+      "Admin": false
+    },
+    {
+      "$type": "AdaTech.CodeManager.Model.TechLead, AdaTech.CodeManager",
+      "Name": "Andrea Vasconcelos",
+      "UserID": "9bb16f34-1a88-4273-aaca-16e7a0811026",
+      "Username": "andreav",
+      "Password": "249f787f32fed1c3a18d53bf9efa11c468873068874bed4507f7a2055321c116",
+      "Admin": false
+    },
+    {
+      "$type": "AdaTech.CodeManager.Model.TechLead, AdaTech.CodeManager",
+      "Name": "Cláudia Costa",
+      "UserID": "28a54f44-258b-4cfa-abbe-e9a3419cae40",
+      "Username": "claudiac",
+      "Password": "a039d10c77413819fecd8f5c271bd25c2c3fff3610dd19ab8cb1eaf0028b1fdb",
+      "Admin": false
+    },
+    {
+      "$type": "AdaTech.CodeManager.Model.TechLead, AdaTech.CodeManager",
+      "Name": "Marcelo Barros",
+      "UserID": "3d878082-a7e2-4fc0-91bf-06691a234d57",
+      "Username": "marcelob",
+      "Password": "3b1b4cc4860e9da51d77ccc70120bf837056f6211ee7bae89977e88ea99b5ded",
       "Admin": false
     }
   ]

@@ -33,7 +33,7 @@ namespace AdaTech.CodeManager
 
             txtUsername.Clear();
             txtPassword.Clear();
-            lbResult.Text = selectedUser != null ? "User not found or incorrect password" : string.Empty;
+            lbResult2.Text = selectedUser != null ? "User not found or incorrect password" : string.Empty;
 
         }
 

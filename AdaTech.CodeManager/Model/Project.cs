@@ -55,7 +55,6 @@ namespace AdaTech.CodeManager.Model
         public void AddTask(Task task)
         {
             _tasks.Add(task);
-            UserData.SaveUsers();
         }
 
 

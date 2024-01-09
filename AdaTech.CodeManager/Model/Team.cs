@@ -12,28 +12,30 @@ namespace AdaTech.CodeManager.Model
     public class Team
     {
         private string _name;
-        private List<Developer> _teamMembers;
+        private Guid _techLeadID;
+        private List<Guid> _teamMembersID;
         private List<Project>? _projects;
         
-        public Team(string name, List<Developer> teamMembers) {
-            _teamMembers = teamMembers;
+        public Team(string name, List<Guid> teamMembersID, Guid techLeadID) {
+            _teamMembersID = teamMembersID;
             _projects = new List<Project>();
             _name = name;
+            _techLeadID = techLeadID;
         }
 
-        public List<Developer> TeamMembers { get {  return _teamMembers; } }
+        public Guid TechLeadID { get { return _techLeadID; } }
+
+        public List<Guid> TeamMembersID { get {  return _teamMembersID; } }
         public List<Project> Projects { get {  return _projects; } }
         public string Name { get { return _name;} }
 
-        public void AddTeamMember(Developer employee) {  _teamMembers.Add(employee); }
-        public void RemoveTeamMember(Developer employee) { _teamMembers.Remove(employee); }
+        //public void AddTeamMember(Developer developer) {  _teamMembers.Add(developer); }
+        //public void RemoveTeamMember(Developer developer) { _teamMembers.Remove(developer); }
 
         public void AddProject(string projectName, string projectDescription, DateTime startDate, DateTime targetDate) 
         {  
             _projects.Add(new Project(projectName, projectDescription, startDate, targetDate));
-            UserData.SaveUsers();
         }
-
 
         public void RemoveProjectMember(Project project) { _projects.Add(project); }
 

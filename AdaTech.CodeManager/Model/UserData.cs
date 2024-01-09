@@ -13,9 +13,6 @@ namespace AdaTech.CodeManager.Model
     public class UserData
     {
         private static List<User> _users;
-       // private static List<User> _users = new List<User>();
-        private static List<Developer> _developers;
-        private static List<TechLead> _techLeads;
 
 
         private const string DATA_DIRECTORY = "../../../Data";
@@ -24,7 +21,8 @@ namespace AdaTech.CodeManager.Model
 
         static UserData()
         {
-           LoadUsers();
+            _users = new List<User>();
+           DataHandler.LoadData(ref _users, USER_FILE_PATH);
         }
         public static List<User> Users { get { return _users; } }
 
@@ -32,7 +30,7 @@ namespace AdaTech.CodeManager.Model
         {
             EncryptPassword(user);
             _users.Add(user);
-            SaveUsers();
+            DataHandler.SaveData(_users, USER_FILE_PATH);
         }
 
         public static List <Developer> GetDevelopers(){
@@ -44,28 +42,15 @@ namespace AdaTech.CodeManager.Model
             return _users.OfType<TechLead>().ToList();
         }
 
-        public static Team FindTeamByDeveloper(Developer targetDeveloper)
-        {
-
-            foreach (var techlead in GetTechLeads())
-            {
-                foreach (var team in techlead.GetTeams())
-                {
-                    if (team.TeamMembers.Contains(targetDeveloper))
-                    {
-                        return team;
-                    }
-
-                }
-            }
-
-            return null;
-
-        }
-
         public static User? SelectUser(string username)
         {
             User? selectedUser = _users.Find(user => user.Username.Equals(username));
+            return selectedUser;
+        }
+
+        public static User? SelectUser(User userToFind)
+        {
+            User? selectedUser = _users.Find(user => user.Equals(userToFind));
             return selectedUser;
         }
 
@@ -76,52 +61,6 @@ namespace AdaTech.CodeManager.Model
                 Console.WriteLine(user.Username);
             }
         }
-
-        private static void LoadUsers()
-        {
-            if (File.Exists(USER_FILE_PATH))
-            {
-                Console.WriteLine("Loading users from file...");
-
-                string json = File.ReadAllText(USER_FILE_PATH);
-
-                var settings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All };
-
-                try
-                {
-                    _users = JsonConvert.DeserializeObject<List<User>>(json, settings);
-                    Console.WriteLine($"Users loaded successfully. Count: {_users.Count}");
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Error loading users: {ex.Message}");
-                }
-            }
-        }
-
-
-        public static void SaveUsers()
-        {
-            Console.WriteLine("Saving users to file...");
-
-            var settings = new JsonSerializerSettings
-            {
-                TypeNameHandling = TypeNameHandling.All,
-                Formatting = Newtonsoft.Json.Formatting.Indented  
-            };
-
-            try
-            {
-                string json = JsonConvert.SerializeObject(_users, settings);
-                File.WriteAllText(USER_FILE_PATH, json);
-                Console.WriteLine("Users saved successfully.");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error saving users: {ex.Message}");
-            }
-        }
-
 
         private static void EncryptPassword(User user)
         {

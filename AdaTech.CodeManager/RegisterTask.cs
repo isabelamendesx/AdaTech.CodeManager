@@ -50,7 +50,7 @@ namespace AdaTech.CodeManager
                 }
                 currentProject = project;
                 currentTeam = team;
-                assigneeCandidates = currentTeam.TeamMembers;
+                //assigneeCandidates = currentTeam.TeamMembers;
             }
         }
 
@@ -106,7 +106,7 @@ namespace AdaTech.CodeManager
 
         private void InitializeCbAssignees()
         {
-            cbAssignees.DataSource = currentTeam.TeamMembers;
+            cbAssignees.DataSource = currentTeam.TeamMembersID;
             cbAssignees.SelectedIndex = -1;
             cbList.Add(cbAssignees);
         }

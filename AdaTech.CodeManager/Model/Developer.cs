@@ -14,8 +14,8 @@ namespace AdaTech.CodeManager.Model
         private Level _level;
         private MainSkill _mainSkill;
 
-        public Developer(string username, string password, string name, Level level, MainSkill main)
-            : base(username, password, name)
+        public Developer(string username, string password, Guid userID, string name, Level level, MainSkill main)
+            : base(username, password, userID, name)
         {
             _level = level;
             _mainSkill = main;

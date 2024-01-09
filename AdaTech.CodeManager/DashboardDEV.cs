@@ -15,7 +15,7 @@ namespace AdaTech.CodeManager
     public partial class DashboardDEV : Form
     {
         private static Developer currentUser = (Developer)Session.getInstance.GetCurrentUser();
-        private static Team currentTeam = UserData.FindTeamByDeveloper(currentUser);
+        private static Team currentTeam;
 
         public DashboardDEV()
         {

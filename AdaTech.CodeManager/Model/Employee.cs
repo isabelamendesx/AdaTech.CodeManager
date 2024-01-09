@@ -12,16 +12,12 @@ namespace AdaTech.CodeManager.Model
     public abstract class Employee : User
     {
         private string _name;
-        private readonly int _empID;
-
-        private static int _nextEmployeeID = 1;
 
         // - Construtores
-        public Employee(string username, string password, string name)
-            : base(username, password)
+        public Employee(string username, string password, Guid userID, string name)
+            : base(username, password, userID)
         {
             _name = name;
-            _empID = _nextEmployeeID++;
         }
 
         // - Propriedades 
@@ -29,10 +25,6 @@ namespace AdaTech.CodeManager.Model
         {
             get => _name;
             set => _name = value;
-        }
-        protected int EmpID
-        {
-            get => _empID;
         }
 
     }

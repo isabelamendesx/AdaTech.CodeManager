@@ -1,0 +1,23 @@
+{
+  "$type": "System.Collections.Generic.List`1[[AdaTech.CodeManager.Model.Team, AdaTech.CodeManager]], System.Private.CoreLib",
+  "$values": [
+    {
+      "$type": "AdaTech.CodeManager.Model.Team, AdaTech.CodeManager",
+      "TechLeadID": "271ea340-13bb-4328-8d83-4fd7701ed6ae",
+      "TeamMembersID": {
+        "$type": "System.Collections.Generic.List`1[[System.Guid, System.Private.CoreLib]], System.Private.CoreLib",
+        "$values": [
+          "5724897a-b383-4bc2-85d7-1a8a733d41d4",
+          "13fcba45-e6e7-40d0-9978-4cacba12336b",
+          "660e0d21-52e0-4222-acac-501a04c39a6b",
+          "3eb757e6-4362-4f0f-badc-eb80d57fc6f9"
+        ]
+      },
+      "Projects": {
+        "$type": "System.Collections.Generic.List`1[[AdaTech.CodeManager.Model.Project, AdaTech.CodeManager]], System.Private.CoreLib",
+        "$values": []
+      },
+      "Name": "TechGirls"
+    }
+  ]
+}

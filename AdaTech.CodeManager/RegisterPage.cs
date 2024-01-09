@@ -14,10 +14,10 @@ namespace AdaTech.CodeManager
 {
     public partial class RegisterPage : BaseForm
     {
-        private static List<Developer> Developers = UserData.GetDevelopers();
-        private static List<Developer> selectedDevelopersList = new List<Developer>();
-        // private static TechLead currentUser = (TechLead)Session.getInstance.GetCurrentUser();
+        private static List<Developer> avaiableTeamMembers = UserData.GetDevelopers();
+        private static TechLead currentUser = (TechLead)Session.getInstance.GetCurrentUser();
         private static List<Guna2ComboBox> cbList = new List<Guna2ComboBox>();
+
         public RegisterPage()
         {
             InitializeComponent();
@@ -27,37 +27,40 @@ namespace AdaTech.CodeManager
         protected void InitializeCbMembers()
         {
             CBMEMBER.Font = new Font("Century Gothic", 8, FontStyle.Regular);
-            CBMEMBER.DataSource = Developers;
+            CBMEMBER.DataSource = avaiableTeamMembers;
             CBMEMBER.SelectedIndex = -1;
             cbList.Add(CBMEMBER);
         }
-
 
         private void CbMembersSelectedIndexChanged(object sender, EventArgs e)
         {
             Guna2ComboBox senderCB = (Guna2ComboBox)sender;
 
-            Developer devToExclude = (Developer)senderCB.SelectedItem;
-            Developers.Remove(devToExclude);
+            if (avaiableTeamMembers.Count < 1)
+                return;
 
-            if (Developers.Count >= 1)
+            if (cbList.Count > 1 && cbList.Any(cb => cb.SelectedItem == senderCB.SelectedItem && cb != senderCB))
             {
-                Guna2ComboBox newComboBox = new Guna2ComboBox();
-
-                newComboBox.Location = new Point(senderCB.Left, senderCB.Bottom + 5);
-                newComboBox.Font = senderCB.Font;
-                newComboBox.Size = senderCB.Size;
-                newComboBox.FillColor = senderCB.FillColor;
-                newComboBox.BorderRadius = senderCB.BorderRadius;
-
-                newComboBox.DataSource = Developers;
-
-                cbList.Add(newComboBox);
-                pnMembers.Controls.Add(newComboBox);
-                newComboBox.SelectedIndex = -1;
-
-                newComboBox.SelectedIndexChanged += CbMembersSelectedIndexChanged;
+                MessageBox.Show("You already selected this member", "Duplicate Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                senderCB.SelectedIndex = -1; 
+                return;
             }
+
+            Guna2ComboBox newComboBox = new Guna2ComboBox();
+
+            newComboBox.Location = new Point(senderCB.Left, senderCB.Bottom + 5);
+            newComboBox.Font = senderCB.Font;
+            newComboBox.Size = senderCB.Size;
+            newComboBox.FillColor = senderCB.FillColor;
+            newComboBox.BorderRadius = senderCB.BorderRadius;
+
+            newComboBox.DataSource = new List<Developer>(avaiableTeamMembers);
+
+            cbList.Add(newComboBox);
+            pnMembers.Controls.Add(newComboBox);
+            newComboBox.SelectedIndex = -1;
+
+            newComboBox.SelectedIndexChanged += CbMembersSelectedIndexChanged;
         }
 
         private Label CostumizeLbResult()
@@ -74,18 +77,19 @@ namespace AdaTech.CodeManager
         }
         private void OnBtnCreateClick(object sender, EventArgs e)
         {
-            TechLead currentUser = (TechLead)Session.getInstance.GetCurrentUser();
-            List<Developer> teamMembers = new List<Developer>();
+
+            List<Guid> teamMembersID = new List<Guid>();
 
             foreach (var cb in cbList)
             {
                 if (cb.SelectedItem != null)
                 {
-                    teamMembers.Add((Developer)cb.SelectedItem);
+                    User user = UserData.SelectUser((User)cb.SelectedItem);
+                    teamMembersID.Add(user.UserID);
                 }
             }
-
-            currentUser.CreateTeam(txtTeamName.Text, teamMembers);
+            
+            TeamData.AddTeam(new Team(txtTeamName.Text, teamMembersID, currentUser.UserID));
             CostumizeLbResult();
             Thread.Sleep(2000);
             Hide();

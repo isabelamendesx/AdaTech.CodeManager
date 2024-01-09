@@ -146,6 +146,7 @@
             // 
             // pnMembers
             // 
+            pnMembers.AutoScroll = true;
             pnMembers.Controls.Add(guna2HtmlLabel3);
             pnMembers.Controls.Add(CBMEMBER);
             pnMembers.CustomizableEdges = customizableEdges7;
@@ -156,7 +157,7 @@
             pnMembers.Location = new Point(57, 232);
             pnMembers.Name = "pnMembers";
             pnMembers.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            pnMembers.Size = new Size(408, 237);
+            pnMembers.Size = new Size(422, 237);
             pnMembers.TabIndex = 1;
             // 
             // guna2HtmlLabel3
@@ -307,9 +308,9 @@
             // 
             pictureBox1.BackColor = Color.Transparent;
             pictureBox1.Image = Properties.Resources.loginImage;
-            pictureBox1.Location = new Point(-21, 99);
+            pictureBox1.Location = new Point(3, 99);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(611, 452);
+            pictureBox1.Size = new Size(561, 418);
             pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;

@@ -16,12 +16,11 @@ namespace AdaTech.CodeManager.Model
         private bool _admin;
 
         // - Construtores
-        public User(string username, string password)
+        public User(string username, string password, Guid userId)
         {
             _username = username;
-            //_hashPassword = password;
             _password = password;
-            _userID = Guid.NewGuid();
+            _userID = userId;
             _admin = false;
         }
 
@@ -80,6 +79,22 @@ namespace AdaTech.CodeManager.Model
             if (!CheckPassword(currentPassword)) throw new InvalidOperationException("Senha fornecida incorreta.");
 
             _password = EncryptPassword(newPassword);
+        }
+
+        // Sobrescrever o método Equals
+        public override bool Equals(object obj)
+        {
+            if (obj == null || GetType() != obj.GetType())
+                return false;
+
+            User otherUser = (User)obj;
+            return _userID.Equals(otherUser._userID);
+        }
+
+        // Sobrescrever o método GetHashCode
+        public override int GetHashCode()
+        {
+            return _userID.GetHashCode();
         }
     }
 }

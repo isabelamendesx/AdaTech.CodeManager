@@ -15,30 +15,48 @@ namespace AdaTech.CodeManager
     public partial class SelectTeam : Form
     {
         private static TechLead currentUser = (TechLead)Session.getInstance.GetCurrentUser();
+        private static List<Team>? userTeams = new List<Team> ();
         public SelectTeam()
         {
             InitializeComponent();
-
+            userTeams = TeamData.FindTeamsByTechLead(currentUser);
             ShowTeams();
             lbHello.Text = $"Hello {currentUser.Name},";
         }
 
+        //public void ShowTeams()
+        //{
+        //    List<Team> userTeams = currentUser.GetTeams();
+        //    int index = 1;
+
+
+        //    foreach (Team team in userTeams)
+        //    {
+        //        var pnTeam = CustomizePnTeam();
+        //        pnTeam.Click += (sender, e) => PnTeam_Click(team);
+
+        //        pnTeam.Controls.Add(CostumizeLbTeamName(team.Name));
+        //        pnTeam.Controls.Add(CostumizeLbTeamID(index++));
+        //        pnTeam.Controls.Add(CostumizeLbTeamMembers(team.TeamMembers.Count));
+
+        //        conteinerTeams.Controls.Add(pnTeam);
+        //    }
+        //}
+
         public void ShowTeams()
         {
-            List<Team> userTeams = currentUser.GetTeams();
             int index = 1;
-
 
             foreach (Team team in userTeams)
             {
-                var pnTeam = CustomizePnTeam();
-                pnTeam.Click += (sender, e) => PnTeam_Click(team);
+               var pnTeam = CustomizePnTeam();
+               pnTeam.Click += (sender, e) => PnTeam_Click(team);
 
-                pnTeam.Controls.Add(CostumizeLbTeamName(team.Name));
-                pnTeam.Controls.Add(CostumizeLbTeamID(index++));
-                pnTeam.Controls.Add(CostumizeLbTeamMembers(team.TeamMembers.Count));
+               pnTeam.Controls.Add(CostumizeLbTeamName(team.Name));
+               pnTeam.Controls.Add(CostumizeLbTeamID(index++));
+               pnTeam.Controls.Add(CostumizeLbTeamMembers(team.TeamMembersID.Count));
 
-                conteinerTeams.Controls.Add(pnTeam);
+               conteinerTeams.Controls.Add(pnTeam);
             }
         }
 
