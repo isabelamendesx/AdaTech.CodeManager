@@ -6,22 +6,71 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AdaTech.CodeManager
 {
-    public partial class RegisterPage : BaseForm
+    public partial class ManageTeam : BaseForm
     {
         private static List<Developer> avaiableTeamMembers = UserData.GetDevelopers();
         private static TechLead currentUser = (TechLead)Session.getInstance.GetCurrentUser();
         private static List<Guna2ComboBox> cbList = new List<Guna2ComboBox>();
+        private static Team teamToEdit;
 
-        public RegisterPage()
+        public ManageTeam(Team? team = null)
         {
+
             InitializeComponent();
+
+            if (team == null)
+            {
+                InitializeCreatePage();
+                return;
+            }
+
+            teamToEdit = team;
+            InitializeEditPage();
+
+        }
+
+        private void InitializeCreatePage()
+        {
+            btnSave.Visible = false;
+            cbList.Clear();
             InitializeCbMembers();
+        }
+
+        private void InitializeEditPage()
+        {
+            cbList.Clear();
+            lbPageType.Text = "Edit a";
+            lbPageType.Location = new Point(187, 62);
+            lbTeamMembers.Text = "Edit Members";
+            CBMEMBER.Visible = false;
+            txtTeamName.Text = teamToEdit.Name;
+            btnCreate.Visible = false;
+            lbTeam.Location = new Point(270, 62);
+
+            int index = 0;
+            foreach (var member in teamToEdit.GetTeamMembersName())
+            {
+                Guna2ComboBox newComboBox = new Guna2ComboBox();
+
+                newComboBox.Font = new Font("Century Gothic", 8, FontStyle.Bold);
+                newComboBox.Size = new Size(381, 36);
+                newComboBox.FillColor = Color.FromArgb(252, 239, 239);
+                newComboBox.BorderRadius = 20;
+
+                newComboBox.DataSource = teamToEdit.GetTeamMembersName();
+
+                cbList.Add(newComboBox);
+
+                conteinerMembers.Controls.Add(newComboBox);
+                newComboBox.SelectedIndex = index++;
+            }
         }
 
         protected void InitializeCbMembers()
@@ -42,13 +91,11 @@ namespace AdaTech.CodeManager
             if (cbList.Count > 1 && cbList.Any(cb => cb.SelectedItem == senderCB.SelectedItem && cb != senderCB))
             {
                 MessageBox.Show("You already selected this member", "Duplicate Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                senderCB.SelectedIndex = -1; 
+                senderCB.SelectedIndex = -1;
                 return;
             }
 
             Guna2ComboBox newComboBox = new Guna2ComboBox();
-
-            newComboBox.Location = new Point(senderCB.Left, senderCB.Bottom + 5);
             newComboBox.Font = senderCB.Font;
             newComboBox.Size = senderCB.Size;
             newComboBox.FillColor = senderCB.FillColor;
@@ -57,7 +104,7 @@ namespace AdaTech.CodeManager
             newComboBox.DataSource = new List<Developer>(avaiableTeamMembers);
 
             cbList.Add(newComboBox);
-            pnMembers.Controls.Add(newComboBox);
+            conteinerMembers.Controls.Add(newComboBox);
             newComboBox.SelectedIndex = -1;
 
             newComboBox.SelectedIndexChanged += CbMembersSelectedIndexChanged;
@@ -88,11 +135,11 @@ namespace AdaTech.CodeManager
                     teamMembersID.Add(user.UserID);
                 }
             }
-            
+
             TeamData.AddTeam(new Team(txtTeamName.Text, teamMembersID, currentUser.UserID));
             CostumizeLbResult();
             Thread.Sleep(2000);
-            Hide();
+            Close();
             new SelectTeam().ShowDialog();
 
         }
@@ -102,5 +149,32 @@ namespace AdaTech.CodeManager
             Close();
             new SelectTeam().ShowDialog();
         }
+
+        private void OnBtnSaveClick(object sender, EventArgs e)
+        {
+            teamToEdit.Name = txtTeamName.Text;
+
+
+            List<Guid> teamMembersID = new List<Guid>();
+
+            foreach (var cb in cbList)
+            {
+                if (cb.SelectedItem != null)
+                {
+                    User user = UserData.SelectUser((User)cb.SelectedItem);
+                    teamMembersID.Add(user.UserID);
+                }
+            }
+
+            teamToEdit.TeamMembersID = teamMembersID;
+
+            TeamData.SaveTeams();
+            lbResult.Visible = true;
+
+            Thread.Sleep(1000);
+            Close();
+            new SelectTeam().ShowDialog();
+        }
+
     }
 }

@@ -54,12 +54,10 @@ namespace AdaTech.CodeManager.Model
             return selectedUser;
         }
 
-        public static void PrintUsers()
+        public static User? SelectUser(Guid idToFind)
         {
-            foreach (var user in _users)
-            {
-                Console.WriteLine(user.Username);
-            }
+            User? selectedUser = _users.Find(user => user.UserID.Equals(idToFind));
+            return selectedUser;
         }
 
         private static void EncryptPassword(User user)

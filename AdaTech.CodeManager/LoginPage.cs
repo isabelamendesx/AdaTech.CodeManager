@@ -22,34 +22,32 @@ namespace AdaTech.CodeManager
 
                 if(selectedUser is TechLead)
                 {
+                    Hide();
                     new SelectTeam().ShowDialog();
+                    return;
                 }
                 else if(selectedUser is Developer){
+                    Hide();
                     new DashboardDEV().ShowDialog();
-                }
-
-                
+                    return;
+                }    
             }
 
-            txtUsername.Clear();
-            txtPassword.Clear();
-            lbResult2.Text = selectedUser != null ? "User not found or incorrect password" : string.Empty;
+            HandleAuthenticationError();
 
         }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LoginPage_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void OnBtnExitClick(object sender, EventArgs e)
         {
             Close();
         }
+
+        private void HandleAuthenticationError()
+        {
+            MessageBox.Show("User not found or incorrect password", "Authentication Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            txtUsername.Clear();
+            txtPassword.Clear();
+        }
+
+ 
     }
 }

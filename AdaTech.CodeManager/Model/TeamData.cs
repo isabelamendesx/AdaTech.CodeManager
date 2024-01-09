@@ -34,6 +34,11 @@ namespace AdaTech.CodeManager.Model
             return _teams.FindAll(team => team.TechLeadID.Equals(techLead.UserID));
         }
 
+        public static void SaveTeams()
+        {
+            DataHandler.SaveData(_teams, TEAMS_FILE_PATH);
+        }
+
 
 
 

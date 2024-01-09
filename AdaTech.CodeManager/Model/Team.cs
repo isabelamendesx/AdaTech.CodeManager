@@ -23,14 +23,24 @@ namespace AdaTech.CodeManager.Model
             _techLeadID = techLeadID;
         }
 
-        public Guid TechLeadID { get { return _techLeadID; } }
+        public Guid TechLeadID { get { return _techLeadID; }  }
+        public List<Guid> TeamMembersID
+        {
+            get { return _teamMembersID; }
+            set { _teamMembersID = value; }
+        }
 
-        public List<Guid> TeamMembersID { get {  return _teamMembersID; } }
-        public List<Project> Projects { get {  return _projects; } }
-        public string Name { get { return _name;} }
+        public List<Project> Projects
+        {
+            get { return _projects; }
+            set { _projects = value; }
+        }
 
-        //public void AddTeamMember(Developer developer) {  _teamMembers.Add(developer); }
-        //public void RemoveTeamMember(Developer developer) { _teamMembers.Remove(developer); }
+        public string Name
+        {
+            get { return _name; }
+            set { _name = value; }
+        }
 
         public void AddProject(string projectName, string projectDescription, DateTime startDate, DateTime targetDate) 
         {  
@@ -38,6 +48,18 @@ namespace AdaTech.CodeManager.Model
         }
 
         public void RemoveProjectMember(Project project) { _projects.Add(project); }
+
+        public List<String> GetTeamMembersName()
+        {
+            var membersName = new List<String>();
+
+            foreach(var id in _teamMembersID)
+            {
+               membersName.Add(UserData.SelectUser(id).ToString());
+            }
+
+            return membersName;
+        }
 
 
     }

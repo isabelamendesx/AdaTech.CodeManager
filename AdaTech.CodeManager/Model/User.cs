@@ -45,7 +45,6 @@ namespace AdaTech.CodeManager.Model
             get => _admin;
         }
 
-
         // - Métodos
         internal bool Log(string username, string senha)
         {
@@ -81,7 +80,6 @@ namespace AdaTech.CodeManager.Model
             _password = EncryptPassword(newPassword);
         }
 
-        // Sobrescrever o método Equals
         public override bool Equals(object obj)
         {
             if (obj == null || GetType() != obj.GetType())
@@ -91,7 +89,6 @@ namespace AdaTech.CodeManager.Model
             return _userID.Equals(otherUser._userID);
         }
 
-        // Sobrescrever o método GetHashCode
         public override int GetHashCode()
         {
             return _userID.GetHashCode();

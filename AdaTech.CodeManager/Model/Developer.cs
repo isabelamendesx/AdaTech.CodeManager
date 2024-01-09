@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace AdaTech.CodeManager.Model
 {
     [JsonObject]
-    public class Developer : Employee, IEquatable<Developer>
+    public class Developer : Employee
     {
     
         private Level _level;
@@ -37,12 +37,6 @@ namespace AdaTech.CodeManager.Model
         {
             string mainSkillString = _mainSkill == MainSkill.UI_UX ? "UI/UX" : _mainSkill.ToString();
             return Name + " - " + mainSkillString + " - " + Level.ToString();
-        }
-
-        public bool Equals(Developer other)
-        {
-            if (other == null) return false;
-            return this.Name == other.Name;  // Supondo que Id seja um identificador único para Developer
         }
 
     }
