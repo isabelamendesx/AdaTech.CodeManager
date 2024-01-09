@@ -236,8 +236,7 @@ namespace AdaTech.CodeManager
         }
 
 
-
-        // CSS COSTUMIZATIONS 
+        #region UI Element Builders
 
         private Label CustomizeLbTaskNumber(int numberTasks, int x, int y)
         {
@@ -346,13 +345,10 @@ namespace AdaTech.CodeManager
             lbName.AutoSize = false;
             lbName.Width = 534; ;
 
-            // Centraliza o Label dentro do controle pai
             lbName.Anchor = AnchorStyles.None;
 
-            // Calcula a posição X para centralizar
             int xPosition = (pnInfos.Width - lbName.Width) / 2;
 
-            // Define a localização ajustada
             lbName.Location = new Point(xPosition, 213);
 
             lbName.TextAlign = ContentAlignment.TopCenter;
@@ -368,18 +364,17 @@ namespace AdaTech.CodeManager
             lbJobTitle.ForeColor = Color.White;
             lbJobTitle.AutoSize = true;
 
-            // Centraliza o Label dentro do controle pai
             lbJobTitle.Anchor = AnchorStyles.None;
 
-            // Calcula a posição X para centralizar
             int xPosition = (pnInfos.Width - lbJobTitle.Width) / 2;
 
-            // Define a localização ajustada
             lbJobTitle.Location = new Point(xPosition, 245);
 
             lbJobTitle.TextAlign = ContentAlignment.TopCenter;
             return lbJobTitle;
         }
+
+        #endregion
 
     }
 }

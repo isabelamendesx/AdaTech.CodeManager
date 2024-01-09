@@ -37,6 +37,7 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            lbEditMessage = new Label();
             btnEditTeam = new Guna.UI2.WinForms.Guna2Button();
             btnBack = new Guna.UI2.WinForms.Guna2Button();
             btnCreateTeam = new Guna.UI2.WinForms.Guna2Button();
@@ -44,7 +45,6 @@
             label1 = new Label();
             lbSelectTeam = new Label();
             lbHello = new Label();
-            lbEditMessage = new Label();
             guna2GradientPanel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -68,6 +68,17 @@
             guna2GradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges8;
             guna2GradientPanel1.Size = new Size(1133, 629);
             guna2GradientPanel1.TabIndex = 0;
+            // 
+            // lbEditMessage
+            // 
+            lbEditMessage.AutoSize = true;
+            lbEditMessage.BackColor = Color.Red;
+            lbEditMessage.Font = new Font("Century Gothic", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbEditMessage.ForeColor = Color.White;
+            lbEditMessage.Location = new Point(368, 40);
+            lbEditMessage.Name = "lbEditMessage";
+            lbEditMessage.Size = new Size(0, 34);
+            lbEditMessage.TabIndex = 22;
             // 
             // btnEditTeam
             // 
@@ -166,17 +177,6 @@
             lbHello.Name = "lbHello";
             lbHello.Size = new Size(0, 43);
             lbHello.TabIndex = 4;
-            // 
-            // lbEditMessage
-            // 
-            lbEditMessage.AutoSize = true;
-            lbEditMessage.BackColor = Color.Red;
-            lbEditMessage.Font = new Font("Century Gothic", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbEditMessage.ForeColor = Color.White;
-            lbEditMessage.Location = new Point(368, 40);
-            lbEditMessage.Name = "lbEditMessage";
-            lbEditMessage.Size = new Size(0, 34);
-            lbEditMessage.TabIndex = 22;
             // 
             // SelectTeam
             // 

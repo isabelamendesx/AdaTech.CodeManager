@@ -197,10 +197,10 @@ namespace AdaTech.CodeManager
             }
             else
             {
-                List<Developer?> selectedDevelopers = cbList
-        .Select(cb => cb.SelectedItem as Developer)
-        .Where(dev => dev != null)
-        .ToList();
+                        List<Developer?> selectedDevelopers = cbList
+                .Select(cb => cb.SelectedItem as Developer)
+                .Where(dev => dev != null)
+                .ToList();
 
 
                 taskToEdit.Name = txtTaskName.Text;

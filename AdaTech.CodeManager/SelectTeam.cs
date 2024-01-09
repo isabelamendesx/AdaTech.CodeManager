@@ -88,6 +88,8 @@ namespace AdaTech.CodeManager
         {
             btnCreateTeam.Enabled = false;
             btnEditTeam.Enabled = false;
+            btnBack.Enabled = false;
+            lbSelectTeam.BackColor = Color.DarkGray;
             lbEditMessage.Text = "Select the team you want to edit";
 
         }

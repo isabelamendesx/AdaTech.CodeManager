@@ -259,7 +259,7 @@
             lbTeam.BackColor = Color.FromArgb(251, 152, 51);
             lbTeam.Font = new Font("Century Gothic", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbTeam.ForeColor = Color.White;
-            lbTeam.Location = new Point(270, 62);
+            lbTeam.Location = new Point(294, 62);
             lbTeam.Name = "lbTeam";
             lbTeam.Size = new Size(77, 36);
             lbTeam.TabIndex = 1;
@@ -270,11 +270,11 @@
             lbPageType.BackColor = Color.Transparent;
             lbPageType.Font = new Font("Century Gothic", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbPageType.ForeColor = Color.White;
-            lbPageType.Location = new Point(187, 62);
+            lbPageType.Location = new Point(169, 62);
             lbPageType.Name = "lbPageType";
-            lbPageType.Size = new Size(77, 36);
+            lbPageType.Size = new Size(122, 36);
             lbPageType.TabIndex = 0;
-            lbPageType.Text = "Edit a";
+            lbPageType.Text = "Create a";
             // 
             // pnRegister
             // 

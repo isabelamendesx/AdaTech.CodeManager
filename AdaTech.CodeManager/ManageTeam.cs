@@ -15,14 +15,13 @@ namespace AdaTech.CodeManager
 {
     public partial class ManageTeam : BaseForm
     {
-        private static List<Developer> avaiableTeamMembers = UserData.GetDevelopers();
+        private static List<Developer> availableTeamMembers = UserData.GetDevelopers();
         private static TechLead currentUser = (TechLead)Session.getInstance.GetCurrentUser();
         private static List<Guna2ComboBox> cbList = new List<Guna2ComboBox>();
         private static Team teamToEdit;
 
         public ManageTeam(Team? team = null)
         {
-
             InitializeComponent();
 
             if (team == null)
@@ -36,56 +35,11 @@ namespace AdaTech.CodeManager
 
         }
 
-        private void InitializeCreatePage()
-        {
-            btnSave.Visible = false;
-            cbList.Clear();
-            InitializeCbMembers();
-        }
-
-        private void InitializeEditPage()
-        {
-            cbList.Clear();
-            lbPageType.Text = "Edit a";
-            lbPageType.Location = new Point(187, 62);
-            lbTeamMembers.Text = "Edit Members";
-            CBMEMBER.Visible = false;
-            txtTeamName.Text = teamToEdit.Name;
-            btnCreate.Visible = false;
-            lbTeam.Location = new Point(270, 62);
-
-            int index = 0;
-            foreach (var member in teamToEdit.GetTeamMembersName())
-            {
-                Guna2ComboBox newComboBox = new Guna2ComboBox();
-
-                newComboBox.Font = new Font("Century Gothic", 8, FontStyle.Bold);
-                newComboBox.Size = new Size(381, 36);
-                newComboBox.FillColor = Color.FromArgb(252, 239, 239);
-                newComboBox.BorderRadius = 20;
-
-                newComboBox.DataSource = teamToEdit.GetTeamMembersName();
-
-                cbList.Add(newComboBox);
-
-                conteinerMembers.Controls.Add(newComboBox);
-                newComboBox.SelectedIndex = index++;
-            }
-        }
-
-        protected void InitializeCbMembers()
-        {
-            CBMEMBER.Font = new Font("Century Gothic", 8, FontStyle.Regular);
-            CBMEMBER.DataSource = avaiableTeamMembers;
-            CBMEMBER.SelectedIndex = -1;
-            cbList.Add(CBMEMBER);
-        }
-
         private void CbMembersSelectedIndexChanged(object sender, EventArgs e)
         {
             Guna2ComboBox senderCB = (Guna2ComboBox)sender;
 
-            if (avaiableTeamMembers.Count < 1)
+            if (availableTeamMembers.Count < 1)
                 return;
 
             if (cbList.Count > 1 && cbList.Any(cb => cb.SelectedItem == senderCB.SelectedItem && cb != senderCB))
@@ -101,7 +55,7 @@ namespace AdaTech.CodeManager
             newComboBox.FillColor = senderCB.FillColor;
             newComboBox.BorderRadius = senderCB.BorderRadius;
 
-            newComboBox.DataSource = new List<Developer>(avaiableTeamMembers);
+            newComboBox.DataSource = new List<Developer>(availableTeamMembers);
 
             cbList.Add(newComboBox);
             conteinerMembers.Controls.Add(newComboBox);
@@ -110,19 +64,30 @@ namespace AdaTech.CodeManager
             newComboBox.SelectedIndexChanged += CbMembersSelectedIndexChanged;
         }
 
-        private Label CostumizeLbResult()
+        private void OnBtnBackClick(object sender, EventArgs e)
         {
-            Label lbResult = new Label();
-            lbResult.Text = "Team created!";
-            lbResult.Font = new Font("Century Gothic", 10, FontStyle.Bold);
-            lbResult.Location = new Point(230, 104);
-            lbResult.BackColor = Color.FromArgb(252, 239, 239);
-            lbResult.AutoSize = true;
-            lbResult.ForeColor = Color.White;
-
-            return lbResult;
+            Close();
+            new SelectTeam().ShowDialog();
         }
-        private void OnBtnCreateClick(object sender, EventArgs e)
+
+        #region Create Team Methods
+
+        private void InitializeCreatePage()
+        {
+            btnSave.Visible = false;
+            cbList.Clear();
+            InitializeCreateTeamMembersComboBoxes();
+        }
+
+        protected void InitializeCreateTeamMembersComboBoxes()
+        {
+            CBMEMBER.Font = new Font("Century Gothic", 8, FontStyle.Regular);
+            CBMEMBER.DataSource = availableTeamMembers;
+            CBMEMBER.SelectedIndex = -1;
+            cbList.Add(CBMEMBER);
+        }
+
+        private async void OnBtnCreateClick(object sender, EventArgs e)
         {
 
             List<Guid> teamMembersID = new List<Guid>();
@@ -137,20 +102,46 @@ namespace AdaTech.CodeManager
             }
 
             TeamData.AddTeam(new Team(txtTeamName.Text, teamMembersID, currentUser.UserID));
-            CostumizeLbResult();
-            Thread.Sleep(2000);
+
+            lbResult.Text = "team created!";
+            lbResult.Visible = true;
+            
+            await System.Threading.Tasks.Task.Delay(1000);
+
             Close();
             new SelectTeam().ShowDialog();
 
         }
 
-        private void OnBtnBackClick(object sender, EventArgs e)
+        #endregion 
+
+
+        #region Edit Team Methods
+
+        private void InitializeEditPage()
         {
-            Close();
-            new SelectTeam().ShowDialog();
+            cbList.Clear();
+            CostumizeEditElements();
+            InitializeEditTeamMembersComboBoxes();
         }
 
-        private void OnBtnSaveClick(object sender, EventArgs e)
+        private void InitializeEditTeamMembersComboBoxes()
+        {
+            List<Developer> teamMembers = teamToEdit.GetTeamMembers();
+
+            foreach (var member in teamMembers)
+            {
+                Guna2ComboBox newComboBox = CreateNewComboBox(member);
+                int selectedIndex = availableTeamMembers.IndexOf(member) + 1;
+                newComboBox.SelectedIndex = selectedIndex;
+
+                cbList.Add(newComboBox);
+                conteinerMembers.Controls.Add(newComboBox);
+                newComboBox.SelectedIndexChanged += CbMembersSelectedIndexChanged;
+            }
+        }
+
+        private async void OnBtnSaveClick(object sender, EventArgs e)
         {
             teamToEdit.Name = txtTeamName.Text;
 
@@ -171,10 +162,49 @@ namespace AdaTech.CodeManager
             TeamData.SaveTeams();
             lbResult.Visible = true;
 
-            Thread.Sleep(1000);
+            await System.Threading.Tasks.Task.Delay(1000);
+
             Close();
             new SelectTeam().ShowDialog();
         }
+
+
+        #endregion 
+
+
+        #region UI Element Builders
+
+        private void CostumizeEditElements()
+        {
+            lbPageType.Text = "Edit a";
+            lbPageType.Location = new Point(187, 62);
+            lbTeamMembers.Text = "Edit Members";
+            CBMEMBER.Visible = false;
+            txtTeamName.Text = teamToEdit.Name;
+            btnCreate.Visible = false;
+            lbTeam.Location = new Point(270, 62);
+        }
+
+        private Guna2ComboBox CreateNewComboBox(Developer member)
+        {
+            Guna2ComboBox newComboBox = new Guna2ComboBox
+            {
+                Font = new Font("Century Gothic", 8, FontStyle.Bold),
+                Size = new Size(381, 36),
+                FillColor = Color.FromArgb(252, 239, 239),
+                BorderRadius = 20
+            };
+
+            newComboBox.Items.Add("");
+            newComboBox.Items.AddRange(availableTeamMembers.ToArray());
+
+            return newComboBox;
+        }
+
+
+        #endregion
+
+
 
     }
 }

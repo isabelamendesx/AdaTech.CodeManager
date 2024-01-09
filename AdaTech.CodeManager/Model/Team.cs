@@ -49,13 +49,13 @@ namespace AdaTech.CodeManager.Model
 
         public void RemoveProjectMember(Project project) { _projects.Add(project); }
 
-        public List<String> GetTeamMembersName()
+        public List<Developer> GetTeamMembers()
         {
-            var membersName = new List<String>();
+            var membersName = new List<Developer>();
 
             foreach(var id in _teamMembersID)
             {
-               membersName.Add(UserData.SelectUser(id).ToString());
+               membersName.Add((Developer)UserData.SelectUser(id));
             }
 
             return membersName;
