@@ -23,6 +23,9 @@ namespace AdaTech.CodeManager.Model
             _techLeadID = techLeadID;
         }
 
+        #region Properties
+
+
         public Guid TechLeadID { get { return _techLeadID; }  }
         public List<Guid> TeamMembersID
         {
@@ -42,7 +45,9 @@ namespace AdaTech.CodeManager.Model
             set { _name = value; }
         }
 
-        public void AddProject(string projectName, string projectDescription, DateTime startDate, DateTime targetDate) 
+        #endregion
+
+        public void AddProject(string projectName, string? projectDescription, DateTime startDate, DateTime? targetDate) 
         {  
             _projects.Add(new Project(projectName, projectDescription, startDate, targetDate));
         }

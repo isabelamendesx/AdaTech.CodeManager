@@ -26,7 +26,7 @@ namespace AdaTech.CodeManager.Model
         public static void AddTeam(Team team)
         {
             _teams.Add(team);
-            DataHandler.SaveData(_teams, TEAMS_FILE_PATH);
+            SaveTeams();
         }
 
         public static List<Team>? FindTeamsByTechLead(TechLead techLead)
@@ -38,12 +38,6 @@ namespace AdaTech.CodeManager.Model
         {
             DataHandler.SaveData(_teams, TEAMS_FILE_PATH);
         }
-
-
-
-
-
-
 
 
     }

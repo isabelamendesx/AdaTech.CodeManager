@@ -28,29 +28,31 @@
         /// </summary>
         protected void InitializeComponent()
         {
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashboardTL));
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             pnInfos = new Guna.UI2.WinForms.Guna2GradientPanel();
             guna2CirclePictureBox3 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            guna2GradientPanel3 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            pnMenu = new Guna.UI2.WinForms.Guna2GradientPanel();
             btnBack = new Guna.UI2.WinForms.Guna2Button();
-            label1 = new Label();
+            lbProjectsTitle = new Label();
             btnCreateProject = new Guna.UI2.WinForms.Guna2Button();
             conteinerTest = new Guna.UI2.WinForms.Guna2GradientPanel();
-            label22 = new Label();
-            label2 = new Label();
+            lbFinishedTasks = new Label();
+            lbDashboard = new Label();
             progressBTeam = new Guna.UI2.WinForms.Guna2CircleProgressBar();
             lbAllTasks = new Label();
             panel3 = new Panel();
@@ -64,17 +66,21 @@
             panel5 = new Panel();
             lbProgress = new Label();
             panel6 = new Panel();
-            label4 = new Label();
+            lbStatistics = new Label();
+            btnEditProject = new Guna.UI2.WinForms.Guna2Button();
+            lbResult = new Label();
             guna2GradientPanel1.SuspendLayout();
             pnInfos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)guna2CirclePictureBox3).BeginInit();
-            guna2GradientPanel3.SuspendLayout();
+            pnMenu.SuspendLayout();
             progressBTeam.SuspendLayout();
             SuspendLayout();
             // 
             // guna2GradientPanel1
             // 
-            guna2GradientPanel1.Controls.Add(label4);
+            guna2GradientPanel1.Controls.Add(lbResult);
+            guna2GradientPanel1.Controls.Add(btnEditProject);
+            guna2GradientPanel1.Controls.Add(lbStatistics);
             guna2GradientPanel1.Controls.Add(lbToReview);
             guna2GradientPanel1.Controls.Add(panel5);
             guna2GradientPanel1.Controls.Add(lbProgress);
@@ -88,13 +94,13 @@
             guna2GradientPanel1.Controls.Add(lbAllTasks);
             guna2GradientPanel1.Controls.Add(panel3);
             guna2GradientPanel1.Controls.Add(progressBTeam);
-            guna2GradientPanel1.Controls.Add(label2);
+            guna2GradientPanel1.Controls.Add(lbDashboard);
             guna2GradientPanel1.Controls.Add(conteinerTest);
             guna2GradientPanel1.Controls.Add(btnCreateProject);
-            guna2GradientPanel1.Controls.Add(label1);
-            guna2GradientPanel1.Controls.Add(guna2GradientPanel3);
+            guna2GradientPanel1.Controls.Add(lbProjectsTitle);
+            guna2GradientPanel1.Controls.Add(pnMenu);
             guna2GradientPanel1.Controls.Add(pnInfos);
-            guna2GradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges13;
+            guna2GradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges15;
             guna2GradientPanel1.Size = new Size(1133, 629);
             // 
             // guna2AnimateWindow1
@@ -103,50 +109,55 @@
             // 
             // pnInfos
             // 
+            pnInfos.BackColor = Color.Transparent;
+            pnInfos.BorderRadius = 20;
             pnInfos.Controls.Add(guna2CirclePictureBox3);
-            pnInfos.CustomizableEdges = customizableEdges11;
+            pnInfos.CustomizableEdges = customizableEdges13;
             pnInfos.Dock = DockStyle.Right;
+            pnInfos.FillColor = Color.FromArgb(16, 20, 28);
+            pnInfos.FillColor2 = Color.FromArgb(16, 20, 28);
             pnInfos.Location = new Point(879, 20);
             pnInfos.Name = "pnInfos";
-            pnInfos.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            pnInfos.ShadowDecoration.CustomizableEdges = customizableEdges14;
             pnInfos.Size = new Size(234, 589);
             pnInfos.TabIndex = 1;
             // 
             // guna2CirclePictureBox3
             // 
-            guna2CirclePictureBox3.BackColor = Color.FromArgb(16, 20, 28);
+            guna2CirclePictureBox3.BackColor = Color.Transparent;
             guna2CirclePictureBox3.Image = (Image)resources.GetObject("guna2CirclePictureBox3.Image");
             guna2CirclePictureBox3.ImageRotate = 0F;
             guna2CirclePictureBox3.Location = new Point(40, 58);
             guna2CirclePictureBox3.Name = "guna2CirclePictureBox3";
-            guna2CirclePictureBox3.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            guna2CirclePictureBox3.ShadowDecoration.CustomizableEdges = customizableEdges12;
             guna2CirclePictureBox3.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             guna2CirclePictureBox3.Size = new Size(155, 160);
             guna2CirclePictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             guna2CirclePictureBox3.TabIndex = 12;
             guna2CirclePictureBox3.TabStop = false;
             // 
-            // guna2GradientPanel3
+            // pnMenu
             // 
-            guna2GradientPanel3.BackColor = Color.FromArgb(27, 32, 46);
-            guna2GradientPanel3.BorderColor = Color.Transparent;
-            guna2GradientPanel3.BorderRadius = 30;
-            guna2GradientPanel3.Controls.Add(btnBack);
-            guna2GradientPanel3.CustomBorderColor = Color.White;
-            guna2GradientPanel3.CustomizableEdges = customizableEdges8;
-            guna2GradientPanel3.Dock = DockStyle.Left;
-            guna2GradientPanel3.FillColor = Color.FromArgb(16, 20, 28);
-            guna2GradientPanel3.FillColor2 = Color.FromArgb(16, 20, 28);
-            guna2GradientPanel3.Location = new Point(20, 20);
-            guna2GradientPanel3.Name = "guna2GradientPanel3";
-            guna2GradientPanel3.ShadowDecoration.CustomizableEdges = customizableEdges9;
-            guna2GradientPanel3.Size = new Size(68, 589);
-            guna2GradientPanel3.TabIndex = 2;
+            pnMenu.BackColor = Color.Transparent;
+            pnMenu.BorderColor = Color.Transparent;
+            pnMenu.BorderRadius = 30;
+            pnMenu.Controls.Add(btnBack);
+            pnMenu.CustomBorderColor = Color.White;
+            pnMenu.CustomizableEdges = customizableEdges10;
+            pnMenu.Dock = DockStyle.Left;
+            pnMenu.FillColor = Color.FromArgb(16, 20, 28);
+            pnMenu.FillColor2 = Color.FromArgb(16, 20, 28);
+            pnMenu.Location = new Point(20, 20);
+            pnMenu.Name = "pnMenu";
+            pnMenu.ShadowDecoration.CustomizableEdges = customizableEdges11;
+            pnMenu.Size = new Size(68, 589);
+            pnMenu.TabIndex = 2;
             // 
             // btnBack
             // 
+            btnBack.BackColor = Color.Transparent;
             btnBack.BorderRadius = 10;
-            btnBack.CustomizableEdges = customizableEdges6;
+            btnBack.CustomizableEdges = customizableEdges8;
             btnBack.DisabledState.BorderColor = Color.DarkGray;
             btnBack.DisabledState.CustomBorderColor = Color.DarkGray;
             btnBack.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -156,28 +167,29 @@
             btnBack.ForeColor = Color.White;
             btnBack.Location = new Point(19, 28);
             btnBack.Name = "btnBack";
-            btnBack.ShadowDecoration.CustomizableEdges = customizableEdges7;
+            btnBack.ShadowDecoration.CustomizableEdges = customizableEdges9;
             btnBack.Size = new Size(33, 31);
             btnBack.TabIndex = 21;
             btnBack.Text = "<";
             btnBack.Click += OnBtnBackClick;
             // 
-            // label1
+            // lbProjectsTitle
             // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.FromArgb(27, 32, 46);
-            label1.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.FromArgb(252, 239, 239);
-            label1.Location = new Point(118, 105);
-            label1.Name = "label1";
-            label1.Size = new Size(173, 28);
-            label1.TabIndex = 13;
-            label1.Text = "Team Projects";
+            lbProjectsTitle.AutoSize = true;
+            lbProjectsTitle.BackColor = Color.Transparent;
+            lbProjectsTitle.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbProjectsTitle.ForeColor = Color.FromArgb(252, 239, 239);
+            lbProjectsTitle.Location = new Point(118, 105);
+            lbProjectsTitle.Name = "lbProjectsTitle";
+            lbProjectsTitle.Size = new Size(173, 28);
+            lbProjectsTitle.TabIndex = 13;
+            lbProjectsTitle.Text = "Team Projects";
             // 
             // btnCreateProject
             // 
+            btnCreateProject.BackColor = Color.Transparent;
             btnCreateProject.BorderRadius = 10;
-            btnCreateProject.CustomizableEdges = customizableEdges4;
+            btnCreateProject.CustomizableEdges = customizableEdges6;
             btnCreateProject.DisabledState.BorderColor = Color.DarkGray;
             btnCreateProject.DisabledState.CustomBorderColor = Color.DarkGray;
             btnCreateProject.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -187,7 +199,7 @@
             btnCreateProject.ForeColor = Color.White;
             btnCreateProject.Location = new Point(819, 108);
             btnCreateProject.Name = "btnCreateProject";
-            btnCreateProject.ShadowDecoration.CustomizableEdges = customizableEdges5;
+            btnCreateProject.ShadowDecoration.CustomizableEdges = customizableEdges7;
             btnCreateProject.Size = new Size(34, 28);
             btnCreateProject.TabIndex = 18;
             btnCreateProject.Text = "+";
@@ -196,50 +208,53 @@
             // conteinerTest
             // 
             conteinerTest.AutoScroll = true;
-            conteinerTest.BorderRadius = 15;
-            conteinerTest.CustomizableEdges = customizableEdges2;
+            conteinerTest.BackColor = Color.Transparent;
+            conteinerTest.BorderRadius = 20;
+            conteinerTest.CustomizableEdges = customizableEdges4;
+            conteinerTest.FillColor = Color.FromArgb(16, 20, 28);
+            conteinerTest.FillColor2 = Color.FromArgb(16, 20, 28);
             conteinerTest.Location = new Point(118, 150);
             conteinerTest.Name = "conteinerTest";
-            conteinerTest.ShadowDecoration.CustomizableEdges = customizableEdges3;
+            conteinerTest.ShadowDecoration.CustomizableEdges = customizableEdges5;
             conteinerTest.Size = new Size(735, 180);
             conteinerTest.TabIndex = 20;
             // 
-            // label22
+            // lbFinishedTasks
             // 
-            label22.AutoSize = true;
-            label22.BackColor = Color.Transparent;
-            label22.Font = new Font("Century Gothic", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label22.ForeColor = Color.GreenYellow;
-            label22.Location = new Point(40, 65);
-            label22.Name = "label22";
-            label22.Size = new Size(95, 46);
-            label22.TabIndex = 22;
-            label22.Text = "Finished \r\nTasks";
-            label22.TextAlign = ContentAlignment.TopCenter;
+            lbFinishedTasks.AutoSize = true;
+            lbFinishedTasks.BackColor = Color.Transparent;
+            lbFinishedTasks.Font = new Font("Century Gothic", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbFinishedTasks.ForeColor = Color.GreenYellow;
+            lbFinishedTasks.Location = new Point(40, 65);
+            lbFinishedTasks.Name = "lbFinishedTasks";
+            lbFinishedTasks.Size = new Size(95, 46);
+            lbFinishedTasks.TabIndex = 22;
+            lbFinishedTasks.Text = "Finished \r\nTasks";
+            lbFinishedTasks.TextAlign = ContentAlignment.TopCenter;
             // 
-            // label2
+            // lbDashboard
             // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.FromArgb(83, 95, 253);
-            label2.Font = new Font("Century Gothic", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.FromArgb(252, 239, 239);
-            label2.Location = new Point(118, 48);
-            label2.Name = "label2";
-            label2.Size = new Size(186, 38);
-            label2.TabIndex = 23;
-            label2.Text = "Dashboard";
+            lbDashboard.AutoSize = true;
+            lbDashboard.BackColor = Color.FromArgb(83, 95, 253);
+            lbDashboard.Font = new Font("Century Gothic", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbDashboard.ForeColor = Color.FromArgb(252, 239, 239);
+            lbDashboard.Location = new Point(118, 48);
+            lbDashboard.Name = "lbDashboard";
+            lbDashboard.Size = new Size(186, 38);
+            lbDashboard.TabIndex = 23;
+            lbDashboard.Text = "Dashboard";
             // 
             // progressBTeam
             // 
             progressBTeam.BackColor = Color.Transparent;
-            progressBTeam.Controls.Add(label22);
+            progressBTeam.Controls.Add(lbFinishedTasks);
             progressBTeam.FillColor = Color.FromArgb(200, 213, 218, 223);
             progressBTeam.Font = new Font("Segoe UI", 12F);
             progressBTeam.ForeColor = Color.White;
             progressBTeam.Location = new Point(148, 390);
             progressBTeam.Minimum = 0;
             progressBTeam.Name = "progressBTeam";
-            progressBTeam.ShadowDecoration.CustomizableEdges = customizableEdges1;
+            progressBTeam.ShadowDecoration.CustomizableEdges = customizableEdges3;
             progressBTeam.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             progressBTeam.Size = new Size(176, 176);
             progressBTeam.TabIndex = 24;
@@ -358,17 +373,50 @@
             panel6.Size = new Size(200, 5);
             panel6.TabIndex = 38;
             // 
-            // label4
+            // lbStatistics
             // 
-            label4.AutoSize = true;
-            label4.BackColor = Color.FromArgb(27, 32, 46);
-            label4.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.ForeColor = Color.FromArgb(252, 239, 239);
-            label4.Location = new Point(118, 345);
-            label4.Name = "label4";
-            label4.Size = new Size(181, 28);
-            label4.TabIndex = 44;
-            label4.Text = "Team Statistics";
+            lbStatistics.AutoSize = true;
+            lbStatistics.BackColor = Color.FromArgb(27, 32, 46);
+            lbStatistics.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbStatistics.ForeColor = Color.FromArgb(252, 239, 239);
+            lbStatistics.Location = new Point(118, 345);
+            lbStatistics.Name = "lbStatistics";
+            lbStatistics.Size = new Size(181, 28);
+            lbStatistics.TabIndex = 44;
+            lbStatistics.Text = "Team Statistics";
+            // 
+            // btnEditProject
+            // 
+            btnEditProject.BackColor = Color.Transparent;
+            btnEditProject.BorderRadius = 10;
+            btnEditProject.CustomizableEdges = customizableEdges1;
+            btnEditProject.DisabledState.BorderColor = Color.DarkGray;
+            btnEditProject.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnEditProject.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnEditProject.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnEditProject.FillColor = Color.FromArgb(251, 152, 51);
+            btnEditProject.Font = new Font("Century Gothic", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnEditProject.ForeColor = Color.White;
+            btnEditProject.Location = new Point(728, 108);
+            btnEditProject.Name = "btnEditProject";
+            btnEditProject.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            btnEditProject.Size = new Size(75, 28);
+            btnEditProject.TabIndex = 45;
+            btnEditProject.Text = "edit";
+            btnEditProject.Click += OnBtnEditProjetClick;
+            // 
+            // lbResult
+            // 
+            lbResult.AutoSize = true;
+            lbResult.BackColor = Color.FromArgb(0, 192, 0);
+            lbResult.Font = new Font("Century Gothic", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbResult.ForeColor = Color.FromArgb(252, 239, 239);
+            lbResult.Location = new Point(330, 99);
+            lbResult.Name = "lbResult";
+            lbResult.Size = new Size(319, 34);
+            lbResult.TabIndex = 46;
+            lbResult.Text = "select a project to edit";
+            lbResult.Visible = false;
             // 
             // DashboardTL
             // 
@@ -381,7 +429,7 @@
             guna2GradientPanel1.PerformLayout();
             pnInfos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)guna2CirclePictureBox3).EndInit();
-            guna2GradientPanel3.ResumeLayout(false);
+            pnMenu.ResumeLayout(false);
             progressBTeam.ResumeLayout(false);
             progressBTeam.PerformLayout();
             ResumeLayout(false);
@@ -391,13 +439,13 @@
 
         private Guna.UI2.WinForms.Guna2GradientPanel pnInfos;
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox3;
-        private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel3;
-        private Label label1;
+        private Guna.UI2.WinForms.Guna2GradientPanel pnMenu;
+        private Label lbProjectsTitle;
         private Guna.UI2.WinForms.Guna2Button btnCreateProject;
         private Guna.UI2.WinForms.Guna2GradientPanel conteinerTest;
         private Guna.UI2.WinForms.Guna2Button btnBack;
-        private Label label22;
-        private Label label2;
+        private Label lbFinishedTasks;
+        private Label lbDashboard;
         private Guna.UI2.WinForms.Guna2CircleProgressBar progressBTeam;
         private Panel panel1;
         private Label lbAllTasks;
@@ -411,6 +459,8 @@
         private Label lbCompleted;
         private Panel panel4;
         private Label lbDelayed;
-        private Label label4;
+        private Label lbStatistics;
+        private Guna.UI2.WinForms.Guna2Button btnEditProject;
+        private Label lbResult;
     }
 }

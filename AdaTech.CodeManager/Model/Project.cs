@@ -16,16 +16,49 @@ namespace AdaTech.CodeManager.Model
         private string _name;
         private string? _description;
         private DateTime _startDate;
-        private DateTime _targetDate;
+        private DateTime? _targetDate;
 
 
-        public Project(string name, string description, DateTime startDate, DateTime targetDate) { 
+        public Project(string name, string? description, DateTime startDate, DateTime? targetDate) { 
             _name = name;
             _description = description;
             _startDate = startDate;
             _targetDate = targetDate;
             _tasks = new List<Task>();
         }
+
+        #region Properties
+
+        public List<Task> Tasks
+        {
+            get => _tasks;
+            set => _tasks = value;
+        }
+
+        public string Name
+        {
+            get => _name;
+            set => _name = value;
+        }
+        public string? Description
+        {
+            get => _description;
+            set => _description = value;
+        }
+
+        public DateTime StartDate
+        {
+            get => _startDate;
+            set => _startDate = value;
+        }
+
+        public DateTime? TargetDate
+        {
+            get => _targetDate;
+            set => _targetDate = value;
+        }
+
+        #endregion
 
         public List<Task>? GetTasksByStatus(Status desiredStatus)
         {
@@ -39,7 +72,12 @@ namespace AdaTech.CodeManager.Model
 
         public int DaysUntilTargetDate()
         {
-            return _targetDate.Subtract(DateTime.Now).Days;
+            if (_targetDate.HasValue)
+            {
+                return _targetDate.Value.Subtract(DateTime.Now).Days;
+            }
+
+            return -1;
         }
 
         public double concludedTasksPercent()
@@ -57,31 +95,7 @@ namespace AdaTech.CodeManager.Model
             _tasks.Add(task);
         }
 
-
-        public List<Task> Tasks { get => _tasks;
-            set => _tasks = value; }
-
-        public string Name 
-        {
-            get => _name; 
-            set => _name = value; 
-        }
-        public string Description 
-        { get => _description; 
-            set => _description = value;
-        }
-
-        public DateTime StartDate
-        {
-            get => _startDate;
-            set => _startDate = value;
-        }
-
-        public DateTime TargetDate
-        {
-            get => _targetDate;
-            set => _targetDate = value;
-        }
+      
 
 
 

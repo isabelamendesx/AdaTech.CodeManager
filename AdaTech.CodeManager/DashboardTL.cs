@@ -28,8 +28,6 @@ namespace AdaTech.CodeManager
             ShowProjects();
 
         }
-
-
         private void InitializeButtonLabels()
         {
             ConfigurarEfeitoHoverLabel(lbCompleted);
@@ -142,7 +140,7 @@ namespace AdaTech.CodeManager
         {
             if (sender is Label label)
             {
-                label.BackColor = Color.White; 
+                label.BackColor = Color.White;
             }
         }
 
@@ -150,7 +148,7 @@ namespace AdaTech.CodeManager
         {
             if (sender is Label label)
             {
-                label.BackColor = Color.Transparent; 
+                label.BackColor = Color.Transparent;
             }
         }
 
@@ -175,12 +173,10 @@ namespace AdaTech.CodeManager
             pnInfos.Controls.Add(CostumizeLbJobTitle());
         }
 
-
-
         public void ShowProjects()
         {
-            int horizontalSpacing = 10; // Espaçamento horizontal entre os projetos
-            int currentX = 0; // Posição inicial em X
+            int horizontalSpacing = 10;
+            int currentX = 0;
 
             foreach (var project in currentTeam.Projects)
             {
@@ -202,11 +198,16 @@ namespace AdaTech.CodeManager
             }
         }
 
-
-
         public void OnPnProjectClick(Project project)
         {
             Close();
+
+            if(!btnEditProject.Enabled) {
+                Close();
+                new ManageProject(currentTeam, project);
+                return;
+            }
+
             new KanbanBoard(project, currentTeam).ShowDialog();
 
         }
@@ -232,7 +233,7 @@ namespace AdaTech.CodeManager
         private void OnBtnCreateProjectClick(object sender, EventArgs e)
         {
             Close();
-            new ProjectRegister(currentTeam).ShowDialog();
+            new ManageProject(currentTeam).ShowDialog();
         }
 
 
@@ -267,7 +268,7 @@ namespace AdaTech.CodeManager
         private Guna2GradientPanel CustomizePnTeam()
         {
             var pnProject = new Guna2GradientPanel();
-            pnProject.BackColor = Color.FromArgb(27, 32, 46);
+            pnProject.BackColor = Color.Transparent;
             pnProject.BorderColor = Color.FromArgb(83, 95, 253);
             pnProject.BorderRadius = 15;
             pnProject.FillColor = Color.FromArgb(83, 95, 253);
@@ -328,7 +329,7 @@ namespace AdaTech.CodeManager
             lbDaysLeft.Text = $"{daysLeft} days";
             lbDaysLeft.Font = new Font("Century Gothic", 8, FontStyle.Regular);
             lbDaysLeft.Location = new Point(14, 20);
-            lbDaysLeft.BackColor = Color.FromArgb(251, 152, 51);
+            lbDaysLeft.BackColor = Color.Transparent;
             lbDaysLeft.ForeColor = Color.White;
             lbDaysLeft.AutoSize = true;
             lbDaysLeft.TextAlign = ContentAlignment.TopLeft;
@@ -340,7 +341,7 @@ namespace AdaTech.CodeManager
             Label lbName = new Label();
             lbName.Text = $"{currentUser.Name}";
             lbName.Font = new Font("Century Gothic", 10, FontStyle.Bold);
-            lbName.BackColor = Color.FromArgb(16, 20, 28);
+            lbName.BackColor = Color.Transparent;
             lbName.ForeColor = Color.White;
             lbName.AutoSize = false;
             lbName.Width = 534; ;
@@ -360,7 +361,7 @@ namespace AdaTech.CodeManager
             Label lbJobTitle = new Label();
             lbJobTitle.Text = "Tech Lead";
             lbJobTitle.Font = new Font("Century Gothic", 8, FontStyle.Regular);
-            lbJobTitle.BackColor = Color.FromArgb(16, 20, 28);
+            lbJobTitle.BackColor = Color.Transparent;
             lbJobTitle.ForeColor = Color.White;
             lbJobTitle.AutoSize = true;
 
@@ -374,7 +375,40 @@ namespace AdaTech.CodeManager
             return lbJobTitle;
         }
 
+        private void CostumizeEditElements()
+        {
+            lbDashboard.BackColor = Color.Gray;
+            lbProjectsTitle.BackColor = Color.Gray;
+            lbStatistics.BackColor = Color.Gray;
+            lbFinishedTasks.ForeColor = Color.Gray;
+            lbAllTasks.ForeColor = Color.Gray;
+            lbCompleted.ForeColor = Color.Gray;
+            lbProgress.ForeColor = Color.Gray;
+            lbDelayed.ForeColor = Color.Gray;
+            lbDropped.ForeColor = Color.Gray;
+            lbToReview.ForeColor = Color.Gray;
+
+            btnBack.Enabled = false;
+            btnCreateProject.Enabled = false;
+            btnEditProject.Enabled = false;
+
+            guna2GradientPanel1.FillColor = Color.FromArgb(64, 64, 64);
+            guna2GradientPanel1.FillColor2 = Color.FromArgb(64, 64, 64);
+            pnInfos.FillColor = Color.Gray;
+            pnInfos.FillColor2 = Color.Gray;
+            pnMenu.FillColor = Color.Gray;
+            pnMenu.FillColor2 = Color.Gray;
+            conteinerTest.FillColor = Color.Gray;
+            conteinerTest.FillColor2 = Color.Gray;
+
+            lbResult.Visible = true;
+        }
+
         #endregion
 
+        private void OnBtnEditProjetClick(object sender, EventArgs e)
+        {
+            CostumizeEditElements();
+        }
     }
 }

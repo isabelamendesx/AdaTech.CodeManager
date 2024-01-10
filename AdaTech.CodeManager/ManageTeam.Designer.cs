@@ -162,11 +162,12 @@
             // 
             // conteinerMembers
             // 
+            conteinerMembers.AutoScroll = true;
             conteinerMembers.Controls.Add(lbTeamMembers);
             conteinerMembers.Controls.Add(CBMEMBER);
             conteinerMembers.Location = new Point(70, 242);
             conteinerMembers.Name = "conteinerMembers";
-            conteinerMembers.Size = new Size(413, 237);
+            conteinerMembers.Size = new Size(437, 237);
             conteinerMembers.TabIndex = 27;
             // 
             // lbTeamMembers

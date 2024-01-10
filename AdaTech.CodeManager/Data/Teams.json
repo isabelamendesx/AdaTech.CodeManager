@@ -15,7 +15,19 @@
       },
       "Projects": {
         "$type": "System.Collections.Generic.List`1[[AdaTech.CodeManager.Model.Project, AdaTech.CodeManager]], System.Private.CoreLib",
-        "$values": []
+        "$values": [
+          {
+            "$type": "AdaTech.CodeManager.Model.Project, AdaTech.CodeManager",
+            "Tasks": {
+              "$type": "System.Collections.Generic.List`1[[AdaTech.CodeManager.Model.Task, AdaTech.CodeManager]], System.Private.CoreLib",
+              "$values": []
+            },
+            "Name": "Chess Game 2",
+            "Description": "Develop a Chess Game 2",
+            "StartDate": "2024-01-01T11:48:10.139",
+            "TargetDate": "2024-04-09T11:48:10.139"
+          }
+        ]
       },
       "Name": "TechGirls"
     },
@@ -26,7 +38,7 @@
         "$type": "System.Collections.Generic.List`1[[System.Guid, System.Private.CoreLib]], System.Private.CoreLib",
         "$values": [
           "43eda0d0-727c-429c-b31a-cd90f5898cbc",
-          "d5a56216-db90-4f89-8900-f35bd6252df8",
+          "13fcba45-e6e7-40d0-9978-4cacba12336b",
           "ae5886e7-1be3-4c94-ba8e-ec44233d83ac",
           "57ae0b63-d2ab-4b8a-9339-2f5f19d330cd",
           "660e0d21-52e0-4222-acac-501a04c39a6b"
