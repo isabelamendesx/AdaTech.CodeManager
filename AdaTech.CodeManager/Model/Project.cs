@@ -70,7 +70,7 @@ namespace AdaTech.CodeManager.Model
             return _tasks.Where(task => task.Status == desiredStatus).ToList();
         }
 
-        public int DaysUntilTargetDate()
+        public int GetDaysUntilTargetDate()
         {
             if (_targetDate.HasValue)
             {
@@ -80,9 +80,9 @@ namespace AdaTech.CodeManager.Model
             return -1;
         }
 
-        public double concludedTasksPercent()
+        public double GetConcludedTasksPercent()
         {
-            if(_tasks == null)
+            if(_tasks == null || _tasks.Count == 0)
             {
                 return 0.00;
             }

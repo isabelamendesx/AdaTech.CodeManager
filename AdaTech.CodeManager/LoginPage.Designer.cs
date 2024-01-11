@@ -80,6 +80,7 @@
             // 
             // btnExit
             // 
+            btnExit.BackColor = Color.Transparent;
             btnExit.BorderRadius = 10;
             btnExit.CustomizableEdges = customizableEdges1;
             btnExit.DisabledState.BorderColor = Color.DarkGray;

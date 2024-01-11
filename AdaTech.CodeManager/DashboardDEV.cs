@@ -59,9 +59,9 @@ namespace AdaTech.CodeManager
                 pnProject.Click += (sender, e) => OnPnProjectClick(project);
 
                 pnProject.Controls.Add(CostumizeLbProjectName(project.Name));
-                pnProject.Controls.Add(CostumizeLbDaysLeft(project.DaysUntilTargetDate()));
-                pnProject.Controls.Add(CostumizeLbCompletedPercent(project.concludedTasksPercent()));
-                pnProject.Controls.Add(CostumizeProjectProgressBar((int)project.concludedTasksPercent()));
+                pnProject.Controls.Add(CostumizeLbDaysLeft(project.GetDaysUntilTargetDate()));
+                pnProject.Controls.Add(CostumizeLbCompletedPercent(project.GetConcludedTasksPercent()));
+                pnProject.Controls.Add(CostumizeProjectProgressBar((int)project.GetConcludedTasksPercent()));
 
                 conteinerProjects.Controls.Add(pnProject);
             }
