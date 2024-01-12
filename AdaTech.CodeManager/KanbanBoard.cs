@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace AdaTech.CodeManager
 {
@@ -25,16 +26,16 @@ namespace AdaTech.CodeManager
             currentProject = project;
             currentTeam = team;
 
-            InitializeTasks(Status.BackLog, conteinerBackLog);
-            InitializeTasks(Status.ToDo, conteinerToDo);
-            InitializeTasks(Status.Doing, conteinerDoing);
-            InitializeTasks(Status.Done, conteinerDone);
-            InitializeTasks(Status.Review, conteinerReview);
-            InitializeTasks(Status.Cancelled, conteinerCancelled);
+            InitializeTasks(Model.Status.BackLog, conteinerBackLog);
+            InitializeTasks(Model.Status.ToDo, conteinerToDo);
+            InitializeTasks(Model.Status.Doing, conteinerDoing);
+            InitializeTasks(Model.Status.Done, conteinerDone);
+            InitializeTasks(Model.Status.Review, conteinerReview);
+            InitializeTasks(Model.Status.Cancelled, conteinerCancelled);
 
         }
 
-        private void InitializeTasks(Status desiredStatus, FlowLayoutPanel conteiner)
+        private void InitializeTasks(Model.Status desiredStatus, FlowLayoutPanel conteiner)
         {
             var tasks = currentProject.GetTasksByStatus(desiredStatus);
 
@@ -46,20 +47,20 @@ namespace AdaTech.CodeManager
 
                     pnTask.Click += (sender, e) => OnPnTaskClick(task);
 
-                    pnTask.Controls.Add(CostumizeLbTaskName(task.Name));
-                    pnTask.Controls.Add(CostumizeTaskPicBox());
+                    pnTask.Controls.Add(CostumizePnTaskLbTaskName(task.Name));
+                    pnTask.Controls.Add(CostumizePnTaskPicBox());
 
                     if (task.Priority == Priority.High)
                     {
-                        pnTask.Controls.Add(CostumizeLbPriority(Color.Red, "HIGH"));
+                        pnTask.Controls.Add(CostumizePnTaskLbPriority(Color.Red, "HIGH"));
                     }
                     else if (task.Priority == Priority.Low)
                     {
-                        pnTask.Controls.Add(CostumizeLbPriority(Color.Green, "LOW"));
+                        pnTask.Controls.Add(CostumizePnTaskLbPriority(Color.Green, "LOW"));
                     }
                     else if (task.Priority == Priority.Medium)
                     {
-                        pnTask.Controls.Add(CostumizeLbPriority(Color.Yellow, "MEDIUM"));
+                        pnTask.Controls.Add(CostumizePnTaskLbPriority(Color.Yellow, "MEDIUM"));
                     }
 
                     conteiner.Controls.Add(pnTask);
@@ -67,13 +68,82 @@ namespace AdaTech.CodeManager
             }
         }
 
+        private void OnPnTaskMouseEnter(object sender, EventArgs e)
+        {
+            if (sender is Guna2GradientPanel pnTask)
+            {
+                CustomizeTaskPanelOnMouseEnter(pnTask);
+            }
+        }
+
+        private void OnPnTaskMouseLeave(object sender, EventArgs e)
+        {
+            if (sender is Guna2GradientPanel pnTask)
+            {
+                CustomizeTaskPanelOnMouseLeave(pnTask);
+            }
+        }
+
+
+        private void OnBtnCreateTaskClick(object sender, EventArgs e)
+        {
+            Close();
+            new ManageTask(currentProject, currentTeam, currentUser).ShowDialog();
+        }
+
+
+        private void OnBtnBackClick(object sender, EventArgs e)
+        {
+            Close();
+            if (currentUser is TechLead)
+            {
+                new DashboardTL(currentTeam).ShowDialog();
+            }
+            else
+            {
+                new DashboardDEV().ShowDialog();
+            }
+        }
         public void OnPnTaskClick(Model.Task task)
         {
             Close();
-            new RegisterTask(currentProject,currentTeam, currentUser, task);
+            new ManageTask(currentProject, currentTeam, currentUser, task);
         }
 
-        private Label CostumizeLbTaskName(string taskName)
+        private void OnBtnEditClick(object sender, EventArgs e)
+        {
+            CostumizeEditClickElements();
+        }
+
+        #region UI Element Builders
+        private void CustomizeTaskPanelOnMouseEnter(Guna2GradientPanel pnTask)
+        {
+            pnTask.FillColor = Color.FromArgb(252, 239, 239);
+            pnTask.FillColor2 = Color.FromArgb(252, 239, 239);
+        }
+
+        private void CustomizeTaskPanelOnMouseLeave(Guna2GradientPanel pnTask)
+        {
+            pnTask.FillColor = Color.FromArgb(16, 20, 28);
+            pnTask.FillColor2 = Color.FromArgb(16, 20, 28);
+        }
+        private Guna2GradientPanel costumizepnTask()
+        {
+            var pnTask = new Guna2GradientPanel();
+            pnTask.BackColor = Color.FromArgb(27, 32, 46);
+            pnTask.BorderColor = Color.FromArgb(27, 32, 46);
+            pnTask.BorderRadius = 15;
+            pnTask.FillColor = Color.FromArgb(16, 20, 28);
+            pnTask.FillColor2 = Color.FromArgb(16, 20, 28);
+            pnTask.Size = new Size(144, 62);
+            pnTask.BackColor = Color.Transparent;
+            pnTask.MouseEnter += OnPnTaskMouseEnter;
+            pnTask.MouseLeave += OnPnTaskMouseLeave;
+
+            return pnTask;
+        }
+
+        private Label CostumizePnTaskLbTaskName(string taskName)
         {
             Label lbTaskName = new Label();
             lbTaskName.Text = taskName;
@@ -86,7 +156,7 @@ namespace AdaTech.CodeManager
             return lbTaskName;
         }
 
-        private Label CostumizeLbPriority(Color color, string priority)
+        private Label CostumizePnTaskLbPriority(Color color, string priority)
         {
             Label lbPriority = new Label();
             lbPriority.Text = priority;
@@ -99,7 +169,7 @@ namespace AdaTech.CodeManager
             return lbPriority;
         }
 
-        private Guna2CirclePictureBox CostumizeTaskPicBox()
+        private Guna2CirclePictureBox CostumizePnTaskPicBox()
         {
             Guna2CirclePictureBox taskAvatar = new Guna2CirclePictureBox();
             taskAvatar.Size = new Size(25, 25);
@@ -107,72 +177,29 @@ namespace AdaTech.CodeManager
             return taskAvatar;
         }
 
-        private Guna2GradientPanel costumizepnTask()
+        private void CostumizeEditClickElements()
         {
-            var pnTask = new Guna2GradientPanel();
-            pnTask.BackColor = Color.FromArgb(27, 32, 46);
-            pnTask.BorderColor = Color.FromArgb(27, 32, 46);
-            pnTask.BorderRadius = 15;
-            pnTask.FillColor = Color.FromArgb(16, 20, 28);
-            pnTask.FillColor2 = Color.FromArgb(16, 20, 28);
-            pnTask.Size = new Size(144, 62);
-            pnTask.MouseEnter += OnPnTaskMouseEnter;
-            pnTask.MouseLeave += OnPnTaskMouseLeave;
+            guna2GradientPanel1.FillColor = Color.FromArgb(64, 64, 64);
+            guna2GradientPanel1.FillColor2 = Color.FromArgb(64, 64, 64);
+            pnMenu.FillColor = Color.Gray;
+            pnMenu.FillColor2 = Color.Gray;
 
-            return pnTask;
+            btnBack.Enabled = false;
+            btnCreateTask.Enabled = false;
+            btnEdit.Enabled = false;
 
-        }
 
-        private void OnPnTaskMouseEnter(object sender, EventArgs e)
-        {
-            if (sender is Guna2GradientPanel pnTask)
-            {
-                CustomizePanelOnMouseEnter(pnTask);
-            }
+            lbBacklog.BackColor = Color.Gray;
+            lbToDo.BackColor = Color.Gray;
+            lbDoing.BackColor = Color.Gray;
+            lbDone.BackColor = Color.Gray;
+            lbReview.BackColor = Color.Gray;
+            lbCancelled.BackColor = Color.Gray;
         }
 
 
-        private void OnPnTaskMouseLeave(object sender, EventArgs e)
-        {
-            if (sender is Guna2GradientPanel pnTask)
-            {
-                CustomizePanelOnMouseLeave(pnTask);
-            }
-        }
+        #endregion
 
-        private void CustomizePanelOnMouseEnter(Guna2GradientPanel pnTask)
-        {
-            pnTask.FillColor = Color.FromArgb(252, 239, 239);
-            pnTask.FillColor2 = Color.FromArgb(252, 239, 239);
-        }
 
-        private void CustomizePanelOnMouseLeave(Guna2GradientPanel pnTask)
-        {
-            pnTask.FillColor = Color.FromArgb(16, 20, 28);
-            pnTask.FillColor2 = Color.FromArgb(16, 20, 28);
-        }
-
-        private void OnBtnCreateTaskClick(object sender, EventArgs e)
-        {
-            Close();
-            new RegisterTask(currentProject, currentTeam, currentUser).ShowDialog();
-        }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void OnBtnBackClick(object sender, EventArgs e)
-        {
-            Close();
-            if(currentUser is TechLead)
-            {
-                new DashboardTL(currentTeam).ShowDialog();
-            }
-            else {
-                new DashboardDEV().ShowDialog();            
-            }
-        }
     }
 }

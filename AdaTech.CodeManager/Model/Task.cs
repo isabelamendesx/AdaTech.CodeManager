@@ -17,7 +17,7 @@ namespace AdaTech.CodeManager.Model
         private readonly int _taskID;
         private bool _isTechLeadAssigneed;
         private List<Developer>? _owners;
-        private Status _status;
+        private Status? _status;
         private DateTime _startDate;
         private DateTime _endDate;
         private Priority _priority;
@@ -25,7 +25,7 @@ namespace AdaTech.CodeManager.Model
         private static int _nextTaskID = 1;
 
         // - CONSTRUTOR
-        public Task(string name, DateTime startDate, DateTime endDate, string? description = null, List<Developer>? owners = null, Status status = Status.BackLog, Priority priority = Priority.Low, bool isTechLeadAssigneed = false)
+        public Task(string name, DateTime startDate, DateTime endDate, string? description = null, List<Developer>? owners = null, Status? status = Model.Status.BackLog, Priority priority = Priority.Low, bool isTechLeadAssigneed = false)
         {
             _name = name;
             _description = description;
@@ -40,7 +40,7 @@ namespace AdaTech.CodeManager.Model
 
         public int GetCompletionPercentage()
         {
-            if (_status == Status.Cancelled)
+            if (_status == Model.Status.Cancelled)
             {
                 return 0; 
             }
@@ -81,7 +81,7 @@ namespace AdaTech.CodeManager.Model
             get => _owners;
             set => _owners = value;
         }
-        public Status Status
+        public Status? Status
         {
             get => _status;
             set => _status = value;
@@ -96,6 +96,12 @@ namespace AdaTech.CodeManager.Model
         {
             get => _endDate;
             set => _endDate = value;
+        }
+
+        public bool IsTechLeadAssignee
+        {
+            get => _isTechLeadAssigneed;
+            set => _isTechLeadAssigneed = value;
         }
     }
 }

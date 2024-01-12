@@ -13,6 +13,7 @@ namespace AdaTech.CodeManager.Model
     public class Project
     {
         private List<Task> _tasks;
+        private List<Task> _tasksToApprove;
         private string _name;
         private string? _description;
         private DateTime _startDate;
@@ -25,6 +26,7 @@ namespace AdaTech.CodeManager.Model
             _startDate = startDate;
             _targetDate = targetDate;
             _tasks = new List<Task>();
+            _tasksToApprove = new List<Task>();
         }
 
         #region Properties
@@ -93,6 +95,18 @@ namespace AdaTech.CodeManager.Model
         public void AddTask(Task task)
         {
             _tasks.Add(task);
+            TeamData.SaveTeams();
+        }
+
+        public void RemoveTask(Task task)
+        {
+            _tasks.Remove(task);
+            TeamData.SaveTeams();
+        }
+        public void AddTaskToApprove(Task task)
+        {
+            _tasksToApprove.Add(task);
+            TeamData.SaveTeams();
         }
 
       
