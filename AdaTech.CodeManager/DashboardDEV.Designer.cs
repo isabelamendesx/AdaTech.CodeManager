@@ -126,9 +126,9 @@
             label15.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label15.Location = new Point(112, 331);
             label15.Name = "label15";
-            label15.Size = new Size(192, 28);
+            label15.Size = new Size(102, 28);
             label15.TabIndex = 9;
-            label15.Text = "Recent projects";
+            label15.Text = "Projects";
             // 
             // label2
             // 
@@ -255,6 +255,7 @@
             progressAllTasks.Size = new Size(87, 87);
             progressAllTasks.TabIndex = 12;
             progressAllTasks.TabStop = false;
+            progressAllTasks.ValueChanged += progressAllTasks_ValueChanged;
             // 
             // label21
             // 

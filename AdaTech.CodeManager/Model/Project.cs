@@ -37,6 +37,12 @@ namespace AdaTech.CodeManager.Model
             set => _tasks = value;
         }
 
+        public List<Task> TasksToApprove
+        {
+            get => _tasksToApprove;
+            set => _tasksToApprove = value;
+        }
+
         public string Name
         {
             get => _name;
@@ -109,7 +115,13 @@ namespace AdaTech.CodeManager.Model
             TeamData.SaveTeams();
         }
 
-      
+        public void RemoveTaskToApprove(Task task)
+        {
+            _tasksToApprove.Remove(task);
+            TeamData.SaveTeams();
+        }
+
+
 
 
 

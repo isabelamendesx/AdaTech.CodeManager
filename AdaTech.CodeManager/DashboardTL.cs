@@ -28,6 +28,7 @@ namespace AdaTech.CodeManager
         {
             InitializeStatisticsNumbersLabels();
             InitializeStatisticsLabelsButtonEffect();
+            InitializeTasksToApprove();
             ConfigureFinishedTasksProgressBar();
             ShowUserInfo();
             ShowProjects();
@@ -371,7 +372,106 @@ namespace AdaTech.CodeManager
             }
         }
 
+        private Guna2GradientPanel costumizePnTaskToApprove()
+        {
+            var pnTaskToApprove = new Guna2GradientPanel();
+            pnTaskToApprove.BackColor = Color.Transparent;
+            pnTaskToApprove.BorderColor = Color.Transparent;
+            pnTaskToApprove.BorderRadius = 15;
+            pnTaskToApprove.FillColor = Color.FromArgb(251, 152, 51);
+            pnTaskToApprove.FillColor2 = Color.FromArgb(251, 152, 51);
+            pnTaskToApprove.Size = new Size(176, 30);
+            pnTaskToApprove.MouseEnter += OnPnTaskToApproveMouseEnter;
+            pnTaskToApprove.MouseLeave += OnPnTaskToApproveMouseLeave;
+
+            return pnTaskToApprove;
+        }
+
+        private Label CostumizePnTaskLbName(string taskName)
+        {
+            Label lbTaskName = new Label();
+            lbTaskName.Text = taskName;
+            lbTaskName.Font = new Font("Century Gothic", 8, FontStyle.Bold);
+            lbTaskName.Location = new Point(10, 3);
+            lbTaskName.BackColor = Color.Transparent;
+            lbTaskName.ForeColor = Color.White;
+            lbTaskName.AutoSize = true;
+            lbTaskName.TextAlign = ContentAlignment.TopCenter;
+            return lbTaskName;
+        }
+
+        private Label CostumizePnTaskLbProjectName(string projectName)
+        {
+            Label lbProjectName = new Label();
+            lbProjectName.Text = projectName;
+            lbProjectName.Font = new Font("Century Gothic", 6, FontStyle.Regular);
+            lbProjectName.Location = new Point(106, 10);
+            lbProjectName.BackColor = Color.Transparent;
+            lbProjectName.ForeColor = Color.White;
+            lbProjectName.AutoSize = true;
+            lbProjectName.TextAlign = ContentAlignment.TopLeft;
+            return lbProjectName;
+        }
+
+        private void CustomizeTaskToApprovePanelOnMouseEnter(Guna2GradientPanel pnTask)
+        {
+            pnTask.FillColor = Color.FromArgb(252, 239, 239);
+            pnTask.FillColor2 = Color.FromArgb(252, 239, 239);
+        }
+
+        private void CustomizeTaskToApprovePanelOnMouseLeave(Guna2GradientPanel pnTask)
+        {
+            pnTask.FillColor = Color.FromArgb(251, 152, 51);
+            pnTask.FillColor2 = Color.FromArgb(251, 152, 51);
+        }
+
         #endregion
+
+        #region Tasks to Approve Auxiliar Methods
+        private void InitializeTasksToApprove()
+        {
+            var tasksToApprove = TeamData.FindTasksToApproveByTechLead(currentUser);
+
+            if (tasksToApprove != null)
+            {
+                foreach (var task in tasksToApprove)
+                {
+                    var pnTask = costumizePnTaskToApprove();
+
+                    pnTask.Click += (sender, e) => OnPnTaskToApproveClick(task);
+
+                    pnTask.Controls.Add(CostumizePnTaskLbName(task.Name));
+                    pnTask.Controls.Add(CostumizePnTaskLbProjectName(TeamData.FindProjectByTask(task, currentUser).Name));
+       
+                    conteinerToApproveTasks.Controls.Add(pnTask);
+                }
+            }
+        }
+
+        public void OnPnTaskToApproveClick(Model.Task task)
+        {
+            Close();
+            new ManageTask(TeamData.FindProjectByTask(task, currentUser), currentTeam, currentUser, task);
+        }
+
+        private void OnPnTaskToApproveMouseEnter(object sender, EventArgs e)
+        {
+            if (sender is Guna2GradientPanel pnTask)
+            {
+                CustomizeTaskToApprovePanelOnMouseEnter(pnTask);
+            }
+        }
+
+        private void OnPnTaskToApproveMouseLeave(object sender, EventArgs e)
+        {
+            if (sender is Guna2GradientPanel pnTask)
+            {
+                CustomizeTaskToApprovePanelOnMouseLeave(pnTask);
+            }
+        }
+        #endregion
+
+
 
     }
 }

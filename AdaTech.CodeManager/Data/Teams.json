@@ -193,8 +193,58 @@
                   "StartDate": "2024-01-01T00:00:00",
                   "EndDate": "2024-01-01T00:00:00",
                   "IsTechLeadAssignee": true
+                },
+                {
+                  "$type": "AdaTech.CodeManager.Model.Task, AdaTech.CodeManager",
+                  "Priority": 2,
+                  "Name": "Aprovar",
+                  "Description": "aprovar teste",
+                  "TaskID": 9,
+                  "Owners": {
+                    "$type": "System.Collections.Generic.List`1[[AdaTech.CodeManager.Model.Developer, AdaTech.CodeManager]], System.Private.CoreLib",
+                    "$values": [
+                      {
+                        "$type": "AdaTech.CodeManager.Model.Developer, AdaTech.CodeManager",
+                        "Level": 1,
+                        "MainSkill": 3,
+                        "Name": "Ivy Rigon",
+                        "UserID": "13fcba45-e6e7-40d0-9978-4cacba12336b",
+                        "Username": "ivyr",
+                        "Password": "d85a686d93a045292da3c06b7c49aed1441f4d69bb3710348274d87b07f944de",
+                        "Admin": false
+                      },
+                      {
+                        "$type": "AdaTech.CodeManager.Model.Developer, AdaTech.CodeManager",
+                        "Level": 3,
+                        "MainSkill": 3,
+                        "Name": "Patrícia Pereira",
+                        "UserID": "660e0d21-52e0-4222-acac-501a04c39a6b",
+                        "Username": "patriciap",
+                        "Password": "8cbefb39fadbe1dfa48448f004a86a254d060d308798a9d91137a1be83a9a34b",
+                        "Admin": false
+                      },
+                      {
+                        "$type": "AdaTech.CodeManager.Model.Developer, AdaTech.CodeManager",
+                        "Level": 1,
+                        "MainSkill": 1,
+                        "Name": "Júlia Santos",
+                        "UserID": "5724897a-b383-4bc2-85d7-1a8a733d41d4",
+                        "Username": "julias",
+                        "Password": "1604556ee0437b07d3fef66d5c6de7e044ce7dd8fc2d0c4b4264df72cc74b9c6",
+                        "Admin": false
+                      }
+                    ]
+                  },
+                  "Status": 0,
+                  "StartDate": "2024-01-14T00:00:00",
+                  "EndDate": "2024-01-14T00:00:00",
+                  "IsTechLeadAssignee": false
                 }
               ]
+            },
+            "TasksToApprove": {
+              "$type": "System.Collections.Generic.List`1[[AdaTech.CodeManager.Model.Task, AdaTech.CodeManager]], System.Private.CoreLib",
+              "$values": []
             },
             "Name": "Chess Game 2",
             "Description": "Develop a Chess Game 2",

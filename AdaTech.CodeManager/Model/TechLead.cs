@@ -15,18 +15,6 @@ namespace AdaTech.CodeManager.Model
         {
         }
 
-        //public void CreateTeam(string teamName, List<Developer> teamMembers)
-        //{
-        //    var team = new Team(teamName, teamMembers);
-        //    _teams.Add(team);
-        //    UserData.SaveUsers();
-        //}
-
-        //public List<Team> GetTeams()
-        //{
-        //    return _teams;
-        //}
-
         public override string ToString()
         {
             return Name + " - " + "TechLead";

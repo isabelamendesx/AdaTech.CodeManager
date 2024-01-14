@@ -23,7 +23,7 @@ namespace AdaTech.CodeManager
         private List<Developer> avaiableAssigneeCandidates = new List<Developer>();
         private List<Guna2ComboBox> cbList = new List<Guna2ComboBox>();
         private User currentUser = Session.getInstance.GetCurrentUser();
-        private Model.Task taskToEdit;
+        private Model.Task taskToEditOrApprove;
 
         public ManageTask(Project project, Team team, User currentUser, Model.Task? task = null)
         {
@@ -33,17 +33,23 @@ namespace AdaTech.CodeManager
             currentProject = project;
             avaiableAssigneeCandidates = currentTeam.GetTeamMembers();
 
-            if (task == null)
+            if (task != null)
             {
-                BuildCreateTaskPage();
+                taskToEditOrApprove = task;
+                BuildEditTaskPage();
+     
+                if (currentProject.TasksToApprove.Contains(task))
+                {
+                    btnEdit.Visible = false;
+                    btnApproveTask.Visible = true;
+                }
+
                 ShowDialog();
                 return;
             }
 
-            taskToEdit = task;
-            BuildEditTaskPage();
+            BuildCreateTaskPage();
             ShowDialog();
-
         }
 
         private void BuildEditTaskPage()
@@ -126,7 +132,8 @@ namespace AdaTech.CodeManager
 
             if (result == DialogResult.Yes)
             {
-                currentProject.RemoveTask(taskToEdit);
+                currentProject.RemoveTask(taskToEditOrApprove);
+                currentProject.RemoveTaskToApprove(taskToEditOrApprove);
                 lbResult.BackColor = Color.Red;
                 lbResult.Text = "task deleted!";
                 lbResult.Visible = true;
@@ -138,11 +145,24 @@ namespace AdaTech.CodeManager
             }
         }
 
+        private async void OnBtnApproveTaskClick(object sender, EventArgs e)
+        {
+            currentProject.AddTask(taskToEditOrApprove);
+            currentProject.RemoveTaskToApprove(taskToEditOrApprove);
+
+            lbResult.Text = "task approved!";
+            lbResult.Visible = true;
+
+            await System.Threading.Tasks.Task.Delay(1000);
+            Close();
+            new KanbanBoard(currentProject, currentTeam).ShowDialog();
+        }
+
         #region Edit Task Auxiliar Methods
 
         private void InitializeEditAssigneesMembersComboBoxes()
         {
-            foreach (var assignee in taskToEdit.Owners)
+            foreach (var assignee in taskToEditOrApprove.Owners)
             {
                 Guna2ComboBox newComboBox = CreateNewComboBox(assignee);
                 int selectedIndex = avaiableAssigneeCandidates.IndexOf(assignee) + 1;
@@ -163,8 +183,8 @@ namespace AdaTech.CodeManager
         private async void ApproveTaskForDeveloper()
         {
             lbWaiting.Visible = true;
-            currentProject.AddTaskToApprove(taskToEdit);
-            currentProject.Tasks.Remove(taskToEdit);
+            currentProject.AddTaskToApprove(taskToEditOrApprove);
+            currentProject.Tasks.Remove(taskToEditOrApprove);
             await System.Threading.Tasks.Task.Delay(1000);
             Close();
             new KanbanBoard(currentProject, currentTeam);
@@ -179,8 +199,8 @@ namespace AdaTech.CodeManager
                 .Where(owner => owner != null)
                 .ToList();
 
-            taskToEdit.Owners.Clear();
-            taskToEdit.Owners.AddRange(newOwners);
+            taskToEditOrApprove.Owners.Clear();
+            taskToEditOrApprove.Owners.AddRange(newOwners);
             TeamData.SaveTeams();
 
             DisplayResultMessage("Task edited!");
@@ -191,12 +211,12 @@ namespace AdaTech.CodeManager
 
         private void UpdateTaskProperties()
         {
-            taskToEdit.Name = txtTaskName.Text;
-            taskToEdit.Description = txtTaskDescription.Text;
-            taskToEdit.EndDate = dpTarget.Value.Date;
-            taskToEdit.Status = (Model.Status)cbTaskStatus.SelectedItem;
-            taskToEdit.Priority = (Priority)cbTaskPriority.SelectedItem;
-            taskToEdit.IsTechLeadAssignee = cbSelfAssign.Checked;
+            taskToEditOrApprove.Name = txtTaskName.Text;
+            taskToEditOrApprove.Description = txtTaskDescription.Text;
+            taskToEditOrApprove.EndDate = dpTarget.Value.Date;
+            taskToEditOrApprove.Status = (Model.Status)cbTaskStatus.SelectedItem;
+            taskToEditOrApprove.Priority = (Priority)cbTaskPriority.SelectedItem;
+            taskToEditOrApprove.IsTechLeadAssignee = cbSelfAssign.Checked;
         }
 
         private void DisplayResultMessage(string message)
@@ -346,14 +366,14 @@ namespace AdaTech.CodeManager
             lbCreateorEdit.Text = "Edit a";
             lbCreateorEdit.Location = new Point(196, 44);
             lbEdit.Location = new Point(279, 44);
-            txtTaskName.Text = taskToEdit.Name;
-            txtTaskDescription.Text = taskToEdit.Description;
-            dpStart.Value = taskToEdit.StartDate;
+            txtTaskName.Text = taskToEditOrApprove.Name;
+            txtTaskDescription.Text = taskToEditOrApprove.Description;
+            dpStart.Value = taskToEditOrApprove.StartDate;
             dpStart.Enabled = false;
-            dpTarget.Value = taskToEdit.EndDate;
+            dpTarget.Value = taskToEditOrApprove.EndDate;
             cbAssignees.Visible = false;
-            cbTaskStatus.SelectedIndex = (int)taskToEdit.Status;
-            cbTaskPriority.SelectedIndex = (int)taskToEdit.Priority;
+            cbTaskStatus.SelectedIndex = (int)taskToEditOrApprove.Status;
+            cbTaskPriority.SelectedIndex = (int)taskToEditOrApprove.Priority;
             btnEdit.Visible = true;
             btnDeleteTask.Visible = true;
             btnCreateTask.Visible = false;
@@ -365,6 +385,7 @@ namespace AdaTech.CodeManager
         }
 
         #endregion
+
 
     }
 }

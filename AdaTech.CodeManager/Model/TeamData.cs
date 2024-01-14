@@ -46,10 +46,36 @@ namespace AdaTech.CodeManager.Model
             return _teams.FindAll(team => team.TechLeadID.Equals(techLead.UserID));
         }
 
+        public static Team? FindTeamByDeveloper(Developer dev)
+        {
+            return _teams.Find(team => team.TeamMembersID.Contains(dev.UserID));
+
+        }
+
+        public static List<Task>? FindTasksToApproveByTechLead
+            (TechLead techLead)
+        {
+            var teams = FindTeamsByTechLead(techLead);
+
+            return teams.SelectMany(team => team.Projects).SelectMany(project => project.TasksToApprove).ToList();
+        }
+
+        public static Project FindProjectByTask(Model.Task task, TechLead techLead)
+        {
+            var teams = FindTeamsByTechLead(techLead);
+
+            var project = teams.SelectMany(team => team.Projects)
+                   .FirstOrDefault(proj => proj.Tasks.Contains(task) || proj.TasksToApprove.Contains(task));
+
+            return project;
+        }
+
         public static void SaveTeams()
         {
             DataHandler.SaveData(_teams, TEAMS_FILE_PATH);
         }
+
+
 
 
     }

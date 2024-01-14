@@ -15,11 +15,12 @@ namespace AdaTech.CodeManager
     public partial class DashboardDEV : Form
     {
         private static Developer currentUser = (Developer)Session.getInstance.GetCurrentUser();
-        private static Team currentTeam;
+        private static Team userTeam;
 
         public DashboardDEV()
         {
             InitializeComponent();
+            userTeam = TeamData.FindTeamByDeveloper(currentUser);
             ShowUserInfo();
             ShowProjects();
             ShowTasks();
@@ -30,7 +31,7 @@ namespace AdaTech.CodeManager
         private void InitializeTaskNumbersLabels()
         {
             // ALL PROJECTS
-            CustomizeLbTaskNumber(currentTeam.Projects.Count(), 185, 426);
+            CustomizeLbTaskNumber(userTeam.Projects.Count(), 185, 426);
 
             // COMPLETED TASKS
             CustomizeLbTaskNumber(CountCompletedTasks(), 185, 473);
@@ -43,7 +44,7 @@ namespace AdaTech.CodeManager
         private int CountDelayedTasks()
         {
             DateTime today = DateTime.Now;
-            return currentTeam.Projects
+            return userTeam.Projects
                 .SelectMany(project => project.Tasks)
                 .Where(task => task.Status != Status.Done && task.Owners?.Contains(currentUser) == true)
                 .Count(task => task.EndDate != null && task.EndDate < today);
@@ -53,7 +54,7 @@ namespace AdaTech.CodeManager
         public void ShowProjects()
         {
 
-            foreach (var project in currentTeam.Projects)
+            foreach (var project in userTeam.Projects)
             {
                 var pnProject = CustomizePnProject();
                 pnProject.Click += (sender, e) => OnPnProjectClick(project);
@@ -69,28 +70,28 @@ namespace AdaTech.CodeManager
 
         private List<Model.Task> AllTasks()
         {
-            return currentTeam.Projects
+            return userTeam.Projects
                 .SelectMany(project => project.Tasks)
                 .ToList();
         }
 
         private int CountAllTasks()
         {
-            return currentTeam.Projects
+            return userTeam.Projects
                 .SelectMany(project => project.Tasks)
                 .Count(task => task.Owners?.Contains(currentUser) == true);
         }
 
         private int CountCompletedTasks()
         {
-            return currentTeam.Projects
+            return userTeam.Projects
                 .SelectMany(project => project.Tasks)
                 .Count(task => task.Owners?.Contains(currentUser) == true && task.Status == Status.Done);
         }
 
         private Project? FindProject(Model.Task taskToFind)
         {
-            return currentTeam.Projects
+            return userTeam.Projects
                     .FirstOrDefault(project => project.Tasks.Contains(taskToFind));
         }
 
@@ -114,7 +115,7 @@ namespace AdaTech.CodeManager
         public void OnPnProjectClick(Project project)
         {
             Close();
-            new KanbanBoard(project, currentTeam).ShowDialog();
+            new KanbanBoard(project, userTeam).ShowDialog();
 
         }
 
@@ -394,6 +395,9 @@ namespace AdaTech.CodeManager
             return lbTaskNumber;
         }
 
+        private void progressAllTasks_ValueChanged(object sender, EventArgs e)
+        {
 
+        }
     }
 }
