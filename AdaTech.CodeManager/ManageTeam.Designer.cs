@@ -25,11 +25,11 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -38,15 +38,18 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(components);
             guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
             guna2GradientPanel2 = new Guna.UI2.WinForms.Guna2GradientPanel();
-            lbResult = new Guna.UI2.WinForms.Guna2HtmlLabel();
             btnSave = new Guna.UI2.WinForms.Guna2Button();
+            lbResult = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            btnDeleteTeam = new Guna.UI2.WinForms.Guna2Button();
             conteinerMembers = new FlowLayoutPanel();
             lbTeamMembers = new Guna.UI2.WinForms.Guna2HtmlLabel();
             CBMEMBER = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -74,7 +77,7 @@
             guna2GradientPanel1.Controls.Add(btnBack);
             guna2GradientPanel1.Controls.Add(pnRegister);
             guna2GradientPanel1.Controls.Add(pictureBox1);
-            guna2GradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges17;
+            guna2GradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges19;
             guna2GradientPanel1.Size = new Size(1113, 609);
             // 
             // guna2AnimateWindow1
@@ -91,7 +94,7 @@
             // 
             guna2TextBox2.Anchor = AnchorStyles.None;
             guna2TextBox2.BorderRadius = 20;
-            guna2TextBox2.CustomizableEdges = customizableEdges13;
+            guna2TextBox2.CustomizableEdges = customizableEdges15;
             guna2TextBox2.DefaultText = "";
             guna2TextBox2.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             guna2TextBox2.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -107,39 +110,28 @@
             guna2TextBox2.PasswordChar = '\0';
             guna2TextBox2.PlaceholderText = "";
             guna2TextBox2.SelectedText = "";
-            guna2TextBox2.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            guna2TextBox2.ShadowDecoration.CustomizableEdges = customizableEdges16;
             guna2TextBox2.Size = new Size(381, 36);
             guna2TextBox2.TabIndex = 3;
             // 
             // guna2GradientPanel2
             // 
-            guna2GradientPanel2.Controls.Add(lbResult);
             guna2GradientPanel2.Controls.Add(btnSave);
+            guna2GradientPanel2.Controls.Add(lbResult);
+            guna2GradientPanel2.Controls.Add(btnDeleteTeam);
             guna2GradientPanel2.Controls.Add(conteinerMembers);
             guna2GradientPanel2.Controls.Add(btnCreate);
             guna2GradientPanel2.Controls.Add(guna2HtmlLabel4);
             guna2GradientPanel2.Controls.Add(txtTeamName);
             guna2GradientPanel2.Controls.Add(lbTeam);
             guna2GradientPanel2.Controls.Add(lbPageType);
-            guna2GradientPanel2.CustomizableEdges = customizableEdges11;
+            guna2GradientPanel2.CustomizableEdges = customizableEdges13;
             guna2GradientPanel2.Dock = DockStyle.Right;
             guna2GradientPanel2.Location = new Point(0, 0);
             guna2GradientPanel2.Name = "guna2GradientPanel2";
-            guna2GradientPanel2.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            guna2GradientPanel2.ShadowDecoration.CustomizableEdges = customizableEdges14;
             guna2GradientPanel2.Size = new Size(522, 569);
             guna2GradientPanel2.TabIndex = 8;
-            // 
-            // lbResult
-            // 
-            lbResult.BackColor = Color.FromArgb(0, 192, 0);
-            lbResult.Font = new Font("Century Gothic", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbResult.ForeColor = Color.White;
-            lbResult.Location = new Point(209, 110);
-            lbResult.Name = "lbResult";
-            lbResult.Size = new Size(119, 25);
-            lbResult.TabIndex = 29;
-            lbResult.Text = "infos saved!";
-            lbResult.Visible = false;
             // 
             // btnSave
             // 
@@ -152,20 +144,53 @@
             btnSave.FillColor = Color.FromArgb(27, 118, 142);
             btnSave.Font = new Font("Century Gothic", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSave.ForeColor = Color.White;
-            btnSave.Location = new Point(187, 496);
+            btnSave.Location = new Point(289, 487);
             btnSave.Name = "btnSave";
             btnSave.ShadowDecoration.CustomizableEdges = customizableEdges4;
             btnSave.Size = new Size(174, 35);
-            btnSave.TabIndex = 28;
+            btnSave.TabIndex = 30;
             btnSave.Text = "save";
-            btnSave.Click += OnBtnSaveClick;
+            btnSave.Visible = false;
+            // 
+            // lbResult
+            // 
+            lbResult.BackColor = Color.FromArgb(0, 192, 0);
+            lbResult.Font = new Font("Century Gothic", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbResult.ForeColor = Color.White;
+            lbResult.Location = new Point(204, 100);
+            lbResult.Name = "lbResult";
+            lbResult.Size = new Size(119, 25);
+            lbResult.TabIndex = 29;
+            lbResult.Text = "infos saved!";
+            lbResult.Visible = false;
+            // 
+            // btnDeleteTeam
+            // 
+            btnDeleteTeam.BackColor = Color.Transparent;
+            btnDeleteTeam.BorderRadius = 10;
+            btnDeleteTeam.CustomizableEdges = customizableEdges5;
+            btnDeleteTeam.DisabledState.BorderColor = Color.DarkGray;
+            btnDeleteTeam.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnDeleteTeam.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnDeleteTeam.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnDeleteTeam.FillColor = Color.FromArgb(192, 0, 0);
+            btnDeleteTeam.Font = new Font("Century Gothic", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDeleteTeam.ForeColor = Color.White;
+            btnDeleteTeam.Location = new Point(96, 487);
+            btnDeleteTeam.Name = "btnDeleteTeam";
+            btnDeleteTeam.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            btnDeleteTeam.Size = new Size(174, 35);
+            btnDeleteTeam.TabIndex = 28;
+            btnDeleteTeam.Text = "delete team";
+            btnDeleteTeam.Visible = false;
+            btnDeleteTeam.Click += OnBtnDeleteTeamClick;
             // 
             // conteinerMembers
             // 
             conteinerMembers.AutoScroll = true;
             conteinerMembers.Controls.Add(lbTeamMembers);
             conteinerMembers.Controls.Add(CBMEMBER);
-            conteinerMembers.Location = new Point(70, 242);
+            conteinerMembers.Location = new Point(65, 232);
             conteinerMembers.Name = "conteinerMembers";
             conteinerMembers.Size = new Size(437, 237);
             conteinerMembers.TabIndex = 27;
@@ -185,7 +210,7 @@
             // 
             CBMEMBER.BackColor = Color.Transparent;
             CBMEMBER.BorderRadius = 20;
-            CBMEMBER.CustomizableEdges = customizableEdges5;
+            CBMEMBER.CustomizableEdges = customizableEdges7;
             CBMEMBER.DrawMode = DrawMode.OwnerDrawFixed;
             CBMEMBER.DropDownStyle = ComboBoxStyle.DropDownList;
             CBMEMBER.FillColor = Color.FromArgb(252, 239, 239);
@@ -196,7 +221,7 @@
             CBMEMBER.ItemHeight = 30;
             CBMEMBER.Location = new Point(3, 37);
             CBMEMBER.Name = "CBMEMBER";
-            CBMEMBER.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            CBMEMBER.ShadowDecoration.CustomizableEdges = customizableEdges8;
             CBMEMBER.Size = new Size(381, 36);
             CBMEMBER.TabIndex = 7;
             CBMEMBER.SelectedIndexChanged += CbMembersSelectedIndexChanged;
@@ -204,7 +229,7 @@
             // btnCreate
             // 
             btnCreate.BorderRadius = 10;
-            btnCreate.CustomizableEdges = customizableEdges7;
+            btnCreate.CustomizableEdges = customizableEdges9;
             btnCreate.DisabledState.BorderColor = Color.DarkGray;
             btnCreate.DisabledState.CustomBorderColor = Color.DarkGray;
             btnCreate.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -212,10 +237,10 @@
             btnCreate.FillColor = Color.FromArgb(27, 118, 142);
             btnCreate.Font = new Font("Century Gothic", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnCreate.ForeColor = Color.White;
-            btnCreate.Location = new Point(187, 496);
+            btnCreate.Location = new Point(164, 487);
             btnCreate.Name = "btnCreate";
-            btnCreate.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            btnCreate.Size = new Size(174, 35);
+            btnCreate.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            btnCreate.Size = new Size(202, 35);
             btnCreate.TabIndex = 6;
             btnCreate.Text = "create";
             btnCreate.Click += OnBtnCreateClick;
@@ -225,7 +250,7 @@
             guna2HtmlLabel4.BackColor = Color.FromArgb(27, 118, 142);
             guna2HtmlLabel4.Font = new Font("Century Gothic", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2HtmlLabel4.ForeColor = Color.White;
-            guna2HtmlLabel4.Location = new Point(73, 143);
+            guna2HtmlLabel4.Location = new Point(68, 133);
             guna2HtmlLabel4.Name = "guna2HtmlLabel4";
             guna2HtmlLabel4.Size = new Size(131, 28);
             guna2HtmlLabel4.TabIndex = 5;
@@ -235,7 +260,7 @@
             // 
             txtTeamName.Anchor = AnchorStyles.None;
             txtTeamName.BorderRadius = 20;
-            txtTeamName.CustomizableEdges = customizableEdges9;
+            txtTeamName.CustomizableEdges = customizableEdges11;
             txtTeamName.DefaultText = "";
             txtTeamName.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtTeamName.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -245,13 +270,13 @@
             txtTeamName.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtTeamName.Font = new Font("Segoe UI", 9F);
             txtTeamName.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtTeamName.Location = new Point(70, 184);
+            txtTeamName.Location = new Point(65, 174);
             txtTeamName.Margin = new Padding(4, 5, 4, 5);
             txtTeamName.Name = "txtTeamName";
             txtTeamName.PasswordChar = '\0';
             txtTeamName.PlaceholderText = "";
             txtTeamName.SelectedText = "";
-            txtTeamName.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            txtTeamName.ShadowDecoration.CustomizableEdges = customizableEdges12;
             txtTeamName.Size = new Size(381, 36);
             txtTeamName.TabIndex = 3;
             // 
@@ -260,7 +285,7 @@
             lbTeam.BackColor = Color.FromArgb(251, 152, 51);
             lbTeam.Font = new Font("Century Gothic", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbTeam.ForeColor = Color.White;
-            lbTeam.Location = new Point(294, 62);
+            lbTeam.Location = new Point(289, 52);
             lbTeam.Name = "lbTeam";
             lbTeam.Size = new Size(77, 36);
             lbTeam.TabIndex = 1;
@@ -271,7 +296,7 @@
             lbPageType.BackColor = Color.Transparent;
             lbPageType.Font = new Font("Century Gothic", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbPageType.ForeColor = Color.White;
-            lbPageType.Location = new Point(169, 62);
+            lbPageType.Location = new Point(164, 52);
             lbPageType.Name = "lbPageType";
             lbPageType.Size = new Size(122, 36);
             lbPageType.TabIndex = 0;
@@ -281,11 +306,11 @@
             // 
             pnRegister.Controls.Add(guna2GradientPanel2);
             pnRegister.Controls.Add(guna2TextBox2);
-            pnRegister.CustomizableEdges = customizableEdges15;
+            pnRegister.CustomizableEdges = customizableEdges17;
             pnRegister.Dock = DockStyle.Right;
             pnRegister.Location = new Point(571, 20);
             pnRegister.Name = "pnRegister";
-            pnRegister.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            pnRegister.ShadowDecoration.CustomizableEdges = customizableEdges18;
             pnRegister.Size = new Size(522, 569);
             pnRegister.TabIndex = 0;
             // 
@@ -346,6 +371,7 @@
             // 
             // btnBack
             // 
+            btnBack.BackColor = Color.Transparent;
             btnBack.BorderRadius = 15;
             btnBack.CustomizableEdges = customizableEdges1;
             btnBack.DisabledState.BorderColor = Color.DarkGray;
@@ -401,7 +427,8 @@
         private PictureBox pictureBox1;
         private Guna.UI2.WinForms.Guna2Button btnBack;
         private FlowLayoutPanel conteinerMembers;
-        private Guna.UI2.WinForms.Guna2Button btnSave;
+        private Guna.UI2.WinForms.Guna2Button btnDeleteTeam;
         private Guna.UI2.WinForms.Guna2HtmlLabel lbResult;
+        private Guna.UI2.WinForms.Guna2Button btnSave;
     }
 }

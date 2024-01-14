@@ -70,11 +70,30 @@ namespace AdaTech.CodeManager
             new SelectTeam().ShowDialog();
         }
 
+        private async void OnBtnDeleteTeamClick(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to delete this team?", "Delete Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                TeamData.RemoveTeam(teamToEdit);
+                lbResult.BackColor = Color.Red;
+                lbResult.Text = "team deleted!";
+                lbResult.Visible = true;
+
+                await System.Threading.Tasks.Task.Delay(1000);
+                Close();
+                new SelectTeam().ShowDialog();
+                return;
+            }
+
+        }
+
         #region Create Team Methods
 
         private void InitializeCreatePage()
         {
-            btnSave.Visible = false;
+            btnDeleteTeam.Visible = false;
             cbList.Clear();
             InitializeCreateTeamMembersComboBoxes();
         }
@@ -105,7 +124,7 @@ namespace AdaTech.CodeManager
 
             lbResult.Text = "team created!";
             lbResult.Visible = true;
-            
+
             await System.Threading.Tasks.Task.Delay(1000);
 
             Close();
@@ -182,6 +201,8 @@ namespace AdaTech.CodeManager
             CBMEMBER.Visible = false;
             txtTeamName.Text = teamToEdit.Name;
             btnCreate.Visible = false;
+            btnSave.Visible = true;
+            btnDeleteTeam.Visible = true;
             lbTeam.Location = new Point(270, 62);
         }
 
