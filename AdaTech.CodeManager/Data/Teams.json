@@ -110,7 +110,7 @@
                 {
                   "$type": "AdaTech.CodeManager.Model.Task, AdaTech.CodeManager",
                   "Priority": 1,
-                  "Name": "Task6",
+                  "Name": "MudData",
                   "Description": "",
                   "TaskID": 6,
                   "Owners": {
@@ -119,7 +119,7 @@
                   },
                   "Status": 2,
                   "StartDate": "2024-01-01T00:00:00",
-                  "EndDate": "2024-01-01T00:00:00",
+                  "EndDate": "2024-01-17T00:00:00",
                   "IsTechLeadAssignee": false
                 },
                 {

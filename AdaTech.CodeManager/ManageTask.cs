@@ -33,7 +33,7 @@ namespace AdaTech.CodeManager
             currentProject = project;
             avaiableAssigneeCandidates = currentTeam.GetTeamMembers();
 
-            if(task == null)
+            if (task == null)
             {
                 BuildCreateTaskPage();
                 ShowDialog();
@@ -120,6 +120,24 @@ namespace AdaTech.CodeManager
             }
         }
 
+        private async void OnBtnDeleteTaskClick(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to delete this task?", "Delete Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                currentProject.RemoveTask(taskToEdit);
+                lbResult.BackColor = Color.Red;
+                lbResult.Text = "task deleted!";
+                lbResult.Visible = true;
+
+                await System.Threading.Tasks.Task.Delay(1000);
+                Close();
+                new KanbanBoard(currentProject, currentTeam).ShowDialog();
+                return;
+            }
+        }
+
         #region Edit Task Auxiliar Methods
 
         private void InitializeEditAssigneesMembersComboBoxes()
@@ -175,7 +193,7 @@ namespace AdaTech.CodeManager
         {
             taskToEdit.Name = txtTaskName.Text;
             taskToEdit.Description = txtTaskDescription.Text;
-            taskToEdit.EndDate = dpStart.Value.Date;
+            taskToEdit.EndDate = dpTarget.Value.Date;
             taskToEdit.Status = (Model.Status)cbTaskStatus.SelectedItem;
             taskToEdit.Priority = (Priority)cbTaskPriority.SelectedItem;
             taskToEdit.IsTechLeadAssignee = cbSelfAssign.Checked;
@@ -324,6 +342,7 @@ namespace AdaTech.CodeManager
         }
         private void CostumizeEditElements()
         {
+
             lbCreateorEdit.Text = "Edit a";
             lbCreateorEdit.Location = new Point(196, 44);
             lbEdit.Location = new Point(279, 44);
@@ -336,9 +355,16 @@ namespace AdaTech.CodeManager
             cbTaskStatus.SelectedIndex = (int)taskToEdit.Status;
             cbTaskPriority.SelectedIndex = (int)taskToEdit.Priority;
             btnEdit.Visible = true;
+            btnDeleteTask.Visible = true;
             btnCreateTask.Visible = false;
+
+            if (currentUser is Developer)
+            {
+                btnDeleteTask.Enabled = false;
+            }
         }
 
         #endregion
+
     }
 }
