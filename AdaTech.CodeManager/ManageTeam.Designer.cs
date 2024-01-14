@@ -151,6 +151,7 @@
             btnSave.TabIndex = 30;
             btnSave.Text = "save";
             btnSave.Visible = false;
+            btnSave.Click += OnBtnSaveTeamClick;
             // 
             // lbResult
             // 
@@ -243,7 +244,7 @@
             btnCreate.Size = new Size(202, 35);
             btnCreate.TabIndex = 6;
             btnCreate.Text = "create";
-            btnCreate.Click += OnBtnCreateClick;
+            btnCreate.Click += OnBtnCreateTeamClick;
             // 
             // guna2HtmlLabel4
             // 
