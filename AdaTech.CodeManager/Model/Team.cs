@@ -69,7 +69,7 @@ namespace AdaTech.CodeManager.Model
 
         public int CountInProgressTasks()
         {
-            return _projects.SelectMany(project => project.Tasks).Sum(task => task.Status == Status.Doing || task.Status == Status.Testing ? 1 : 0);
+            return _projects.SelectMany(project => project.Tasks).Sum(task => task.Status == Status.Doing ? 1 : 0);
         }
 
         public int CountDelayedTasks()

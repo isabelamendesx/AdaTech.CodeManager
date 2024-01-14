@@ -20,10 +20,11 @@ namespace AdaTech.CodeManager
     {
         private Project currentProject;
         private Team currentTeam;
-        private  List<Developer> avaiableAssigneeCandidates = new List<Developer>();
-        private  List<Guna2ComboBox> cbList = new List<Guna2ComboBox>();
-        private  User currentUser = Session.getInstance.GetCurrentUser();
-        private static Model.Task taskToEdit;
+        private List<Developer> avaiableAssigneeCandidates = new List<Developer>();
+        private List<Guna2ComboBox> cbList = new List<Guna2ComboBox>();
+        private User currentUser = Session.getInstance.GetCurrentUser();
+        private Model.Task taskToEdit;
+
         public ManageTask(Project project, Team team, User currentUser, Model.Task? task = null)
         {
 
@@ -60,129 +61,135 @@ namespace AdaTech.CodeManager
             InitializeCbAssignees();
         }
 
+        private void CbAssigneesSelectedIndexChanged(object sender, EventArgs e)
+        {
+            Guna2ComboBox senderComboBox = (Guna2ComboBox)sender;
+
+            if (IsSelectionEmpty(senderComboBox))
+            {
+                return;
+            }
+
+            if (IsDuplicateSelection(senderComboBox))
+            {
+                MessageBox.Show("You already selected this member", "Duplicate Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                senderComboBox.SelectedIndex = -1;
+                return;
+            }
+
+            Guna2ComboBox newComboBox = CreateNewComboBoxFrom(senderComboBox);
+
+            AddComboBoxToListAndContainerEdit(newComboBox);
+        }
         private void OnBtnBackClick(object sender, EventArgs e)
         {
             Close();
-            new KanbanBoard(currentProject, currentTeam);
+            new KanbanBoard(currentProject, currentTeam).ShowDialog();
         }
 
-        private void CbAssigneesSelectedIndexChanged(object sender, EventArgs e)
+        private void OnBtnCreateTaskClick(object sender, EventArgs e)
         {
-            Guna2ComboBox senderCB = (Guna2ComboBox)sender;
-
-            if (senderCB.SelectedItem == "")
+            try
             {
-                return;
-            }
+                Model.Task task = CreateTask();
 
-            if (cbList.Count > 1 && cbList.Any(cb => cb.SelectedItem == senderCB.SelectedItem && cb != senderCB))
+                if (currentUser is Developer)
+                {
+                    ApproveTask(task);
+                }
+                else
+                {
+                    AddTaskToProject(task);
+                }
+            }
+            catch (Exception ex)
             {
-                MessageBox.Show("You already selected this member", "Duplicate Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                senderCB.SelectedIndex = -1;
-                return;
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            Guna2ComboBox newComboBox = new Guna2ComboBox();
-            newComboBox.Font = senderCB.Font;
-            newComboBox.Size = senderCB.Size;
-            newComboBox.FillColor = senderCB.FillColor;
-            newComboBox.BorderRadius = senderCB.BorderRadius;
-
-            newComboBox.Items.Add("");
-            newComboBox.Items.AddRange(avaiableAssigneeCandidates.ToArray());
-
-            cbList.Add(newComboBox);
-            conteinerMembers.Controls.Add(newComboBox);
-            newComboBox.SelectedIndex = -1;
-
-            newComboBox.SelectedIndexChanged += CbAssigneesSelectedIndexChanged;
         }
 
-        #region Edit Task Methods
+        private async void OnBtnEditTaskClick(object sender, EventArgs e)
+        {
+            if (currentUser is Developer)
+            {
+                ApproveTaskForDeveloper();
+            }
+            else
+            {
+                EditTask();
+            }
+        }
+
+        #region Edit Task Auxiliar Methods
 
         private void InitializeEditAssigneesMembersComboBoxes()
         {
-
-
-            int index = 0;
             foreach (var assignee in taskToEdit.Owners)
             {
                 Guna2ComboBox newComboBox = CreateNewComboBox(assignee);
                 int selectedIndex = avaiableAssigneeCandidates.IndexOf(assignee) + 1;
                 newComboBox.SelectedIndex = selectedIndex;
 
-                newComboBox.DataSource = taskToEdit.Owners;
-
-                cbList.Add(newComboBox);
-                conteinerMembers.Controls.Add(newComboBox);
-                newComboBox.SelectedIndexChanged += CbAssigneesSelectedIndexChanged;
-                newComboBox.SelectedIndex = index++;
+                AddComboBoxToListAndContainerEdit(newComboBox);
             }
         }
 
-        private async void onBtnEditClick(object sender, EventArgs e)
+        private void AddComboBoxToListAndContainerEdit(Guna2ComboBox comboBox)
         {
+            cbList.Add(comboBox);
+            conteinerMembers.Controls.Add(comboBox);
+            comboBox.SelectedIndexChanged += CbAssigneesSelectedIndexChanged;
+        }
 
-            if (currentUser is Developer)
-            {
-                lbWaiting.Visible = true;
-                currentProject.AddTaskToApprove(taskToEdit);
-                currentProject.Tasks.Remove(taskToEdit);
-                await System.Threading.Tasks.Task.Delay(1000);
-                Close();
-                new KanbanBoard(currentProject, currentTeam);
-                return;
-            }
 
-                taskToEdit.Name = txtTaskName.Text;
-                taskToEdit.Description = txtTaskDescription.Text;
-                taskToEdit.EndDate = dpStart.Value.Date;
-                taskToEdit.Status = (Model.Status)cbTaskStatus.SelectedItem;
-                taskToEdit.Priority = (Priority)cbTaskPriority.SelectedItem;
-                taskToEdit.IsTechLeadAssignee = cbSelfAssign.Checked;
+        private async void ApproveTaskForDeveloper()
+        {
+            lbWaiting.Visible = true;
+            currentProject.AddTaskToApprove(taskToEdit);
+            currentProject.Tasks.Remove(taskToEdit);
+            await System.Threading.Tasks.Task.Delay(1000);
+            Close();
+            new KanbanBoard(currentProject, currentTeam);
+        }
 
-                var newOwners = new List<Developer>();
+        private async void EditTask()
+        {
+            UpdateTaskProperties();
 
-                foreach (var cb in cbList)
-                {
-                    if (cb.SelectedItem != null)
-                    {
-                        newOwners.Add(cb.SelectedItem as Developer);
-                    }
-                }
-                
-                taskToEdit.Owners.Clear();
-                taskToEdit.Owners = newOwners;
-           
-            lbResult.Text = "task edited!";
-            lbResult.Visible = true;
+            var newOwners = cbList
+                .Select(cb => cb.SelectedItem as Developer)
+                .Where(owner => owner != null)
+                .ToList();
+
+            taskToEdit.Owners.Clear();
+            taskToEdit.Owners.AddRange(newOwners);
+            TeamData.SaveTeams();
+
+            DisplayResultMessage("Task edited!");
             await System.Threading.Tasks.Task.Delay(1000);
             Close();
             new KanbanBoard(currentProject, currentTeam).ShowDialog();
         }
 
+        private void UpdateTaskProperties()
+        {
+            taskToEdit.Name = txtTaskName.Text;
+            taskToEdit.Description = txtTaskDescription.Text;
+            taskToEdit.EndDate = dpStart.Value.Date;
+            taskToEdit.Status = (Model.Status)cbTaskStatus.SelectedItem;
+            taskToEdit.Priority = (Priority)cbTaskPriority.SelectedItem;
+            taskToEdit.IsTechLeadAssignee = cbSelfAssign.Checked;
+        }
+
+        private void DisplayResultMessage(string message)
+        {
+            lbResult.Text = message;
+            lbResult.Visible = true;
+        }
 
         #endregion
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        #region Create Task Methods
+        #region Create Task Auxiliar Methods
 
         private void InitializeCbTaskStatus()
         {
@@ -201,7 +208,22 @@ namespace AdaTech.CodeManager
             cbList.Add(cbAssignees);
         }
 
-        private async void OnBtnCreateTaskClick(object sender, EventArgs e)
+        private List<Developer?> GetSelectedOwners()
+        {
+            List<Developer?> owners = new List<Developer?>();
+
+            foreach (var cb in cbList)
+            {
+                if (cb.SelectedItem != null && cb.SelectedItem.ToString() != "")
+                {
+                    owners.Add(cb.SelectedItem as Developer);
+                }
+            }
+
+            return owners;
+        }
+
+        private Model.Task CreateTask()
         {
             string taskName = txtTaskName.Text;
             string? taskDescription = txtTaskDescription.Text;
@@ -209,19 +231,14 @@ namespace AdaTech.CodeManager
             DateTime targetDate = dpStart.Value.Date;
             Model.Status? taskStatus = (Model.Status)cbTaskStatus.SelectedItem;
             Priority taskPriority = (Priority)cbTaskPriority.SelectedItem;
-            List<Developer?> owners = new List<Developer?>();
-
-            foreach (var cb in cbList)
-            {
-                if (cb.SelectedItem != null)
-                {
-                    owners.Add(cb.SelectedItem as Developer);
-                }
-            }
-
+            List<Developer?> owners = GetSelectedOwners();
             bool selfAssign = cbSelfAssign.Checked;
-            Model.Task task = new Model.Task(taskName, startDate, targetDate, taskDescription, owners, taskStatus, taskPriority, selfAssign);
 
+            return new Model.Task(taskName, startDate, targetDate, taskDescription, owners, taskStatus, taskPriority, selfAssign);
+        }
+
+        private async void ApproveTask(Model.Task task)
+        {
             if (currentUser is Developer)
             {
                 lbWaiting.Visible = true;
@@ -229,9 +246,11 @@ namespace AdaTech.CodeManager
                 await System.Threading.Tasks.Task.Delay(1000);
                 Close();
                 new KanbanBoard(currentProject, currentTeam);
-                return;
             }
+        }
 
+        private async void AddTaskToProject(Model.Task task)
+        {
             lbResult.Visible = true;
             currentProject.AddTask(task);
             await System.Threading.Tasks.Task.Delay(1000);
@@ -239,6 +258,50 @@ namespace AdaTech.CodeManager
             new KanbanBoard(currentProject, currentTeam).ShowDialog();
         }
 
+        #endregion
+
+        #region Combo Boxes Select Index Changed Auxiliar Methods
+
+        private bool IsSelectionEmpty(Guna2ComboBox comboBox)
+        {
+            return comboBox.SelectedItem == "";
+        }
+
+        private bool IsDuplicateSelection(Guna2ComboBox senderComboBox)
+        {
+            return cbList.Count > 1 && cbList.Any(cb => cb.SelectedItem == senderComboBox.SelectedItem && cb != senderComboBox);
+        }
+
+        private Guna2ComboBox CreateNewComboBoxFrom(Guna2ComboBox sourceComboBox)
+        {
+            Guna2ComboBox newComboBox = CreateNewComboBox();
+            CopyComboBoxProperties(sourceComboBox, newComboBox);
+            return newComboBox;
+        }
+
+        private Guna2ComboBox CreateNewComboBox()
+        {
+            Guna2ComboBox newComboBox = new Guna2ComboBox();
+            newComboBox.Items.Add("");
+            newComboBox.Items.AddRange(avaiableAssigneeCandidates.ToArray());
+            newComboBox.SelectedIndex = -1;
+            newComboBox.SelectedIndexChanged += CbAssigneesSelectedIndexChanged;
+            return newComboBox;
+        }
+
+        private void CopyComboBoxProperties(Guna2ComboBox source, Guna2ComboBox destination)
+        {
+            destination.Font = source.Font;
+            destination.Size = source.Size;
+            destination.FillColor = source.FillColor;
+            destination.BorderRadius = source.BorderRadius;
+        }
+
+        private void AddComboBoxToListAndContainer(Guna2ComboBox comboBox)
+        {
+            cbList.Add(comboBox);
+            conteinerMembers.Controls.Add(comboBox);
+        }
 
         #endregion
 
@@ -269,6 +332,7 @@ namespace AdaTech.CodeManager
             dpStart.Value = taskToEdit.StartDate;
             dpStart.Enabled = false;
             dpTarget.Value = taskToEdit.EndDate;
+            cbAssignees.Visible = false;
             cbTaskStatus.SelectedIndex = (int)taskToEdit.Status;
             cbTaskPriority.SelectedIndex = (int)taskToEdit.Priority;
             btnEdit.Visible = true;

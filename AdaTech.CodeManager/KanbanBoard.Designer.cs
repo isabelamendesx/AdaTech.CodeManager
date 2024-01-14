@@ -305,6 +305,7 @@
             lbResult.Size = new Size(239, 28);
             lbResult.TabIndex = 24;
             lbResult.Text = "select a task to edit";
+            lbResult.Visible = false;
             // 
             // KanbanBoard
             // 

@@ -184,7 +184,7 @@
             btnEdit.TabIndex = 30;
             btnEdit.Text = "edit";
             btnEdit.Visible = false;
-            btnEdit.Click += onBtnEditClick;
+            btnEdit.Click += OnBtnEditTaskClick;
             // 
             // cbSelfAssign
             // 

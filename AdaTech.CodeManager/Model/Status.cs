@@ -12,8 +12,7 @@ namespace AdaTech.CodeManager.Model
         ToDo = 1,
         Doing = 2,
         Review = 3,
-        Testing = 4,
-        Done = 5,
-        Cancelled = 6
+        Done = 4,
+        Cancelled = 5
     }
 }

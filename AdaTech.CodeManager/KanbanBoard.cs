@@ -188,7 +188,7 @@ namespace AdaTech.CodeManager
             btnCreateTask.Enabled = false;
             btnEdit.Enabled = false;
 
-
+            lbResult.Visible = true;
             lbBacklog.BackColor = Color.Gray;
             lbToDo.BackColor = Color.Gray;
             lbDoing.BackColor = Color.Gray;
