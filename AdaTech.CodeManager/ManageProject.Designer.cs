@@ -35,6 +35,8 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -45,8 +47,6 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             btnCreate = new Guna.UI2.WinForms.Guna2Button();
             guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -54,6 +54,7 @@
             lbProject = new Guna.UI2.WinForms.Guna2HtmlLabel();
             lbCreateOrEdit = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2GradientPanel2 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            btnDeleteProject = new Guna.UI2.WinForms.Guna2Button();
             btnSave = new Guna.UI2.WinForms.Guna2Button();
             lbResult = new Guna.UI2.WinForms.Guna2HtmlLabel();
             dpTarget = new Guna.UI2.WinForms.Guna2DateTimePicker();
@@ -63,7 +64,6 @@
             txtProjectDescription = new Guna.UI2.WinForms.Guna2TextBox();
             pictureBox1 = new PictureBox();
             btnBack = new Guna.UI2.WinForms.Guna2Button();
-            btnDeleteProject = new Guna.UI2.WinForms.Guna2Button();
             guna2GradientPanel1.SuspendLayout();
             guna2GradientPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -98,7 +98,7 @@
             btnCreate.Size = new Size(172, 29);
             btnCreate.TabIndex = 6;
             btnCreate.Text = "create";
-            btnCreate.Click += OnBtnCreateClick;
+            btnCreate.Click += OnBtnCreateProjectClick;
             // 
             // guna2HtmlLabel3
             // 
@@ -192,6 +192,27 @@
             guna2GradientPanel2.Size = new Size(522, 569);
             guna2GradientPanel2.TabIndex = 7;
             // 
+            // btnDeleteProject
+            // 
+            btnDeleteProject.BackColor = Color.Transparent;
+            btnDeleteProject.BorderRadius = 10;
+            btnDeleteProject.CustomizableEdges = customizableEdges3;
+            btnDeleteProject.DisabledState.BorderColor = Color.DarkGray;
+            btnDeleteProject.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnDeleteProject.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnDeleteProject.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnDeleteProject.FillColor = Color.Red;
+            btnDeleteProject.Font = new Font("Century Gothic", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDeleteProject.ForeColor = Color.White;
+            btnDeleteProject.Location = new Point(78, 512);
+            btnDeleteProject.Name = "btnDeleteProject";
+            btnDeleteProject.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            btnDeleteProject.Size = new Size(196, 29);
+            btnDeleteProject.TabIndex = 14;
+            btnDeleteProject.Text = "delete project";
+            btnDeleteProject.Visible = false;
+            btnDeleteProject.Click += OnBtnDeleteProjectClick;
+            // 
             // btnSave
             // 
             btnSave.BorderRadius = 10;
@@ -210,7 +231,7 @@
             btnSave.TabIndex = 13;
             btnSave.Text = "save";
             btnSave.Visible = false;
-            btnSave.Click += OnBtnSaveClick;
+            btnSave.Click += OnBtnSaveProjectClick;
             // 
             // lbResult
             // 
@@ -333,27 +354,6 @@
             btnBack.TabIndex = 33;
             btnBack.Text = "<";
             btnBack.Click += onBtnBackClick;
-            // 
-            // btnDeleteProject
-            // 
-            btnDeleteProject.BackColor = Color.Transparent;
-            btnDeleteProject.BorderRadius = 10;
-            btnDeleteProject.CustomizableEdges = customizableEdges3;
-            btnDeleteProject.DisabledState.BorderColor = Color.DarkGray;
-            btnDeleteProject.DisabledState.CustomBorderColor = Color.DarkGray;
-            btnDeleteProject.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            btnDeleteProject.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnDeleteProject.FillColor = Color.Red;
-            btnDeleteProject.Font = new Font("Century Gothic", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnDeleteProject.ForeColor = Color.White;
-            btnDeleteProject.Location = new Point(78, 512);
-            btnDeleteProject.Name = "btnDeleteProject";
-            btnDeleteProject.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            btnDeleteProject.Size = new Size(196, 29);
-            btnDeleteProject.TabIndex = 14;
-            btnDeleteProject.Text = "delete project";
-            btnDeleteProject.Visible = false;
-            btnDeleteProject.Click += OnBtnDeleteProjectClick;
             // 
             // ManageProject
             // 
