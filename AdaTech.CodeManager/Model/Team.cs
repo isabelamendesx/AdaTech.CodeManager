@@ -53,7 +53,6 @@ namespace AdaTech.CodeManager.Model
             _projects.Add(new Project(projectName, projectDescription, startDate, targetDate));
         }
 
-        public void RemoveProjectMember(Project project) { _projects.Add(project); }
 
         public List<Developer> GetTeamMembers()
         {

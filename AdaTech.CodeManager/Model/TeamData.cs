@@ -35,6 +35,12 @@ namespace AdaTech.CodeManager.Model
             SaveTeams();
         }
 
+        public static void RemoveProject(Project project)
+        {
+            _teams.Find(team => team.Projects.Contains(project)).Projects.Remove(project);
+            TeamData.SaveTeams();
+        }
+
         public static List<Team>? FindTeamsByTechLead(TechLead techLead)
         {
             return _teams.FindAll(team => team.TechLeadID.Equals(techLead.UserID));
