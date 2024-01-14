@@ -121,8 +121,8 @@ namespace AdaTech.CodeManager
 
         public void OnPnTaskClick(Model.Task task)
         {
+            new ManageTask(TeamData.FindProjectByTask(task, currentUser), TeamData.FindTeamByDeveloper(currentUser), currentUser, task).ShowDialog();
             Close();
-
         }
 
         private void OnPnProjectMouseEnter(object sender, EventArgs e)

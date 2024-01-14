@@ -93,10 +93,11 @@
             // 
             conteinerTasks.AutoScroll = true;
             conteinerTasks.BackColor = Color.FromArgb(27, 32, 43);
-            conteinerTasks.Location = new Point(112, 153);
+            conteinerTasks.Location = new Point(112, 125);
             conteinerTasks.Name = "conteinerTasks";
-            conteinerTasks.Size = new Size(738, 173);
+            conteinerTasks.Size = new Size(757, 201);
             conteinerTasks.TabIndex = 26;
+            conteinerTasks.WrapContents = false;
             // 
             // conteinerProjects
             // 
@@ -104,8 +105,9 @@
             conteinerProjects.BackColor = Color.FromArgb(27, 32, 43);
             conteinerProjects.Location = new Point(112, 370);
             conteinerProjects.Name = "conteinerProjects";
-            conteinerProjects.Size = new Size(738, 211);
+            conteinerProjects.Size = new Size(738, 236);
             conteinerProjects.TabIndex = 25;
+            conteinerProjects.WrapContents = false;
             // 
             // label1
             // 
@@ -135,7 +137,7 @@
             label2.AutoSize = true;
             label2.BackColor = Color.FromArgb(27, 32, 43);
             label2.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(112, 114);
+            label2.Location = new Point(112, 94);
             label2.Name = "label2";
             label2.Size = new Size(218, 28);
             label2.TabIndex = 4;

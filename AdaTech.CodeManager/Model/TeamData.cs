@@ -70,6 +70,15 @@ namespace AdaTech.CodeManager.Model
             return project;
         }
 
+        public static Project FindProjectByTask(Model.Task task, Developer dev)
+        {
+            var team = FindTeamByDeveloper(dev);
+
+            var project = team.Projects.FirstOrDefault(proj => proj.Tasks.Contains(task) || proj.TasksToApprove.Contains(task));
+
+            return project;
+        }
+
         public static void SaveTeams()
         {
             DataHandler.SaveData(_teams, TEAMS_FILE_PATH);
