@@ -100,5 +100,47 @@ namespace AdaTech.CodeManager.Model
             return _projects.SelectMany(project => project.Tasks).Count(task => task.Status == Status.Done);
         }
 
+        public List<Model.Task> GetInProgressTasks()
+        {
+            return _projects.SelectMany(project => project.Tasks)
+                            .Where(task => task.Status == Status.Doing)
+                            .ToList();
+        }
+
+        public List<Model.Task> GetDelayedTasks()
+        {
+            DateTime today = DateTime.Now;
+            return _projects.SelectMany(project => project.Tasks)
+                            .Where(task => task.Status != Status.Done && task.EndDate != null && task.EndDate < today)
+                            .ToList();
+        }
+
+        public List<Model.Task> GetDroppedTasks()
+        {
+            DateTime today = DateTime.Now;
+            return _projects.SelectMany(project => project.Tasks)
+                            .Where(task => task.EndDate != null && (today - task.EndDate).TotalDays > 10)
+                            .ToList();
+        }
+
+        public List<Model.Task> GetToReviewTasks()
+        {
+            return _projects.SelectMany(project => project.Tasks)
+                            .Where(task => task.Status == Status.Review)
+                            .ToList();
+        }
+
+        public List<Model.Task> GetAllTasks()
+        {
+            return _projects.SelectMany(project => project.Tasks)
+                            .ToList();
+        }
+
+        public List<Model.Task> GetCompletedTasks()
+        {
+            return _projects.SelectMany(project => project.Tasks)
+                            .Where(task => task.Status == Status.Done)
+                            .ToList();
+        }
     }
     }

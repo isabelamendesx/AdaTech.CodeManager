@@ -31,7 +31,7 @@
                     "$type": "System.Collections.Generic.List`1[[AdaTech.CodeManager.Model.Developer, AdaTech.CodeManager]], System.Private.CoreLib",
                     "$values": []
                   },
-                  "Status": 0,
+                  "Status": 4,
                   "StartDate": "2024-01-01T00:00:00",
                   "EndDate": "2024-01-01T00:00:00",
                   "IsTechLeadAssignee": false
@@ -87,7 +87,7 @@
                     "$type": "System.Collections.Generic.List`1[[AdaTech.CodeManager.Model.Developer, AdaTech.CodeManager]], System.Private.CoreLib",
                     "$values": []
                   },
-                  "Status": 0,
+                  "Status": 4,
                   "StartDate": "2024-01-01T00:00:00",
                   "EndDate": "2024-01-01T00:00:00",
                   "IsTechLeadAssignee": false
@@ -117,7 +117,7 @@
                     "$type": "System.Collections.Generic.List`1[[AdaTech.CodeManager.Model.Developer, AdaTech.CodeManager]], System.Private.CoreLib",
                     "$values": []
                   },
-                  "Status": 2,
+                  "Status": 4,
                   "StartDate": "2024-01-01T00:00:00",
                   "EndDate": "2024-01-17T00:00:00",
                   "IsTechLeadAssignee": false
@@ -189,10 +189,10 @@
                       }
                     ]
                   },
-                  "Status": 0,
+                  "Status": 4,
                   "StartDate": "2024-01-01T00:00:00",
                   "EndDate": "2024-01-01T00:00:00",
-                  "IsTechLeadAssignee": true
+                  "IsTechLeadAssignee": false
                 },
                 {
                   "$type": "AdaTech.CodeManager.Model.Task, AdaTech.CodeManager",

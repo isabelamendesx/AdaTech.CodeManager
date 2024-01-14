@@ -405,7 +405,7 @@
             lbStatistics.BackColor = Color.FromArgb(27, 32, 46);
             lbStatistics.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbStatistics.ForeColor = Color.FromArgb(252, 239, 239);
-            lbStatistics.Location = new Point(198, 362);
+            lbStatistics.Location = new Point(118, 345);
             lbStatistics.Name = "lbStatistics";
             lbStatistics.Size = new Size(181, 28);
             lbStatistics.TabIndex = 44;

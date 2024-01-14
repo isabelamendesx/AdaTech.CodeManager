@@ -47,19 +47,50 @@ namespace AdaTech.CodeManager
 
         }
 
-        #region Statistics Area Methods
+        private void OnBtnCreateProjectClick(object sender, EventArgs e)
+        {
+            Close();
+            new ManageProject(currentTeam).ShowDialog();
+        }
+
+        public void OnPnProjectClick(Project project)
+        {
+            Close();
+
+            if (!btnEditProject.Enabled)
+            {
+                Close();
+                new ManageProject(currentTeam, project);
+                return;
+            }
+
+            new KanbanBoard(project, currentTeam).ShowDialog();
+
+        }
+
+        private void OnStatisticLabelsClick(object sender)
+        {
+            if (sender is Label clickedLabel)
+            {
+                string labelText = clickedLabel.Text;
+                Close();
+                new TasksByStatistics(currentTeam, labelText).ShowDialog();
+            }
+
+        }
+
+        public void OnPnTaskToApproveClick(Model.Task task)
+        {
+            Close();
+            new ManageTask(TeamData.FindProjectByTask(task, currentUser), currentTeam, currentUser, task);
+        }
+
+        #region Statistics Area Auxiliar Methods
 
         private void UpdateFinishedTasksProgressBar(int totalTasks, int completedTasks)
         {
-            if (totalTasks > 0)
-            {
-                int completionPercentage = (completedTasks * 100) / totalTasks;
-                pbFinishedTasks.Value = completionPercentage;
-            }
-            else
-            {
-                pbFinishedTasks.Value = 0;
-            }
+            int completionPercentage = (totalTasks > 0) ? (completedTasks * 100) / totalTasks : 0;
+            pbFinishedTasks.Value = completionPercentage;
         }
 
         private void InitializeStatisticsLabelsButtonEffect()
@@ -70,32 +101,21 @@ namespace AdaTech.CodeManager
             ConfigureHoverEffectStatisticLabels(lbProgress);
             ConfigureHoverEffectStatisticLabels(lbToReview);
 
-            lbCompleted.MouseClick += (sender, e) => OnStatisticLabelsClick();
-            lbDelayed.MouseClick += (sender, e) => OnStatisticLabelsClick();
-            lbDropped.MouseClick += (sender, e) => OnStatisticLabelsClick();
-            lbProgress.MouseClick += (sender, e) => OnStatisticLabelsClick();
-            lbToReview.MouseClick += (sender, e) => OnStatisticLabelsClick();
+            lbCompleted.MouseClick += (sender, e) => OnStatisticLabelsClick(sender);
+            lbDelayed.MouseClick += (sender, e) => OnStatisticLabelsClick(sender);
+            lbDropped.MouseClick += (sender, e) => OnStatisticLabelsClick(sender);
+            lbProgress.MouseClick += (sender, e) => OnStatisticLabelsClick(sender);
+            lbToReview.MouseClick += (sender, e) => OnStatisticLabelsClick(sender);
 
         }
 
         private void InitializeStatisticsNumbersLabels()
         {
-            // ALL TASKS
             CustomizeLbTaskNumber(currentTeam.CountAllTasks(), 536, 409);
-
-            // COMPLETED TASKS
             CustomizeLbTaskNumber(currentTeam.CountCompletedTasks(), 536, 460);
-
-            // IN PROGRESS
             CustomizeLbTaskNumber(currentTeam.CountInProgressTasks(), 536, 511);
-
-            // DELAYED
             CustomizeLbTaskNumber(currentTeam.CountDelayedTasks(), 787, 409);
-
-            // DROPPED
             CustomizeLbTaskNumber(currentTeam.CountDroppedTasks(), 787, 460);
-
-            // TO REVIEW
             CustomizeLbTaskNumber(currentTeam.CountToReviewTasks(), 787, 511);
         }
 
@@ -107,18 +127,12 @@ namespace AdaTech.CodeManager
         private void ConfigureHoverEffectStatisticLabels(Label label)
         {
             label.MouseEnter += OnLbTasksStatisticsEnter;
-            label.MouseLeave += OnLbTasksStatisticsEnter;
-        }
-
-
-        private void OnStatisticLabelsClick()
-        {
-            Close();
+            label.MouseLeave += OnLbTasksStatisticsLeave;
         }
 
         #endregion
 
-        #region Projects Area Methods
+        #region Projects Area Auxiliar Methods
 
         public void ShowProjects()
         {
@@ -159,32 +173,9 @@ namespace AdaTech.CodeManager
                 CustomizePanelOnMouseLeave(pnProject);
             }
         }
-
-        private void OnBtnCreateProjectClick(object sender, EventArgs e)
-        {
-            Close();
-            new ManageProject(currentTeam).ShowDialog();
-        }
-
-
         private void OnBtnEditProjetClick(object sender, EventArgs e)
         {
             CostumizeEditElements();
-        }
-
-        public void OnPnProjectClick(Project project)
-        {
-            Close();
-
-            if (!btnEditProject.Enabled)
-            {
-                Close();
-                new ManageProject(currentTeam, project);
-                return;
-            }
-
-            new KanbanBoard(project, currentTeam).ShowDialog();
-
         }
 
         #endregion
@@ -360,7 +351,7 @@ namespace AdaTech.CodeManager
         {
             if (sender is Label label)
             {
-                label.BackColor = Color.White;
+                label.BackColor = Color.Transparent;
             }
         }
 
@@ -368,7 +359,7 @@ namespace AdaTech.CodeManager
         {
             if (sender is Label label)
             {
-                label.BackColor = Color.Transparent;
+                label.BackColor = Color.White;
             }
         }
 
@@ -427,7 +418,7 @@ namespace AdaTech.CodeManager
 
         #endregion
 
-        #region Tasks to Approve Auxiliar Methods
+        #region Tasks To Approve Auxiliar Methods
         private void InitializeTasksToApprove()
         {
             var tasksToApprove = TeamData.FindTasksToApproveByTechLead(currentUser);
@@ -446,12 +437,6 @@ namespace AdaTech.CodeManager
                     conteinerToApproveTasks.Controls.Add(pnTask);
                 }
             }
-        }
-
-        public void OnPnTaskToApproveClick(Model.Task task)
-        {
-            Close();
-            new ManageTask(TeamData.FindProjectByTask(task, currentUser), currentTeam, currentUser, task);
         }
 
         private void OnPnTaskToApproveMouseEnter(object sender, EventArgs e)
