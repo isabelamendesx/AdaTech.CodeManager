@@ -10,11 +10,8 @@ O aplicativo permite com que time acompanhe diversos projetos, visualizando tant
 ## Índice
 - 🔨 [Funcionalidades](#-funcionalidades)
 - 📁 [Estrutura de diretórios](#-estrutura-de-diretórios)
-- 📊 [Diagrama de classes](#-diagrama-de-classes)
 - 💻 [Técnicas e tecnologias utilizadas](#-técnicas-e-tecnologias-utilizadas)
-  - 🗃️ [Classes e Componentes JavaFX Utilizados](#%EF%B8%8F-classes-e-componentes-javafx-utilizados)
 - 🔧 [Como executar](#-como-executar)
-- 📄 [Documentação](#-documentação)
 - 👥 [Autores](#-autores)
 
 # 🔨 Funcionalidades
@@ -68,47 +65,38 @@ Essas funcionalidades combinadas tornam o DevTasker uma ferramenta abrangente e 
 ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
 <img alt="MVC" src = "https://img.shields.io/badge/-MVC-800080?logo=googleforms&logoColor=white&style=for-the-badge" />
 
-### Tecnologias
-- **C#:** Linguagem de programação de alto nível, amplamente usada para desenvolvimento de aplicativos de software;
-- **JavaFX:** Plataforma para criar aplicativos de interface gráfica de usuário (GUI) em Java;
-- **Intellij IDEA:** Um dos ambientes de desenvolvimento integrado (IDE) mais populares para programação em várias linguagens, incluindo Java;
-- **CSS:** Linguagem de estilo usada para estilizar a aparência das interfaces gráficas JavaFX;
-- **FXML:** Linguagem de marcação utilizada no JavaFX para criar interfaces de usuário de forma declarativa;
-- **Scene Builder:** Ferramenta de design visual que permite criar interfaces gráficas de usuário para aplicativos JavaFX de forma interativa e visual;
-- **Javadoc:** Ferramenta para gerar documentação a partir de código-fonte Java, fornecendo referências e documentação dos métodos;
-- **Maven:** Ferramenta de automação de compilação e gerenciamento de projetos em Java;
-- **Git & Github:** Sistema de controle de versão distribuído (Git) e plataforma de hospedagem de código (Github);
 
-### Técnicas e Paradigmas
-- **Generics:** Recurso do Java que permite a criação de classes, interfaces e métodos genéricos que aceitam tipos como parâmetros;
-- **Polimorfismo:** Capacidade de objetos de diferentes classes serem tratados por um mesmo tipo genérico, permitindo que métodos se comportem de maneiras diferentes em diferentes classes;
-- **Diagrama UML:** Conjunto de notações e diagramas para modelar sistemas de software;
-- **Estrutura de dados:** Métodos, estruturas e algoritmos para armazenar e organizar dados de forma eficiente;
-- **Modularização:** Técnica de dividir um sistema em módulos independentes para melhorar a manutenção e a escalabilidade;
-- **Event Handling:** Tratamento de eventos gerados por interações do usuário (por exemplo, cliques de botões, teclas pressionadas, etc.);
-- **Design Patterns:** Soluções recorrentes para problemas comuns de design de software, fornecendo abordagens testadas e comprovadas;
-- **Princípios SOLID:** Conjunto de princípios de design de software (Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation e Dependency Inversion);
-- **Segurança de dados:** Práticas e técnicas para proteger informações sensíveis contra acesso não autorizado ou alterações indevidas, incluindo criptografia hash para senhas;
-- **Persistência de dados:** Mecanismos e técnicas para salvar e recuperar dados de forma permanente.
-- **Separation of Concerns:** Princípio de design para separar diferentes preocupações em módulos independentes;
-- **Manipulação de arquivos:** Operações de leitura, gravação e manipulação de arquivos em um sistema de arquivos;
-- **Programação Orientada a Objetos:** Paradigma de programação baseado em objetos, incluindo conceitos como classes, objetos, herança, polimorfismo, etc;
-- **Arquitetura Model-View-Controller:** Padrão de design que separa os componentes de uma aplicação em modelo (dados), visão (interface gráfica) e controlador (lógica de controle).
+# 🔧 Como executar?
 
-## 🗃️ Classes e Componentes JavaFX Utilizados
-- FXML: Utilizado para definir a interface do usuário de forma declarativa.
-- FXMLLoader: Utilizado para carregar arquivos FXML.
-- Controller: Controlador responsável por gerenciar a lógica da interface do usuário.
-- ScrollPane: Utilizado para adicionar uma barra de rolagem em torno de componentes maiores.
-- ComboBox: Componente que oferece uma lista suspensa de opções para escolha.
-- TextField: Caixa de texto que permite a entrada de dados do usuário.
-- PasswordField: Campo de texto para entrada de senhas, ocultando os caracteres digitados.
-- CheckBox: Componente que permite ao usuário selecionar ou desmarcar uma opção.
-- Button: Componente para botões na interface gráfica.
-- VBox: Container de layout vertical na interface gráfica.
-- HBox: Contêiner de layout horizontal para organizar elementos lado a lado.
-- Label: Componente para exibir texto na interface gráfica.
-- ProgressBar: Utilizado para exibir o progresso em barras.
-- Scene: Define o conteúdo do palco (Stage) em JavaFX.
-- Stage: Janela principal do aplicativo JavaFX.
-  
+## Pré-requisitos
+Certifique-se de ter o Visual Studio instalado em seu sistema antes de prosseguir.
+
+### Passo 1: Obtenha o código-fonte
+Clone o repositório do projeto em seu ambiente local ou faça o download dos arquivos fonte em um diretório de sua escolha.
+
+### Passo 2: Abra o projeto no Visual Studio
+Abra o Visual Studio e carregue o projeto C# (.csproj) no ambiente de desenvolvimento.
+
+### Passo 3: Compile e Execute o aplicativo
+No Visual Studio, clique no botão "Build" para compilar o projeto. Certifique-se de que não há erros durante o processo de compilação.
+
+Após a compilação bem-sucedida, clique no botão "Start" (ou pressione F5) para iniciar a execução do aplicativo.
+
+## 👤 Usuário de exemplo para teste
+Para facilitar os testes e a exploração do sistema, usuários de exemplo foram criados com times, projetos e tarefas pré cadastrados
+
+**TechLead**
+- Username: isabelam
+- Password: isabelam
+
+**Developer**
+- Username: matheusv
+- Password: matheusv
+
+Estes usuários já possuem times, projetos e tarefas atribuídas. Sinta-se à vontade para explorar as funcionalidades do sistema utilizando estas credenciais de exemplo.
+
+# 👥 Autores
+
+| [<img src="https://avatars.githubusercontent.com/u/129897959?v=4" width=115><br><sub>Isabela Gomes</sub>](https://github.com/isabelamendesx)  |
+| :---: | 
+
