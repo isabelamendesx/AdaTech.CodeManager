@@ -18,6 +18,7 @@ O aplicativo permite com que time acompanhe diversos projetos, visualizando tant
 <p align="center">
   <img src="AdaTech.CodeManager/imgs/views.png" alt="Telas do programa">
 </p>
+
 -**Cadastro de Time 👥:** O TechLead tem o poder de criar diferentes times, cadastrando os Desenvolvedores disponíveis como membros.
 
 -**Gerenciamento de Time ⚙️:** É possível adicionar ou remover membros de um time e ainda excluir o time completamente.
