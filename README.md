@@ -1,7 +1,7 @@
 [![Finalizado](https://img.shields.io/badge/Status-Conclu%C3%ADdo-brightgreen)](https://github.com/isabelamendesx/AdaTech.CodeManager)
 
 <p>
-<img src="docs/imgs/HomeManager.png" alt="Logo Dev Tasker" height="100">
+<img src="AdaTech.CodeManager/imgs/devtasker.png" alt="Logo Dev Tasker" height="100">
 </p>
 
 Seja bem vindo ao meu repositório da aplicação DevTasker, um aplicativo intuitivo e prático desenvolvido pra simplificar a gestão de times de desenvolvedores. No DevTasker, existem dois tipos de usuário: TechLead e Developer, sendo o primeiro mais poderoso que o segundo.
@@ -16,7 +16,7 @@ O aplicativo permite com que time acompanhe diversos projetos, visualizando tant
 
 # 🔨 Funcionalidades
 <p align="center">
-  <img src="docs/imgs/telas.png" alt="Telas do programa">
+  <img src="AdaTech.CodeManager/imgs/views.png" alt="Telas do programa">
 </p>
 -**Cadastro de Time 👥:** O TechLead tem o poder de criar diferentes times, cadastrando os Desenvolvedores disponíveis como membros.
 
