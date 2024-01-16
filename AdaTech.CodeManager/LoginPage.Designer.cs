@@ -194,11 +194,11 @@
             // pictureBox1
             // 
             pictureBox1.BackColor = Color.Transparent;
-            pictureBox1.Image = Properties.Resources.loginImage;
-            pictureBox1.Location = new Point(-5, 114);
+            pictureBox1.Image = Properties.Resources.logo_isalinda;
+            pictureBox1.Location = new Point(3, 133);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(565, 372);
-            pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox1.Size = new Size(559, 372);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 20;
             pictureBox1.TabStop = false;
             // 

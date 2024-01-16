@@ -66,6 +66,14 @@ namespace AdaTech.CodeManager.Model
             return membersName;
         }
 
+        public Project? FindProjectByTask(Model.Task task)
+        {
+            return _projects
+                    .FirstOrDefault(project => project.Tasks.Contains(task));
+        }
+
+        #region Team Statistics 
+
         public int CountInProgressTasks()
         {
             return _projects.SelectMany(project => project.Tasks).Sum(task => task.Status == Status.Doing ? 1 : 0);
@@ -142,5 +150,60 @@ namespace AdaTech.CodeManager.Model
                             .Where(task => task.Status == Status.Done)
                             .ToList();
         }
+
+        #endregion
+
+
+        #region Developer Statistics 
+
+        public int CountDelayedTasksByDeveloper(Developer dev)
+        {
+            DateTime today = DateTime.Now;
+            return _projects
+                .SelectMany(project => project.Tasks)
+                .Where(task => task.Status != Status.Done && task.Owners?.Contains(dev) == true)
+                .Count(task => task.EndDate != null && task.EndDate < today);
+        }
+
+        public List<Model.Task> GetDelayedTasksByDeveloper(Developer dev)
+        {
+            DateTime today = DateTime.Now;
+            return _projects
+                .SelectMany(project => project.Tasks)
+                .Where(task => task.Status != Status.Done && task.Owners?.Contains(dev) == true)
+                .ToList ();
+        }
+
+        public List<Task> GetAllTasksByDeveloper(Developer dev)
+        {
+            return _projects
+            .SelectMany(project => project.Tasks)
+            .Where(task => task.Owners?.Contains(dev) == true)
+            .ToList();
+        }
+
+        public int CountAllTasksByDeveloper(Developer dev)
+        {
+            return _projects
+            .SelectMany(project => project.Tasks)
+            .Count(task => task.Owners?.Contains(dev) == true);
+        }
+
+        public List<Task> GetCompletedTasksByDeveloper(Developer dev)
+        {
+            return _projects
+               .SelectMany(project => project.Tasks)
+               .Where(task => task.Owners?.Contains(dev) == true && task.Status == Status.Done)
+               .ToList();
+        }
+
+        public int CountCompletedTasksByDeveloper(Developer dev)
+        {
+            return _projects
+                .SelectMany(project => project.Tasks)
+                .Count(task => task.Owners?.Contains(dev) == true && task.Status == Status.Done);
+        }
+
+        #endregion 
     }
-    }
+}

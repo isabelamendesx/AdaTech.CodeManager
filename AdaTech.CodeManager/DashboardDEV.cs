@@ -21,36 +21,127 @@ namespace AdaTech.CodeManager
         {
             InitializeComponent();
             userTeam = TeamData.FindTeamByDeveloper(currentUser);
+            BuildPage();
+        }
+
+        private void BuildPage()
+        {
             ShowUserInfo();
             ShowProjects();
             ShowTasks();
-            ConfigurarProgressBar();
+            ConfigureAllTasksProgressBar();
             InitializeTaskNumbersLabels();
+            InitializeStatisticsLabelsButtonEffect();
         }
+
+        private void ShowUserInfo()
+        {
+            pnInfos.Controls.Add(CostumizeLbName());
+            pnInfos.Controls.Add(CostumizeLbJobTitle());
+        }
+
+        public void OnPnTaskClick(Model.Task task)
+        {
+            new ManageTask(userTeam.FindProjectByTask(task), TeamData.FindTeamByDeveloper(currentUser), currentUser, task).ShowDialog();
+            Close();
+        }
+
+        public void OnPnProjectClick(Project project)
+        {
+            Close();
+            new KanbanBoard(project, userTeam).ShowDialog();
+
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            Close();
+            Session.getInstance.EndSession();
+            new LoginPage().ShowDialog();
+        }
+
+        private void OnStatisticLabelsClick(object sender)
+        {
+            if (sender is Label clickedLabel)
+            {
+                string labelText = clickedLabel.Text;
+                Close();
+                new TasksByStatistics(userTeam, labelText).ShowDialog();
+            }
+
+        }
+
+
+        #region Tasks Area Methods
+
+        public void ShowTasks()
+        {
+
+            foreach (var task in userTeam.GetAllTasksByDeveloper(currentUser))
+            {
+                var pnTask = CustomizePnTask();
+                pnTask.Click += (sender, e) => OnPnTaskClick(task);
+
+                pnTask.Controls.Add(CostumizeLbTaskName(task.Name));
+                pnTask.Controls.Add(CostumizeLbProjectName2(userTeam.FindProjectByTask(task).Name));
+                pnTask.Controls.Add(CostumizeLbTaskCompletedPercent(task.GetCompletionPercentage()));
+                pnTask.Controls.Add(CostumizeTaskProgressBar(task.GetCompletionPercentage()));
+
+                conteinerTasks.Controls.Add(pnTask);
+            }
+        }
+
+        #endregion
+
+        #region Statistics Area Methods
 
         private void InitializeTaskNumbersLabels()
         {
-            // ALL PROJECTS
             CustomizeLbTaskNumber(userTeam.Projects.Count(), 185, 426);
-
-            // COMPLETED TASKS
-            CustomizeLbTaskNumber(CountCompletedTasks(), 185, 473);
-
-            // DELAYED
-            CustomizeLbTaskNumber(CountDelayedTasks(), 185, 523);
+            CustomizeLbTaskNumber(userTeam.CountCompletedTasksByDeveloper(currentUser), 185, 473);
+            CustomizeLbTaskNumber(userTeam.CountDelayedTasksByDeveloper(currentUser), 185, 523);
         }
 
-
-        private int CountDelayedTasks()
+        private void UpdateAllTasksProgressBar(int allTasksNumber, int completedTasksNumber)
         {
-            DateTime today = DateTime.Now;
-            return userTeam.Projects
-                .SelectMany(project => project.Tasks)
-                .Where(task => task.Status != Status.Done && task.Owners?.Contains(currentUser) == true)
-                .Count(task => task.EndDate != null && task.EndDate < today);
+            if (allTasksNumber > 0)
+            {
+                int percentualCompleto = (completedTasksNumber * 100) / allTasksNumber;
+                progressAllTasks.Value = percentualCompleto;
+            }
+            else
+            {
+                progressAllTasks.Value = 0;
+            }
+        }
+
+        private void ConfigureAllTasksProgressBar()
+        {
+            int allTasksNumber = userTeam.CountAllTasksByDeveloper(currentUser);
+            int completedTasksNumber = userTeam.CountCompletedTasksByDeveloper(currentUser);
+
+            UpdateAllTasksProgressBar(allTasksNumber, completedTasksNumber);
+        }
+
+        private void InitializeStatisticsLabelsButtonEffect()
+        {
+            ConfigureHoverEffectStatisticLabels(lbCompleted);
+            ConfigureHoverEffectStatisticLabels(lbDelayed);
+
+            lbCompleted.MouseClick += (sender, e) => OnStatisticLabelsClick(sender);
+            lbDelayed.MouseClick += (sender, e) => OnStatisticLabelsClick(sender);
+
+        }
+        private void ConfigureHoverEffectStatisticLabels(Label label)
+        {
+            label.MouseEnter += OnLbTasksStatisticsEnter;
+            label.MouseLeave += OnLbTasksStatisticsLeave;
         }
 
 
+        #endregion
+
+        #region Projects Area Methods
         public void ShowProjects()
         {
 
@@ -68,62 +159,6 @@ namespace AdaTech.CodeManager
             }
         }
 
-        private List<Model.Task> AllTasks()
-        {
-            return userTeam.Projects
-                .SelectMany(project => project.Tasks)
-                .ToList();
-        }
-
-        private int CountAllTasks()
-        {
-            return userTeam.Projects
-                .SelectMany(project => project.Tasks)
-                .Count(task => task.Owners?.Contains(currentUser) == true);
-        }
-
-        private int CountCompletedTasks()
-        {
-            return userTeam.Projects
-                .SelectMany(project => project.Tasks)
-                .Count(task => task.Owners?.Contains(currentUser) == true && task.Status == Status.Done);
-        }
-
-        private Project? FindProject(Model.Task taskToFind)
-        {
-            return userTeam.Projects
-                    .FirstOrDefault(project => project.Tasks.Contains(taskToFind));
-        }
-
-        public void ShowTasks()
-        {
-
-            foreach (var task in AllTasks())
-            {
-                var pnTask = CustomizePnTask();
-                pnTask.Click += (sender, e) => OnPnTaskClick(task);
-
-                pnTask.Controls.Add(CostumizeLbTaskName(task.Name));
-                pnTask.Controls.Add(CostumizeLbProjectName2(FindProject(task).Name));
-                pnTask.Controls.Add(CostumizeLbTaskCompletedPercent(task.GetCompletionPercentage()));
-                pnTask.Controls.Add(CostumizeTaskProgressBar(task.GetCompletionPercentage()));
-
-                conteinerTasks.Controls.Add(pnTask);
-            }
-        }
-
-        public void OnPnProjectClick(Project project)
-        {
-            Close();
-            new KanbanBoard(project, userTeam).ShowDialog();
-
-        }
-
-        public void OnPnTaskClick(Model.Task task)
-        {
-            new ManageTask(TeamData.FindProjectByTask(task, currentUser), TeamData.FindTeamByDeveloper(currentUser), currentUser, task).ShowDialog();
-            Close();
-        }
 
         private void OnPnProjectMouseEnter(object sender, EventArgs e)
         {
@@ -142,45 +177,25 @@ namespace AdaTech.CodeManager
             }
         }
 
+        #endregion
 
-        private void btnBack_Click(object sender, EventArgs e)
-        {
-            Close();
-            Session.getInstance.EndSession();
-            new LoginPage().ShowDialog();
-        }
+        #region UI Element Builders
 
-        private void ShowUserInfo()
+        private void OnLbTasksStatisticsLeave(object sender, EventArgs e)
         {
-            pnInfos.Controls.Add(CostumizeLbName());
-            pnInfos.Controls.Add(CostumizeLbJobTitle());
-        }
-
-        private void AtualizarBarraDeProgresso(int totalTarefas, int tarefasCompletas)
-        {
-            if (totalTarefas > 0)
+            if (sender is Label label)
             {
-                int percentualCompleto = (tarefasCompletas * 100) / totalTarefas;
-                progressAllTasks.Value = percentualCompleto;
-            }
-            else
-            {
-                progressAllTasks.Value = 0;
+                label.BackColor = Color.Transparent;
             }
         }
 
-        private void ConfigurarProgressBar()
+        private void OnLbTasksStatisticsEnter(object sender, EventArgs e)
         {
-            int totalTarefas = CountAllTasks();
-            int tarefasCompletas = CountCompletedTasks();
-
-            AtualizarBarraDeProgresso(totalTarefas, tarefasCompletas);
+            if (sender is Label label)
+            {
+                label.BackColor = Color.White;
+            }
         }
-
-
-        // CUSTOMIZE METHODS
-
-
 
         private Guna2ProgressBar CostumizeTaskProgressBar(int percentageDone)
         {
@@ -346,13 +361,10 @@ namespace AdaTech.CodeManager
             lbName.AutoSize = false;
             lbName.Width = 238;
 
-            // Centraliza o Label dentro do controle pai
             lbName.Anchor = AnchorStyles.None;
 
-            // Calcula a posição X para centralizar
             int xPosition = (pnInfos.Width - lbName.Width) / 2;
 
-            // Define a localização ajustada
             lbName.Location = new Point(xPosition, 182);
 
             lbName.TextAlign = ContentAlignment.TopCenter;
@@ -369,13 +381,10 @@ namespace AdaTech.CodeManager
             lbJobTitle.AutoSize = false;
             lbJobTitle.Width = 238;
 
-            // Centraliza o Label dentro do controle pai
             lbJobTitle.Anchor = AnchorStyles.None;
 
-            // Calcula a posição X para centralizar
             int xPosition = (pnInfos.Width - lbJobTitle.Width) / 2;
 
-            // Define a localização ajustada
             lbJobTitle.Location = new Point(xPosition, 208);
 
             lbJobTitle.TextAlign = ContentAlignment.TopCenter;
@@ -395,9 +404,6 @@ namespace AdaTech.CodeManager
             return lbTaskNumber;
         }
 
-        private void progressAllTasks_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
+        #endregion
     }
 }

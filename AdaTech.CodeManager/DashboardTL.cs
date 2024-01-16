@@ -433,7 +433,7 @@ namespace AdaTech.CodeManager
 
                     pnTask.Controls.Add(CostumizePnTaskLbName(task.Name));
                     pnTask.Controls.Add(CostumizePnTaskLbProjectName(TeamData.FindProjectByTask(task, currentUser).Name));
-       
+
                     conteinerToApproveTasks.Controls.Add(pnTask);
                 }
             }
@@ -455,8 +455,6 @@ namespace AdaTech.CodeManager
             }
         }
         #endregion
-
-
 
     }
 }
