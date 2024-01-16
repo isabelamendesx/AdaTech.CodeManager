@@ -62,8 +62,8 @@
             dpStart = new Guna.UI2.WinForms.Guna2DateTimePicker();
             guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             txtProjectDescription = new Guna.UI2.WinForms.Guna2TextBox();
-            pictureBox1 = new PictureBox();
             btnBack = new Guna.UI2.WinForms.Guna2Button();
+            pictureBox1 = new PictureBox();
             guna2GradientPanel1.SuspendLayout();
             guna2GradientPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -71,9 +71,9 @@
             // 
             // guna2GradientPanel1
             // 
+            guna2GradientPanel1.Controls.Add(pictureBox1);
             guna2GradientPanel1.Controls.Add(btnBack);
             guna2GradientPanel1.Controls.Add(guna2GradientPanel2);
-            guna2GradientPanel1.Controls.Add(pictureBox1);
             guna2GradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges19;
             guna2GradientPanel1.Size = new Size(1113, 609);
             // 
@@ -325,17 +325,6 @@
             txtProjectDescription.Size = new Size(381, 73);
             txtProjectDescription.TabIndex = 7;
             // 
-            // pictureBox1
-            // 
-            pictureBox1.BackColor = Color.Transparent;
-            pictureBox1.Image = Properties.Resources.loginImage;
-            pictureBox1.Location = new Point(-11, 91);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(576, 428);
-            pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
-            pictureBox1.TabIndex = 2;
-            pictureBox1.TabStop = false;
-            // 
             // btnBack
             // 
             btnBack.BorderRadius = 15;
@@ -354,6 +343,17 @@
             btnBack.TabIndex = 33;
             btnBack.Text = "<";
             btnBack.Click += onBtnBackClick;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.Image = Properties.Resources.logo_isalinda__1_;
+            pictureBox1.Location = new Point(19, 140);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(540, 372);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 34;
+            pictureBox1.TabStop = false;
             // 
             // ManageProject
             // 
@@ -383,7 +383,6 @@
         private Guna.UI2.WinForms.Guna2TextBox txtProjectDescription;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
         private Guna.UI2.WinForms.Guna2DateTimePicker dpTarget;
-        private PictureBox pictureBox1;
         private Guna.UI2.WinForms.Guna2Button btnBack;
         private Guna.UI2.WinForms.Guna2HtmlLabel lbCreateOrEdit;
         private Guna.UI2.WinForms.Guna2HtmlLabel lbProject;
@@ -391,5 +390,6 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel lbResult;
         private Guna.UI2.WinForms.Guna2Button btnSave;
         private Guna.UI2.WinForms.Guna2Button btnDeleteProject;
+        private PictureBox pictureBox1;
     }
 }

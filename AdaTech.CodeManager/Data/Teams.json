@@ -26,93 +26,7 @@
                   "Priority": 0,
                   "Name": "Task1",
                   "Description": "",
-                  "TaskID": 1,
-                  "Owners": {
-                    "$type": "System.Collections.Generic.List`1[[AdaTech.CodeManager.Model.Developer, AdaTech.CodeManager]], System.Private.CoreLib",
-                    "$values": []
-                  },
-                  "Status": 4,
-                  "StartDate": "2024-01-01T00:00:00",
-                  "EndDate": "2024-01-01T00:00:00",
-                  "IsTechLeadAssignee": false
-                },
-                {
-                  "$type": "AdaTech.CodeManager.Model.Task, AdaTech.CodeManager",
-                  "Priority": 2,
-                  "Name": "Task2",
-                  "Description": "Description",
-                  "TaskID": 2,
-                  "Owners": {
-                    "$type": "System.Collections.Generic.List`1[[AdaTech.CodeManager.Model.Developer, AdaTech.CodeManager]], System.Private.CoreLib",
-                    "$values": [
-                      {
-                        "$type": "AdaTech.CodeManager.Model.Developer, AdaTech.CodeManager",
-                        "Level": 3,
-                        "MainSkill": 3,
-                        "Name": "Patrícia Pereira",
-                        "UserID": "660e0d21-52e0-4222-acac-501a04c39a6b",
-                        "Username": "patriciap",
-                        "Password": "8cbefb39fadbe1dfa48448f004a86a254d060d308798a9d91137a1be83a9a34b",
-                        "Admin": false
-                      }
-                    ]
-                  },
-                  "Status": 1,
-                  "StartDate": "2024-01-01T00:00:00",
-                  "EndDate": "2024-01-01T00:00:00",
-                  "IsTechLeadAssignee": false
-                },
-                {
-                  "$type": "AdaTech.CodeManager.Model.Task, AdaTech.CodeManager",
-                  "Priority": 0,
-                  "Name": "Task4",
-                  "Description": "",
-                  "TaskID": 3,
-                  "Owners": {
-                    "$type": "System.Collections.Generic.List`1[[AdaTech.CodeManager.Model.Developer, AdaTech.CodeManager]], System.Private.CoreLib",
-                    "$values": []
-                  },
-                  "Status": 4,
-                  "StartDate": "2024-01-01T00:00:00",
-                  "EndDate": "2024-01-01T00:00:00",
-                  "IsTechLeadAssignee": false
-                },
-                {
-                  "$type": "AdaTech.CodeManager.Model.Task, AdaTech.CodeManager",
-                  "Priority": 0,
-                  "Name": "Task5",
-                  "Description": "",
-                  "TaskID": 4,
-                  "Owners": {
-                    "$type": "System.Collections.Generic.List`1[[AdaTech.CodeManager.Model.Developer, AdaTech.CodeManager]], System.Private.CoreLib",
-                    "$values": []
-                  },
-                  "Status": 0,
-                  "StartDate": "2024-01-01T00:00:00",
-                  "EndDate": "2024-01-01T00:00:00",
-                  "IsTechLeadAssignee": false
-                },
-                {
-                  "$type": "AdaTech.CodeManager.Model.Task, AdaTech.CodeManager",
-                  "Priority": 1,
-                  "Name": "MudData",
-                  "Description": "",
-                  "TaskID": 5,
-                  "Owners": {
-                    "$type": "System.Collections.Generic.List`1[[AdaTech.CodeManager.Model.Developer, AdaTech.CodeManager]], System.Private.CoreLib",
-                    "$values": []
-                  },
-                  "Status": 4,
-                  "StartDate": "2024-01-01T00:00:00",
-                  "EndDate": "2024-01-17T00:00:00",
-                  "IsTechLeadAssignee": false
-                },
-                {
-                  "$type": "AdaTech.CodeManager.Model.Task, AdaTech.CodeManager",
-                  "Priority": 2,
-                  "Name": "Nomes",
-                  "Description": "xxxxx",
-                  "TaskID": 6,
+                  "TaskID": 10,
                   "Owners": {
                     "$type": "System.Collections.Generic.List`1[[AdaTech.CodeManager.Model.Developer, AdaTech.CodeManager]], System.Private.CoreLib",
                     "$values": [
@@ -125,7 +39,23 @@
                         "Username": "ivyr",
                         "Password": "d85a686d93a045292da3c06b7c49aed1441f4d69bb3710348274d87b07f944de",
                         "Admin": false
-                      },
+                      }
+                    ]
+                  },
+                  "Status": 0,
+                  "StartDate": "2024-01-01T00:00:00",
+                  "EndDate": "2024-01-01T00:00:00",
+                  "IsTechLeadAssignee": true
+                },
+                {
+                  "$type": "AdaTech.CodeManager.Model.Task, AdaTech.CodeManager",
+                  "Priority": 1,
+                  "Name": "Task2",
+                  "Description": "",
+                  "TaskID": 11,
+                  "Owners": {
+                    "$type": "System.Collections.Generic.List`1[[AdaTech.CodeManager.Model.Developer, AdaTech.CodeManager]], System.Private.CoreLib",
+                    "$values": [
                       {
                         "$type": "AdaTech.CodeManager.Model.Developer, AdaTech.CodeManager",
                         "Level": 1,
@@ -135,7 +65,23 @@
                         "Username": "julias",
                         "Password": "1604556ee0437b07d3fef66d5c6de7e044ce7dd8fc2d0c4b4264df72cc74b9c6",
                         "Admin": false
-                      },
+                      }
+                    ]
+                  },
+                  "Status": 0,
+                  "StartDate": "2024-01-01T00:00:00",
+                  "EndDate": "2024-01-01T00:00:00",
+                  "IsTechLeadAssignee": true
+                },
+                {
+                  "$type": "AdaTech.CodeManager.Model.Task, AdaTech.CodeManager",
+                  "Priority": 2,
+                  "Name": "Task3",
+                  "Description": "",
+                  "TaskID": 12,
+                  "Owners": {
+                    "$type": "System.Collections.Generic.List`1[[AdaTech.CodeManager.Model.Developer, AdaTech.CodeManager]], System.Private.CoreLib",
+                    "$values": [
                       {
                         "$type": "AdaTech.CodeManager.Model.Developer, AdaTech.CodeManager",
                         "Level": 3,
@@ -148,7 +94,37 @@
                       }
                     ]
                   },
-                  "Status": 5,
+                  "Status": 0,
+                  "StartDate": "2024-01-01T00:00:00",
+                  "EndDate": "2024-01-01T00:00:00",
+                  "IsTechLeadAssignee": true
+                },
+                {
+                  "$type": "AdaTech.CodeManager.Model.Task, AdaTech.CodeManager",
+                  "Priority": 0,
+                  "Name": "Task4",
+                  "Description": "",
+                  "TaskID": 13,
+                  "Owners": {
+                    "$type": "System.Collections.Generic.List`1[[AdaTech.CodeManager.Model.Developer, AdaTech.CodeManager]], System.Private.CoreLib",
+                    "$values": []
+                  },
+                  "Status": 1,
+                  "StartDate": "2024-01-01T00:00:00",
+                  "EndDate": "2024-01-01T00:00:00",
+                  "IsTechLeadAssignee": false
+                },
+                {
+                  "$type": "AdaTech.CodeManager.Model.Task, AdaTech.CodeManager",
+                  "Priority": 1,
+                  "Name": "Task5",
+                  "Description": "",
+                  "TaskID": 14,
+                  "Owners": {
+                    "$type": "System.Collections.Generic.List`1[[AdaTech.CodeManager.Model.Developer, AdaTech.CodeManager]], System.Private.CoreLib",
+                    "$values": []
+                  },
+                  "Status": 1,
                   "StartDate": "2024-01-01T00:00:00",
                   "EndDate": "2024-01-01T00:00:00",
                   "IsTechLeadAssignee": false
@@ -156,9 +132,61 @@
                 {
                   "$type": "AdaTech.CodeManager.Model.Task, AdaTech.CodeManager",
                   "Priority": 2,
-                  "Name": "Editando",
-                  "Description": "Editando",
-                  "TaskID": 7,
+                  "Name": "Task6",
+                  "Description": "",
+                  "TaskID": 15,
+                  "Owners": {
+                    "$type": "System.Collections.Generic.List`1[[AdaTech.CodeManager.Model.Developer, AdaTech.CodeManager]], System.Private.CoreLib",
+                    "$values": [
+                      {
+                        "$type": "AdaTech.CodeManager.Model.Developer, AdaTech.CodeManager",
+                        "Level": 1,
+                        "MainSkill": 1,
+                        "Name": "Júlia Santos",
+                        "UserID": "5724897a-b383-4bc2-85d7-1a8a733d41d4",
+                        "Username": "julias",
+                        "Password": "1604556ee0437b07d3fef66d5c6de7e044ce7dd8fc2d0c4b4264df72cc74b9c6",
+                        "Admin": false
+                      }
+                    ]
+                  },
+                  "Status": 1,
+                  "StartDate": "2024-01-01T00:00:00",
+                  "EndDate": "2024-01-01T00:00:00",
+                  "IsTechLeadAssignee": true
+                },
+                {
+                  "$type": "AdaTech.CodeManager.Model.Task, AdaTech.CodeManager",
+                  "Priority": 0,
+                  "Name": "Task7",
+                  "Description": "",
+                  "TaskID": 16,
+                  "Owners": {
+                    "$type": "System.Collections.Generic.List`1[[AdaTech.CodeManager.Model.Developer, AdaTech.CodeManager]], System.Private.CoreLib",
+                    "$values": [
+                      {
+                        "$type": "AdaTech.CodeManager.Model.Developer, AdaTech.CodeManager",
+                        "Level": 1,
+                        "MainSkill": 3,
+                        "Name": "Ivy Rigon",
+                        "UserID": "13fcba45-e6e7-40d0-9978-4cacba12336b",
+                        "Username": "ivyr",
+                        "Password": "d85a686d93a045292da3c06b7c49aed1441f4d69bb3710348274d87b07f944de",
+                        "Admin": false
+                      }
+                    ]
+                  },
+                  "Status": 2,
+                  "StartDate": "2024-01-01T00:00:00",
+                  "EndDate": "2024-01-01T00:00:00",
+                  "IsTechLeadAssignee": true
+                },
+                {
+                  "$type": "AdaTech.CodeManager.Model.Task, AdaTech.CodeManager",
+                  "Priority": 1,
+                  "Name": "Task8",
+                  "Description": "",
+                  "TaskID": 17,
                   "Owners": {
                     "$type": "System.Collections.Generic.List`1[[AdaTech.CodeManager.Model.Developer, AdaTech.CodeManager]], System.Private.CoreLib",
                     "$values": [
@@ -174,28 +202,58 @@
                       }
                     ]
                   },
-                  "Status": 4,
+                  "Status": 2,
+                  "StartDate": "2024-01-01T00:00:00",
+                  "EndDate": "2024-01-01T00:00:00",
+                  "IsTechLeadAssignee": true
+                },
+                {
+                  "$type": "AdaTech.CodeManager.Model.Task, AdaTech.CodeManager",
+                  "Priority": 0,
+                  "Name": "Task9",
+                  "Description": "",
+                  "TaskID": 18,
+                  "Owners": {
+                    "$type": "System.Collections.Generic.List`1[[AdaTech.CodeManager.Model.Developer, AdaTech.CodeManager]], System.Private.CoreLib",
+                    "$values": []
+                  },
+                  "Status": 3,
+                  "StartDate": "2024-01-01T00:00:00",
+                  "EndDate": "2024-01-01T00:00:00",
+                  "IsTechLeadAssignee": true
+                },
+                {
+                  "$type": "AdaTech.CodeManager.Model.Task, AdaTech.CodeManager",
+                  "Priority": 2,
+                  "Name": "task10",
+                  "Description": "",
+                  "TaskID": 19,
+                  "Owners": {
+                    "$type": "System.Collections.Generic.List`1[[AdaTech.CodeManager.Model.Developer, AdaTech.CodeManager]], System.Private.CoreLib",
+                    "$values": []
+                  },
+                  "Status": 3,
                   "StartDate": "2024-01-01T00:00:00",
                   "EndDate": "2024-01-01T00:00:00",
                   "IsTechLeadAssignee": false
                 },
                 {
                   "$type": "AdaTech.CodeManager.Model.Task, AdaTech.CodeManager",
-                  "Priority": 2,
-                  "Name": "Aprovar",
-                  "Description": "aprovar teste",
-                  "TaskID": 8,
+                  "Priority": 1,
+                  "Name": "Task11",
+                  "Description": "",
+                  "TaskID": 20,
                   "Owners": {
                     "$type": "System.Collections.Generic.List`1[[AdaTech.CodeManager.Model.Developer, AdaTech.CodeManager]], System.Private.CoreLib",
                     "$values": [
                       {
                         "$type": "AdaTech.CodeManager.Model.Developer, AdaTech.CodeManager",
-                        "Level": 1,
-                        "MainSkill": 3,
-                        "Name": "Ivy Rigon",
-                        "UserID": "13fcba45-e6e7-40d0-9978-4cacba12336b",
-                        "Username": "ivyr",
-                        "Password": "d85a686d93a045292da3c06b7c49aed1441f4d69bb3710348274d87b07f944de",
+                        "Level": 2,
+                        "MainSkill": 1,
+                        "Name": "Vanessa Silva",
+                        "UserID": "3eb757e6-4362-4f0f-badc-eb80d57fc6f9",
+                        "Username": "vanessas",
+                        "Password": "e1bb70091ae0f5898fe9938f399646ed0c6398ba4691f664d8cf27f445745705",
                         "Admin": false
                       },
                       {
@@ -207,22 +265,12 @@
                         "Username": "patriciap",
                         "Password": "8cbefb39fadbe1dfa48448f004a86a254d060d308798a9d91137a1be83a9a34b",
                         "Admin": false
-                      },
-                      {
-                        "$type": "AdaTech.CodeManager.Model.Developer, AdaTech.CodeManager",
-                        "Level": 1,
-                        "MainSkill": 1,
-                        "Name": "Júlia Santos",
-                        "UserID": "5724897a-b383-4bc2-85d7-1a8a733d41d4",
-                        "Username": "julias",
-                        "Password": "1604556ee0437b07d3fef66d5c6de7e044ce7dd8fc2d0c4b4264df72cc74b9c6",
-                        "Admin": false
                       }
                     ]
                   },
-                  "Status": 0,
-                  "StartDate": "2024-01-14T00:00:00",
-                  "EndDate": "2024-01-14T00:00:00",
+                  "Status": 4,
+                  "StartDate": "2024-01-01T00:00:00",
+                  "EndDate": "2024-01-01T00:00:00",
                   "IsTechLeadAssignee": false
                 }
               ]
@@ -235,7 +283,7 @@
                   "Priority": 2,
                   "Name": "Nomes",
                   "Description": "xxxxx",
-                  "TaskID": 6,
+                  "TaskID": 9,
                   "Owners": {
                     "$type": "System.Collections.Generic.List`1[[AdaTech.CodeManager.Model.Developer, AdaTech.CodeManager]], System.Private.CoreLib",
                     "$values": [
@@ -282,10 +330,43 @@
             "Description": "Develop a Chess Game 2",
             "StartDate": "2024-01-01T11:48:10.139",
             "TargetDate": "2024-04-09T11:48:10.139"
+          },
+          {
+            "$type": "AdaTech.CodeManager.Model.Project, AdaTech.CodeManager",
+            "Tasks": {
+              "$type": "System.Collections.Generic.List`1[[AdaTech.CodeManager.Model.Task, AdaTech.CodeManager]], System.Private.CoreLib",
+              "$values": []
+            },
+            "TasksToApprove": {
+              "$type": "System.Collections.Generic.List`1[[AdaTech.CodeManager.Model.Task, AdaTech.CodeManager]], System.Private.CoreLib",
+              "$values": []
+            },
+            "Name": "API",
+            "Description": null,
+            "StartDate": "2024-01-01T11:48:10.139",
+            "TargetDate": "2024-02-10T11:48:10.139"
           }
         ]
       },
       "Name": "TechGirls"
+    },
+    {
+      "$type": "AdaTech.CodeManager.Model.Team, AdaTech.CodeManager",
+      "TechLeadID": "271ea340-13bb-4328-8d83-4fd7701ed6ae",
+      "TeamMembersID": {
+        "$type": "System.Collections.Generic.List`1[[System.Guid, System.Private.CoreLib]], System.Private.CoreLib",
+        "$values": [
+          "43eda0d0-727c-429c-b31a-cd90f5898cbc",
+          "d5a56216-db90-4f89-8900-f35bd6252df8",
+          "ae5886e7-1be3-4c94-ba8e-ec44233d83ac",
+          "2c823b6b-5832-480d-b2e9-51e224f28c4f"
+        ]
+      },
+      "Projects": {
+        "$type": "System.Collections.Generic.List`1[[AdaTech.CodeManager.Model.Project, AdaTech.CodeManager]], System.Private.CoreLib",
+        "$values": []
+      },
+      "Name": "TechHub"
     }
   ]
 }

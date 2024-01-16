@@ -41,7 +41,7 @@
             btnBack = new Guna.UI2.WinForms.Guna2Button();
             conteinerBackLog = new FlowLayoutPanel();
             conteinerToDo = new FlowLayoutPanel();
-            label1 = new Label();
+            lbProjectName = new Label();
             lbBacklog = new Label();
             lbToDo = new Label();
             conteinerDoing = new FlowLayoutPanel();
@@ -74,7 +74,7 @@
             guna2GradientPanel1.Controls.Add(conteinerDoing);
             guna2GradientPanel1.Controls.Add(lbToDo);
             guna2GradientPanel1.Controls.Add(lbBacklog);
-            guna2GradientPanel1.Controls.Add(label1);
+            guna2GradientPanel1.Controls.Add(lbProjectName);
             guna2GradientPanel1.Controls.Add(conteinerToDo);
             guna2GradientPanel1.Controls.Add(conteinerBackLog);
             guna2GradientPanel1.Controls.Add(pnMenu);
@@ -138,17 +138,17 @@
             conteinerToDo.Size = new Size(147, 456);
             conteinerToDo.TabIndex = 5;
             // 
-            // label1
+            // lbProjectName
             // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Century Gothic", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.FromArgb(252, 239, 239);
-            label1.Location = new Point(107, 42);
-            label1.Name = "label1";
-            label1.Size = new Size(287, 34);
-            label1.TabIndex = 14;
-            label1.Text = "Project Name Board";
+            lbProjectName.AutoSize = true;
+            lbProjectName.BackColor = Color.Transparent;
+            lbProjectName.Font = new Font("Century Gothic", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbProjectName.ForeColor = Color.FromArgb(252, 239, 239);
+            lbProjectName.Location = new Point(107, 42);
+            lbProjectName.Name = "lbProjectName";
+            lbProjectName.Size = new Size(207, 34);
+            lbProjectName.TabIndex = 14;
+            lbProjectName.Text = "Kanban Board";
             // 
             // lbBacklog
             // 
@@ -340,5 +340,6 @@
         private Guna.UI2.WinForms.Guna2Button btnBack;
         private Guna.UI2.WinForms.Guna2Button btnEdit;
         private Label lbResult;
+        private Label lbProjectName;
     }
 }

@@ -63,8 +63,8 @@
             lbRegisterType = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            pictureBox1 = new PictureBox();
             btnBack = new Guna.UI2.WinForms.Guna2Button();
+            pictureBox1 = new PictureBox();
             guna2GradientPanel1.SuspendLayout();
             guna2GradientPanel2.SuspendLayout();
             conteinerMembers.SuspendLayout();
@@ -74,9 +74,9 @@
             // 
             // guna2GradientPanel1
             // 
+            guna2GradientPanel1.Controls.Add(pictureBox1);
             guna2GradientPanel1.Controls.Add(btnBack);
             guna2GradientPanel1.Controls.Add(pnRegister);
-            guna2GradientPanel1.Controls.Add(pictureBox1);
             guna2GradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges19;
             guna2GradientPanel1.Size = new Size(1113, 609);
             // 
@@ -359,17 +359,6 @@
             guna2HtmlLabel2.TabIndex = 6;
             guna2HtmlLabel2.Text = "Add Member";
             // 
-            // pictureBox1
-            // 
-            pictureBox1.BackColor = Color.Transparent;
-            pictureBox1.Image = Properties.Resources.loginImage;
-            pictureBox1.Location = new Point(3, 99);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(561, 418);
-            pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
-            pictureBox1.TabIndex = 1;
-            pictureBox1.TabStop = false;
-            // 
             // btnBack
             // 
             btnBack.BackColor = Color.Transparent;
@@ -389,6 +378,17 @@
             btnBack.TabIndex = 32;
             btnBack.Text = "<";
             btnBack.Click += OnBtnBackClick;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.Image = Properties.Resources.logo_isalinda__1_;
+            pictureBox1.Location = new Point(3, 135);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(540, 372);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 33;
+            pictureBox1.TabStop = false;
             // 
             // ManageTeam
             // 
@@ -425,11 +425,11 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
         private System.ComponentModel.IContainer components;
-        private PictureBox pictureBox1;
         private Guna.UI2.WinForms.Guna2Button btnBack;
         private FlowLayoutPanel conteinerMembers;
         private Guna.UI2.WinForms.Guna2Button btnDeleteTeam;
         private Guna.UI2.WinForms.Guna2HtmlLabel lbResult;
         private Guna.UI2.WinForms.Guna2Button btnSave;
+        private PictureBox pictureBox1;
     }
 }
