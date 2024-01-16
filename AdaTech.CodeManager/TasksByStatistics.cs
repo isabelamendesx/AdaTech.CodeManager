@@ -14,22 +14,31 @@ namespace AdaTech.CodeManager.Model
     public partial class TasksByStatistics : BaseForm
     {
         private Team currentTeam;
-        private TechLead currentUser = (TechLead)Session.getInstance.GetCurrentUser();
+        private User currentUser = Session.getInstance.GetCurrentUser();
 
         public TasksByStatistics(Team team, string taskType)
         {
             InitializeComponent();
             currentTeam = team;
-            BuildPage(taskType);
+            if(currentUser is TechLead)
+            {
+                BuildPageTechLead(taskType);
+                ShowDialog();
+                return;
+            }
+
+            BuildPageDeveloper(taskType);
+            ShowDialog(); 
+
         }
 
-        private void BuildPage(string taskType)
+        private void BuildPageTechLead(string taskType)
         { 
 
             switch (taskType)
             {
                 case "Completed":
-                    InitializeCompletedTasks();
+                    InitializeTechLeadCompletedTasks();
                     break;
                 case "In Progress":
                     InitializeInProgressTasks();
@@ -42,6 +51,22 @@ namespace AdaTech.CodeManager.Model
                     break;
                 case "To Review":
                     InitializeToReviewTasks();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void BuildPageDeveloper(string taskType)
+        {
+
+            switch (taskType)
+            {
+                case "Completed":
+                    InitializeDeveloperCompletedTasks();
+                    break;
+                case "Delayed":
+                    InitializeDeveloperDelayedTasks();
                     break;
                 default:
                     break;
@@ -63,7 +88,7 @@ namespace AdaTech.CodeManager.Model
                     var pnTask = costumizePnTaskType(backgroundColor);
 
                     pnTask.Controls.Add(CostumizePnTaskTypeLbName(task.Name));
-                    pnTask.Controls.Add(CostumizePnTaskTypeLbProjectName(TeamData.FindProjectByTask(task, currentUser).Name));
+                    pnTask.Controls.Add(CostumizePnTaskTypeLbProjectName(currentTeam.FindProjectByTask(task).Name));
 
                     conteinerTasks.Controls.Add(pnTask);
                 }
@@ -72,19 +97,36 @@ namespace AdaTech.CodeManager.Model
         private void OnBtnExitClick(object sender, EventArgs e)
         {
             Close();
-            new DashboardTL(currentTeam).ShowDialog();
+            if(currentUser is TechLead)
+            {
+                new DashboardTL(currentTeam).ShowDialog();
+                return;
+            }
+
+            new DashboardDEV().ShowDialog();
+
         }
 
 
         #region Auxiliar Methods
-        private void InitializeCompletedTasks()
+        private void InitializeTechLeadCompletedTasks()
         {
             InitializeTaskType("Completed", Color.FromArgb(0, 192, 0), () => currentTeam.GetCompletedTasks());
+        }
+
+        private void InitializeDeveloperCompletedTasks()
+        {
+            InitializeTaskType("Completed", Color.FromArgb(0, 192, 0), () => currentTeam.GetCompletedTasksByDeveloper((Developer)currentUser));
         }
 
         private void InitializeDelayedTasks()
         {
             InitializeTaskType("Delayed", Color.Orange, () => currentTeam.GetDelayedTasks());
+        }
+
+        private void InitializeDeveloperDelayedTasks()
+        {
+            InitializeTaskType("Delayed", Color.Orange, () => currentTeam.GetDelayedTasksByDeveloper((Developer)currentUser));
         }
 
         private void InitializeDroppedTasks()

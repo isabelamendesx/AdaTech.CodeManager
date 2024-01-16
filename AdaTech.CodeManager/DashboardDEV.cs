@@ -71,7 +71,6 @@ namespace AdaTech.CodeManager
 
         }
 
-
         #region Tasks Area Methods
 
         public void ShowTasks()
