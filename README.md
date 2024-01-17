@@ -91,8 +91,8 @@ Para facilitar os testes e a exploração do sistema, usuários de exemplo foram
 - Password: isabelam
 
 **Developer**
-- Username: matheusv
-- Password: matheusv
+- Username: ivyr
+- Password: ibyr
 
 Estes usuários já possuem times, projetos e tarefas atribuídas. Sinta-se à vontade para explorar as funcionalidades do sistema utilizando estas credenciais de exemplo.
 
